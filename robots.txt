@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://merry-gelato-2a6bc1.netlify.app/sitemap.xml
