@@ -53,6 +53,8 @@
 <div class="tabs">
   <button class="tab active" data-tab="products">제휴 제품</button>
   <button class="tab" data-tab="ingredients">성분</button>
+  <button class="tab" data-tab="combos">궁합 규칙</button>
+  <button class="tab" data-tab="avoid">상황별 회피</button>
   <button class="tab" data-tab="site">사이트 설정</button>
 </div>
 <div class="wrap">
@@ -80,6 +82,32 @@
     <div id="ingredientList"></div>
   </section>
 
+  <!-- 궁합 규칙 -->
+  <section class="panel" id="panel-combos">
+    <div class="save-note">성분 궁합·충돌 규칙을 편집한 뒤 <b>combos.json 다운로드</b>를 눌러 <code>data/combos.json</code>에 덮어쓰세요. <b>type</b>: synergy(궁합)·caution(주의)·avoid(비권장)·info(참고). <b>A 그룹</b>과 <b>B 그룹</b> 각각에서 성분이 하나씩 함께 선택되면 규칙이 표시됩니다.</div>
+    <div class="bar">
+      <h2>궁합 규칙 <span class="count" id="cCount"></span></h2>
+      <div><button class="act ghost" onclick="addRule()">+ 규칙 추가</button>
+      <button class="act" onclick="download('combos')">⬇ combos.json 다운로드</button></div>
+    </div>
+    <div class="item">
+      <label>자주 찾는 성분 칩 (궁합 체크 페이지 상단 / 콤마로 구분된 성분 id)</label>
+      <input list="ingIds" id="quickIng" oninput="upQuick(this.value)">
+    </div>
+    <div id="ruleList"></div>
+  </section>
+
+  <!-- 상황별 회피 -->
+  <section class="panel" id="panel-avoid">
+    <div class="save-note">상황(임신·민감성 등)별로 피해야 할 성분 규칙을 편집한 뒤 <b>avoid_rules.json 다운로드</b>를 눌러 <code>data/avoid_rules.json</code>에 덮어쓰세요. 회피 성분은 <b>성분 id</b>·<b>카테고리</b>·<b>이름 키워드</b> 세 가지로 지정할 수 있습니다. ⚠️ 의학 관련 내용이라 신중히 작성하세요.</div>
+    <div class="bar">
+      <h2>상황별 회피 규칙 <span class="count" id="aCount"></span></h2>
+      <div><button class="act ghost" onclick="addSit()">+ 상황 추가</button>
+      <button class="act" onclick="download('avoid')">⬇ avoid_rules.json 다운로드</button></div>
+    </div>
+    <div id="sitList"></div>
+  </section>
+
   <!-- 사이트 설정 -->
   <section class="panel" id="panel-site">
     <div class="save-note">설정을 바꾼 뒤 <b>site.json 다운로드</b>를 눌러 <code>data/site.json</code>에 덮어쓰세요. 메타태그·도메인·카카오 링크가 페이지 생성 시 자동 반영됩니다. ⚠️ 검색엔진 인증 코드는 함부로 바꾸지 마세요(인증 풀림).</div>
@@ -99,33 +127,37 @@
 
 <script>
 const TYPES=["건성","지성","민감성","복합성","여드름성"];
-let products=null, ingredients=null, site=null;
+let products=null, ingredients=null, site=null, combos=null, avoid=null;
+const RULE_TYPES=[["synergy","궁합"],["caution","주의"],["avoid","비권장"],["info","참고"]];
 
 // ---------- 데이터 로드 ----------
 async function tryFetch(path){ const r=await fetch(path,{cache:"no-store"}); if(!r.ok) throw 0; return r.json(); }
 async function loadAll(){
   const status=document.getElementById("loadStatus");
   try{
-    [products,ingredients,site]=await Promise.all([
-      tryFetch("data/products.json"), tryFetch("data/ingredients.json"), tryFetch("data/site.json")]);
+    [products,ingredients,site,combos,avoid]=await Promise.all([
+      tryFetch("data/products.json"), tryFetch("data/ingredients.json"),
+      tryFetch("data/site.json"), tryFetch("data/combos.json"), tryFetch("data/avoid_rules.json")]);
     status.innerHTML="";
     renderAll();
   }catch(e){
     status.innerHTML=`<div class="loadbox">데이터를 자동으로 불러오지 못했습니다 (로컬에서 직접 연 경우).<br>
-      아래에서 세 파일을 선택해 불러오세요.<br>
+      아래에서 다섯 파일을 선택해 불러오세요.<br>
       <input type="file" id="upP" accept=".json"> products.json<br>
       <input type="file" id="upI" accept=".json"> ingredients.json<br>
-      <input type="file" id="upS" accept=".json"> site.json</div>`;
-    ["upP","upI","upS"].forEach((id,k)=>document.getElementById(id).addEventListener("change",ev=>{
+      <input type="file" id="upS" accept=".json"> site.json<br>
+      <input type="file" id="upC" accept=".json"> combos.json<br>
+      <input type="file" id="upA" accept=".json"> avoid_rules.json</div>`;
+    ["upP","upI","upS","upC","upA"].forEach((id,k)=>document.getElementById(id).addEventListener("change",ev=>{
       const f=ev.target.files[0]; if(!f)return; const rd=new FileReader();
       rd.onload=()=>{ const j=JSON.parse(rd.result);
-        if(k===0)products=j; if(k===1)ingredients=j; if(k===2)site=j;
-        if(products&&ingredients&&site){status.innerHTML="";renderAll();} };
+        if(k===0)products=j; if(k===1)ingredients=j; if(k===2)site=j; if(k===3)combos=j; if(k===4)avoid=j;
+        if(products&&ingredients&&site&&combos&&avoid){status.innerHTML="";renderAll();} };
       rd.readAsText(f);
     }));
   }
 }
-function renderAll(){ renderProducts(); renderIngredients(); renderSite(); }
+function renderAll(){ renderProducts(); renderIngredients(); renderCombos(); renderAvoid(); renderSite(); }
 function esc(s){return String(s==null?"":s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
 
 // ---------- 탭 ----------
@@ -223,6 +255,63 @@ function upI(i,k,v){ ingredients.ingredients[i][k]=v; }
 function upIArr(i,k,v){ ingredients.ingredients[i][k]=v.split(",").map(s=>s.trim()).filter(Boolean); }
 function upISkin(i,t,v){ ingredients.ingredients[i].skin_types[t]=v; }
 
+// ---------- 궁합 규칙 ----------
+function renderCombos(){
+  if(!combos.rules) combos.rules=[];
+  document.getElementById("quickIng").value=(combos.quick_ingredients||[]).join(", ");
+  document.getElementById("cCount").textContent=`(${combos.rules.length}개)`;
+  const L=document.getElementById("ruleList"); L.innerHTML="";
+  combos.rules.forEach((r,idx)=>{
+    const div=document.createElement("div"); div.className="item";
+    div.innerHTML=`
+      <div class="grid2">
+        <div><label>유형(type)</label><select onchange="upR(${idx},'type',this.value)">
+          ${RULE_TYPES.map(([v,k])=>`<option value="${v}" ${r.type===v?"selected":""}>${k} (${v})</option>`).join("")}</select></div>
+        <div style="text-align:right;align-self:end"><button class="act danger" onclick="delRule(${idx})">삭제</button></div>
+      </div>
+      <label>제목</label><input value="${esc(r.title)}" oninput="upR(${idx},'title',this.value)">
+      <label>설명</label><textarea oninput="upR(${idx},'desc',this.value)">${esc(r.desc)}</textarea>
+      <label>A 그룹 성분 id (콤마 구분)</label>
+      <input list="ingIds" value="${esc((r.a||[]).join(', '))}" oninput="upRArr(${idx},'a',this.value)">
+      <label>B 그룹 성분 id (콤마 구분)</label>
+      <input list="ingIds" value="${esc((r.b||[]).join(', '))}" oninput="upRArr(${idx},'b',this.value)">`;
+    L.appendChild(div);
+  });
+}
+function upR(i,k,v){ combos.rules[i][k]=v; }
+function upRArr(i,k,v){ combos.rules[i][k]=v.split(",").map(s=>s.trim()).filter(Boolean); }
+function upQuick(v){ combos.quick_ingredients=v.split(",").map(s=>s.trim()).filter(Boolean); }
+function addRule(){ combos.rules.unshift({type:"caution",a:[],b:[],title:"",desc:""}); renderCombos(); }
+function delRule(i){ if(confirm("이 규칙을 삭제할까요?")){combos.rules.splice(i,1);renderCombos();} }
+
+// ---------- 상황별 회피 ----------
+function renderAvoid(){
+  if(!avoid.situations) avoid.situations=[];
+  document.getElementById("aCount").textContent=`(${avoid.situations.length}개 상황)`;
+  const L=document.getElementById("sitList"); L.innerHTML="";
+  avoid.situations.forEach((s,idx)=>{
+    const div=document.createElement("div"); div.className="item";
+    div.innerHTML=`
+      <div class="grid3">
+        <div><label>아이콘</label><input value="${esc(s.icon)}" oninput="upS2(${idx},'icon',this.value)"></div>
+        <div style="grid-column:span 2"><label>상황 이름(label)</label><input value="${esc(s.label)}" oninput="upS2(${idx},'label',this.value)"></div>
+      </div>
+      <label>설명</label><textarea oninput="upS2(${idx},'desc',this.value)">${esc(s.desc)}</textarea>
+      <label>회피 성분 id (콤마 구분)</label>
+      <input list="ingIds" value="${esc((s.avoid_ids||[]).join(', '))}" oninput="upS2Arr(${idx},'avoid_ids',this.value)">
+      <label>회피 카테고리 (콤마 구분 / 예: 주의 성분 (향료))</label>
+      <input value="${esc((s.avoid_categories||[]).join(', '))}" oninput="upS2Arr(${idx},'avoid_categories',this.value)">
+      <label>회피 이름 키워드 (콤마 구분 / 예: 향료, 레티놀)</label>
+      <input value="${esc((s.avoid_keywords||[]).join(', '))}" oninput="upS2Arr(${idx},'avoid_keywords',this.value)">
+      <div style="text-align:right;margin-top:10px"><button class="act danger" onclick="delSit(${idx})">삭제</button></div>`;
+    L.appendChild(div);
+  });
+}
+function upS2(i,k,v){ avoid.situations[i][k]=v; }
+function upS2Arr(i,k,v){ avoid.situations[i][k]=v.split(",").map(s=>s.trim()).filter(Boolean); }
+function addSit(){ avoid.situations.push({id:"sit-"+Date.now(),label:"",icon:"⚠️",desc:"",avoid_ids:[],avoid_categories:[],avoid_keywords:[]}); renderAvoid(); }
+function delSit(i){ if(confirm("이 상황을 삭제할까요?")){avoid.situations.splice(i,1);renderAvoid();} }
+
 // ---------- 사이트 설정 ----------
 function renderSite(){
   document.getElementById("s_base").value=site.base_url||"";
@@ -242,6 +331,8 @@ function download(which){
   let obj,name;
   if(which==="products"){obj=products;name="products.json";}
   else if(which==="ingredients"){obj=ingredients;name="ingredients.json";}
+  else if(which==="combos"){obj=combos;name="combos.json";}
+  else if(which==="avoid"){obj=avoid;name="avoid_rules.json";}
   else{collectSite();obj=site;name="site.json";}
   const blob=new Blob([JSON.stringify(obj,null,2)],{type:"application/json"});
   const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download=name; a.click();

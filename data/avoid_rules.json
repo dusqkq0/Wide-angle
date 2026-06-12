@@ -1,0 +1,41 @@
+{
+  "_guide": "상황별 회피 성분 규칙. avoid_ids(성분 id) 또는 avoid_categories(카테고리 부분일치)·avoid_keywords(이름 부분일치)로 회피 성분을 지정합니다. 모든 안내는 일반적인 참고 정보이며 의학적 조언이 아닙니다. 특히 임신·수유·질환 관련은 반드시 전문의와 상담하세요.",
+  "situations": [
+    {
+      "id": "pregnancy",
+      "label": "임신·수유 중",
+      "icon": "🤰",
+      "desc": "임신·수유 중에는 레티노이드(비타민A 유도체)와 고농도 살리실산 등을 피하는 것이 일반적으로 권장됩니다. 제품 사용 전 반드시 산부인과 전문의와 상담하세요.",
+      "avoid_ids": ["retinol"],
+      "avoid_keywords": ["레티놀", "레티날", "레티노", "레티닐", "살리실릭"],
+      "avoid_categories": []
+    },
+    {
+      "id": "sensitive",
+      "label": "민감성·예민 피부",
+      "icon": "🌸",
+      "desc": "쉽게 붉어지고 따가운 피부라면 향료·에센셜오일과 고농도 산·강한 활성 성분을 피하거나 신중히 사용하세요.",
+      "avoid_ids": ["fragrance", "linalool", "limonene", "linalyl-acetate", "litsea-cubeba-fruit-oil", "tea-tree", "glycolic-acid", "retinol"],
+      "avoid_keywords": ["향료", "정유"],
+      "avoid_categories": ["주의 성분 (향료)", "주의 성분 (에센셜오일)"]
+    },
+    {
+      "id": "acne",
+      "label": "여드름·트러블 피부",
+      "icon": "🔴",
+      "desc": "트러블이 잦다면 모공을 막을 수 있는 일부 오일과 향료를 주의하세요. (성분 자체보다 제형·농도가 더 중요할 수 있습니다.)",
+      "avoid_ids": ["fragrance"],
+      "avoid_keywords": ["향료"],
+      "avoid_categories": ["주의 성분 (향료)", "주의 성분 (에센셜오일)"]
+    },
+    {
+      "id": "barrier",
+      "label": "손상된 장벽·시술 후",
+      "icon": "🩹",
+      "desc": "각질이 일어나거나 자극받은 상태, 시술 직후에는 산(AHA·BHA)·레티놀 같은 강한 성분과 향료를 잠시 멈추고 진정·보습에 집중하세요.",
+      "avoid_ids": ["glycolic-acid", "salicylic-acid", "retinol", "fragrance"],
+      "avoid_keywords": ["향료"],
+      "avoid_categories": ["각질·모공", "주의 성분 (향료)", "주의 성분 (에센셜오일)"]
+    }
+  ]
+}

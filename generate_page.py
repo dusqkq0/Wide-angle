@@ -106,17 +106,28 @@ def generate(data_path: Path, template_path: Path, out_path: Path) -> int:
     return _inject(data_path, template_path, out_path)
 
 
+def generate_with_products(data_path: Path, template_path: Path, out_path: Path) -> int:
+    """성분 + 제휴 제품 + 사이트 설정을 모두 주입 (퀴즈·분석기 공용)."""
+    return generate_quiz(data_path, template_path, out_path)
+
+
 def generate_quiz(data_path: Path, template_path: Path, out_path: Path) -> int:
-    """피부타입 진단 퀴즈 페이지 생성 (성분 + 제휴 제품 데이터 주입)."""
+    """성분 + 제휴 제품 + 사이트 데이터 주입 (퀴즈·분석기 공용)."""
     data = json.loads(data_path.read_text(encoding="utf-8"))
     data["ingredients"] = published(data)
     data["meta"]["updated"] = date.today().isoformat()
     products = load_products(out_path.parent)
     site = load_site(out_path.parent)
+    combos_path = out_path.parent / "data/combos.json"
+    combos = json.loads(combos_path.read_text(encoding="utf-8")) if combos_path.exists() else {"rules": []}
+    avoid_path = out_path.parent / "data/avoid_rules.json"
+    avoid = json.loads(avoid_path.read_text(encoding="utf-8")) if avoid_path.exists() else {"situations": []}
 
     template = template_path.read_text(encoding="utf-8")
     html = template.replace("/*__DATA__*/", json.dumps(data, ensure_ascii=False))
     html = html.replace("/*__PRODUCTS__*/", json.dumps(products, ensure_ascii=False))
+    html = html.replace("/*__COMBOS__*/", json.dumps(combos, ensure_ascii=False))
+    html = html.replace("/*__AVOID__*/", json.dumps(avoid, ensure_ascii=False))
     html = html.replace("/*__KAKAO__*/", site.get("kakao_channel_url", ""))
     html = html.replace("<!--__SITE_META__-->", site_meta_html(site))
 
@@ -267,7 +278,8 @@ def generate_details(data_path: Path, out_dir: Path, base_url: str) -> int:
 
     # sitemap.xml
     today = date.today().isoformat()
-    urls = [f"{base_url}index.html", f"{base_url}quiz.html"] \
+    urls = [f"{base_url}index.html", f"{base_url}quiz.html", f"{base_url}analyzer.html",
+            f"{base_url}combos.html", f"{base_url}avoid.html"] \
         + [f"{base_url}detail/{i['id']}.html" for i in items]
     sm = ['<?xml version="1.0" encoding="UTF-8"?>',
           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
@@ -284,6 +296,7 @@ if __name__ == "__main__":
     ap.add_argument("--template", default=BASE / "template.html", type=Path)
     ap.add_argument("--out", default=BASE / "index.html", type=Path)
     ap.add_argument("--quiz-template", default=BASE / "quiz_template.html", type=Path)
+    ap.add_argument("--analyzer-template", default=BASE / "analyzer_template.html", type=Path)
     ap.add_argument("--no-quiz", action="store_true", help="진단 퀴즈 페이지 생성 생략")
     ap.add_argument("--base-url", default="",
                     help="배포 도메인 (예: https://ingredients.mybrand.com/). sitemap·canonical에 사용")
@@ -301,6 +314,23 @@ if __name__ == "__main__":
         quiz_out = args.out.parent / "quiz.html"
         generate_quiz(args.data, args.quiz_template, quiz_out)
         print(f"[OK] {quiz_out} 진단 퀴즈 페이지 생성")
+
+    if args.analyzer_template.exists():
+        an_out = args.out.parent / "analyzer.html"
+        generate_with_products(args.data, args.analyzer_template, an_out)
+        print(f"[OK] {an_out} 전성분 분석기 생성")
+
+    combos_tpl = args.out.parent / "combos_template.html"
+    if combos_tpl.exists():
+        combos_out = args.out.parent / "combos.html"
+        generate_with_products(args.data, combos_tpl, combos_out)
+        print(f"[OK] {combos_out} 성분 궁합·충돌 체크 생성")
+
+    avoid_tpl = args.out.parent / "avoid_template.html"
+    if avoid_tpl.exists():
+        avoid_out = args.out.parent / "avoid.html"
+        generate_with_products(args.data, avoid_tpl, avoid_out)
+        print(f"[OK] {avoid_out} 상황별 회피 성분 필터 생성")
 
     if not args.no_details:
         out_dir = args.out.parent

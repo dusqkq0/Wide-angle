@@ -273,5 +273,17 @@ if __name__ == "__main__":
         if quiz_tpl.exists():
             generate_quiz(DATA_PATH, quiz_tpl, BASE / "quiz.html")
             print(f"[OK] quiz.html 진단 퀴즈 재생성")
+        an_tpl = BASE / "analyzer_template.html"
+        if an_tpl.exists():
+            generate_quiz(DATA_PATH, an_tpl, BASE / "analyzer.html")
+            print(f"[OK] analyzer.html 전성분 분석기 재생성")
+        combos_tpl = BASE / "combos_template.html"
+        if combos_tpl.exists():
+            generate_quiz(DATA_PATH, combos_tpl, BASE / "combos.html")
+            print(f"[OK] combos.html 궁합 체크 재생성")
+        avoid_tpl = BASE / "avoid_template.html"
+        if avoid_tpl.exists():
+            generate_quiz(DATA_PATH, avoid_tpl, BASE / "avoid.html")
+            print(f"[OK] avoid.html 상황별 회피 필터 재생성")
         generate_details(DATA_PATH, BASE, base_url="")
         print(f"[OK] detail/ 상세 페이지 + sitemap.xml 재생성 (제휴 제품 포함)")

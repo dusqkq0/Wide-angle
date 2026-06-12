@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>상황별 피해야 할 성분 — 임신·민감성·트러블 | 성분 사전</title>
+<meta name="description" content="임신·수유 중, 민감성 피부, 여드름·트러블, 손상된 장벽 등 상황별로 피하는 게 좋은 화장품 성분을 확인하고, 내 제품 전성분에 들어 있는지 체크하세요.">
+<meta name="robots" content="index,follow">
+<!--__SITE_META__-->
+<style>
+  :root{--bg:#faf7f4;--card:#fff;--ink:#2b2622;--sub:#8a7f76;--accent:#b08968;--accent-dark:#8c6a4f;--line:#eee5dd;
+    --good:#3a9b6e;--good-bg:#e7f5ee;--bad:#c4534f;--bad-bg:#fbe9e8}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Apple SD Gothic Neo','Pretendard','Noto Sans KR',sans-serif;background:var(--bg);color:var(--ink);line-height:1.7}
+  header{background:linear-gradient(135deg,#f3e9df,#e9d9c8);padding:44px 24px 34px;text-align:center}
+  header h1{font-size:27px;font-weight:800;letter-spacing:-0.5px}
+  header p{color:#7a6a58;margin-top:8px;font-size:15px}
+  .wrap{max-width:760px;margin:0 auto;padding:24px}
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;margin-bottom:18px}
+  label{display:block;font-size:13px;color:var(--sub);font-weight:600;margin-bottom:8px}
+  .sits{display:flex;flex-wrap:wrap;gap:10px}
+  .sit{flex:1;min-width:140px;padding:16px;border-radius:13px;border:1px solid var(--line);background:#fff;cursor:pointer;text-align:center;font-size:15px;font-weight:700;color:var(--sub)}
+  .sit .ic{font-size:24px;display:block;margin-bottom:6px}
+  .sit.on{border-color:var(--accent);background:#fcf8f4;color:var(--accent-dark);box-shadow:0 2px 8px rgba(176,137,104,.15)}
+  .desc{font-size:14px;color:#4d453e;background:#fdf6ec;border-left:4px solid var(--accent);border-radius:0 10px 10px 0;padding:13px 15px;margin:16px 0}
+  h2{font-size:16px;margin:22px 0 10px;color:#6e4f3a}
+  .ing{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid #f0d6d3;border-radius:12px;padding:12px 15px;margin-bottom:9px}
+  .ing .gb{width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:14px;flex-shrink:0;background:var(--bad)}
+  .ing .nm{font-weight:700;font-size:15px}.ing .nm a{color:inherit;text-decoration:none}.ing .nm a:hover{text-decoration:underline}
+  .ing .meta{font-size:12.5px;color:var(--sub)}
+  textarea{width:100%;min-height:90px;padding:13px;border:1px solid var(--line);border-radius:11px;font-size:14px;font-family:inherit;resize:vertical}
+  .go{margin-top:10px;width:100%;padding:13px;border:none;border-radius:11px;background:var(--accent);color:#fff;font-size:15px;font-weight:700;cursor:pointer}
+  .go:hover{background:var(--accent-dark)}
+  .verdict{border-radius:13px;padding:16px;margin-top:14px;font-size:15px;font-weight:600}
+  .verdict.ok{background:var(--good-bg);color:var(--good)}
+  .verdict.warn{background:var(--bad-bg);color:var(--bad)}
+  .nav{text-align:center;margin-top:20px}.nav a{color:var(--accent);text-decoration:none;font-size:14px;margin:0 8px}
+  footer{text-align:center;padding:30px 16px;font-size:12px;color:var(--sub)}
+</style>
+</head>
+<body>
+<header>
+  <h1>🚫 상황별 피해야 할 성분</h1>
+  <p>지금 내 상황에서 조심하는 게 좋은 성분을 확인하세요</p>
+</header>
+<div class="wrap">
+  <div class="panel">
+    <label>내 상황을 선택하세요</label>
+    <div class="sits" id="sits"></div>
+  </div>
+
+  <div id="situationBox"></div>
+
+  <div class="panel" id="checkPanel" style="display:none">
+    <label>가진 제품의 전성분을 붙여넣으면, 이 상황에서 피할 성분이 있는지 확인해 드려요 (선택)</label>
+    <textarea id="input" placeholder="예) 정제수, 글리세린, 레티놀, 향료, 살리실릭애씨드 ..."></textarea>
+    <button class="go" onclick="checkProduct()">이 제품 확인하기</button>
+    <div id="verdict"></div>
+  </div>
+
+  <div class="nav">
+    <a href="analyzer.html">🔬 전성분 분석기</a> · <a href="combos.html">⚗️ 궁합 체크</a> · <a href="index.html">📖 성분 사전</a>
+  </div>
+</div>
+<footer>이 정보는 일반적인 참고용이며 의학적 조언이 아닙니다. 임신·수유·질환·시술 관련은 반드시 의사 등 전문가와 상담하세요.</footer>
+
+<script>
+const DATA = /*__DATA__*/;
+const AVOID = /*__AVOID__*/;
+let current=null;
+
+function esc(s){return String(s==null?"":s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+function norm(s){return String(s||"").toLowerCase().replace(/[\s()\[\]{}·,./\-_+]/g,"")}
+function gradeColor(g){return g<=2?"#3a9b6e":g<=6?"#c98a1b":"#c4534f"}
+
+// 한 성분이 상황의 회피 대상인지
+function isAvoided(ing, sit){
+  if((sit.avoid_ids||[]).includes(ing.id)) return true;
+  if((sit.avoid_categories||[]).some(c=>ing.category===c||ing.category.includes(c))) return true;
+  if((sit.avoid_keywords||[]).some(k=>ing.korean_name.includes(k)||ing.category.includes(k))) return true;
+  return false;
+}
+function avoidedList(sit){ return DATA.ingredients.filter(i=>isAvoided(i,sit)); }
+
+// 상황 버튼
+const sb=document.getElementById("sits");
+AVOID.situations.forEach(s=>{
+  const b=document.createElement("button"); b.className="sit"; b.dataset.id=s.id;
+  b.innerHTML=`<span class="ic">${s.icon||"⚠️"}</span>${esc(s.label)}`;
+  b.onclick=()=>selectSit(s.id);
+  sb.appendChild(b);
+});
+
+function selectSit(id){
+  current=AVOID.situations.find(s=>s.id===id);
+  document.querySelectorAll(".sit").forEach(x=>x.classList.toggle("on",x.dataset.id===id));
+  const box=document.getElementById("situationBox");
+  const list=avoidedList(current);
+  box.innerHTML=`<div class="desc">${esc(current.desc)}</div>
+    <h2>피하는 게 좋은 성분 (${list.length})</h2>
+    ${list.map(i=>`<div class="ing">
+      <span class="gb" style="background:${gradeColor(i.safety_grade)}">${i.safety_grade}</span>
+      <div><div class="nm"><a href="detail/${encodeURIComponent(i.id)}.html">${esc(i.korean_name)}</a></div>
+        <div class="meta">${esc(i.category)}</div></div></div>`).join("")
+      || '<p class="meta">이 상황에서 특별히 지정된 회피 성분이 없습니다.</p>'}`;
+  document.getElementById("checkPanel").style.display="block";
+  document.getElementById("verdict").innerHTML="";
+  box.scrollIntoView({behavior:"smooth",block:"nearest"});
+}
+
+// 전성분 체크
+function checkProduct(){
+  if(!current){ alert("먼저 상황을 선택하세요."); return; }
+  const raw=document.getElementById("input").value.trim();
+  if(!raw){ alert("전성분을 붙여넣어 주세요."); return; }
+  const tokens=raw.split(/[,\n;]+/).map(s=>s.trim()).filter(Boolean);
+  const hit=[];
+  const avoided=avoidedList(current);
+  const avoidKeys=avoided.map(i=>({k:norm(i.korean_name),i}));
+  tokens.forEach(tok=>{
+    const t=norm(tok); if(t.length<2) return;
+    for(const {k,i} of avoidKeys){
+      if(k && (t===k || t.includes(k)&&k.length>=3 || k.includes(t)&&t.length>=3)){
+        if(!hit.find(h=>h.id===i.id)) hit.push(i); break;
+      }
+    }
+  });
+  const v=document.getElementById("verdict");
+  if(hit.length){
+    v.className="verdict warn";
+    v.innerHTML=`⚠️ <b>${current.label}</b> 상황에서 주의할 성분이 ${hit.length}개 들어 있어요:<br>`+
+      hit.map(i=>esc(i.korean_name)).join(", ");
+  } else {
+    v.className="verdict ok";
+    v.innerHTML=`✅ <b>${current.label}</b> 기준으로 피해야 할 성분은 발견되지 않았어요. (단, 사전에 없는 성분은 확인되지 않습니다.)`;
+  }
+}
+
+if(AVOID.situations.length) selectSit(AVOID.situations[0].id);
+</script>
+</body>
+</html>

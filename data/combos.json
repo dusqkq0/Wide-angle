@@ -1,0 +1,76 @@
+{
+  "_guide": "성분 궁합·충돌 규칙. type: synergy(궁합·시너지), caution(주의·시간대 분리 권장), avoid(함께 사용 비권장), info(오해 바로잡기). a와 b 각각의 성분 id 그룹 중 하나씩이 함께 선택되면 규칙이 표시됩니다. quick_ingredients는 궁합 체크 페이지의 '자주 찾는 성분' 칩 목록입니다. 모든 안내는 일반적인 스킨케어 통념이며 의학적 조언이 아닙니다.",
+  "quick_ingredients": ["retinol", "ascorbic-acid", "3-o-ethyl-ascorbic-acid", "niacinamide", "salicylic-acid", "glycolic-acid", "azelaic-acid", "peptide", "bakuchiol", "adenosine", "collagen", "hyaluronic-acid", "glycerin", "squalane", "centella", "madecassoside", "panthenol", "dexpanthenol", "ceramide", "allantoin", "propolis", "green-tea", "tocopherol", "arbutin", "tranexamic-acid", "zinc-oxide"],
+  "rules": [
+    {
+      "type": "caution",
+      "a": ["retinol"],
+      "b": ["glycolic-acid", "salicylic-acid"],
+      "title": "레티놀 + AHA·BHA",
+      "desc": "둘 다 자극이 강한 활성 성분이라 함께 쓰면 각질·붉어짐·따가움이 생기기 쉽습니다. 같은 날 겹쳐 쓰기보다 아침/저녁 또는 격일로 나눠 사용하세요."
+    },
+    {
+      "type": "caution",
+      "a": ["retinol"],
+      "b": ["ascorbic-acid"],
+      "title": "레티놀 + 순수 비타민C",
+      "desc": "둘 다 효과가 강하고 선호하는 pH가 달라, 보통 비타민C는 아침·레티놀은 저녁으로 시간대를 나눠 쓰는 것이 안정적입니다."
+    },
+    {
+      "type": "caution",
+      "a": ["glycolic-acid", "salicylic-acid"],
+      "b": ["ascorbic-acid"],
+      "title": "AHA·BHA + 순수 비타민C",
+      "desc": "산성 성분이 겹쳐 자극이 커질 수 있습니다. 민감하다면 시간대를 나누고, 사용 후 자외선차단제를 꼭 바르세요."
+    },
+    {
+      "type": "synergy",
+      "a": ["retinol"],
+      "b": ["niacinamide"],
+      "title": "레티놀 + 나이아신아마이드",
+      "desc": "나이아신아마이드가 장벽을 강화하고 레티놀의 자극을 완화해줘 함께 쓰기 좋은 조합입니다. 레티놀 적응기에 특히 도움이 됩니다."
+    },
+    {
+      "type": "synergy",
+      "a": ["retinol"],
+      "b": ["peptide"],
+      "title": "레티놀 + 펩타이드",
+      "desc": "주름·탄력을 서로 다른 경로로 도와 안티에이징 시너지가 좋은 조합입니다."
+    },
+    {
+      "type": "synergy",
+      "a": ["ascorbic-acid", "3-o-ethyl-ascorbic-acid", "magnesium-ascorbyl-phosphate"],
+      "b": ["tocopherol"],
+      "title": "비타민C + 비타민E",
+      "desc": "비타민E가 비타민C의 항산화력을 높이고 안정화해주는 대표적인 항산화 시너지 조합입니다."
+    },
+    {
+      "type": "synergy",
+      "a": ["retinol", "glycolic-acid", "salicylic-acid", "ascorbic-acid"],
+      "b": ["centella", "madecassoside", "madecassic-acid", "panthenol", "dexpanthenol", "ceramide"],
+      "title": "활성 성분 + 진정·장벽 성분",
+      "desc": "레티놀·산·비타민C 같은 활성 성분을 쓸 때 센텔라·판테놀·세라마이드를 함께 쓰면 자극을 줄이고 장벽 회복을 도와 균형이 좋아집니다."
+    },
+    {
+      "type": "synergy",
+      "a": ["niacinamide"],
+      "b": ["hyaluronic-acid"],
+      "title": "나이아신아마이드 + 히알루론산",
+      "desc": "수분 공급과 피지·모공 케어를 동시에 잡아주는 무난하고 잘 맞는 조합입니다."
+    },
+    {
+      "type": "info",
+      "a": ["niacinamide"],
+      "b": ["ascorbic-acid"],
+      "title": "나이아신아마이드 + 비타민C, 같이 써도 될까?",
+      "desc": "과거 '함께 쓰면 안 된다'는 말이 있었지만, 일반적인 화장품 농도에서는 함께 사용해도 무방하다는 것이 현재의 통념입니다. 다만 둘 다 고농도라면 민감한 피부는 단계적으로 적응하세요."
+    },
+    {
+      "type": "caution",
+      "a": ["bakuchiol"],
+      "b": ["glycolic-acid", "salicylic-acid"],
+      "title": "바쿠치올 + AHA·BHA",
+      "desc": "바쿠치올은 레티놀보다 순하지만, 산과 겹치면 자극이 생길 수 있어 민감한 피부는 시간대를 나누는 편이 안전합니다."
+    }
+  ]
+}

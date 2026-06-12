@@ -3,166 +3,213 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>성분 사전 — 화장품 성분 가이드</title>
-<!-- 검색엔진 소유확인 메타태그 (data/site.json에서 자동 주입) -->
+<title>전성분 분석기 — 내 화장품, 내 피부에 맞을까? | 성분 사전</title>
+<meta name="description" content="화장품 전성분을 붙여넣으면 피부타입별 적합도, 안전등급, 주의 성분을 자동으로 분석해 드립니다.">
+<meta name="robots" content="index,follow">
 <meta name="google-site-verification" content="MmMIv18Xeikl75U0xnhWVDGw2q645K1VtLVYG63ZZcY" />
 <meta name="naver-site-verification" content="0f24b3769cb612c27104ba8583af136f4b26effe" />
 <style>
-  :root{
-    --bg:#faf7f4; --card:#ffffff; --ink:#2b2622; --sub:#8a7f76;
-    --accent:#b08968; --accent-dark:#8c6a4f; --line:#eee5dd;
-    --good:#3a9b6e; --good-bg:#e7f5ee; --caution:#c98a1b; --caution-bg:#fdf3e0;
-    --bad:#c4534f; --bad-bg:#fbe9e8;
-  }
+  :root{--bg:#faf7f4;--card:#fff;--ink:#2b2622;--sub:#8a7f76;--accent:#b08968;--accent-dark:#8c6a4f;--line:#eee5dd;
+    --good:#3a9b6e;--good-bg:#e7f5ee;--caution:#c98a1b;--caution-bg:#fdf3e0;--bad:#c4534f;--bad-bg:#fbe9e8}
   *{margin:0;padding:0;box-sizing:border-box}
-  body{font-family:'Apple SD Gothic Neo','Pretendard','Noto Sans KR',sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
-  header{background:linear-gradient(135deg,#f3e9df,#e9d9c8);padding:48px 24px 36px;text-align:center}
-  header h1{font-size:30px;font-weight:800;letter-spacing:-0.5px}
+  body{font-family:'Apple SD Gothic Neo','Pretendard','Noto Sans KR',sans-serif;background:var(--bg);color:var(--ink);line-height:1.7}
+  header{background:linear-gradient(135deg,#f3e9df,#e9d9c8);padding:44px 24px 34px;text-align:center}
+  header h1{font-size:27px;font-weight:800;letter-spacing:-0.5px}
   header p{color:#7a6a58;margin-top:8px;font-size:15px}
-  .updated{font-size:12px;color:#a4937f;margin-top:6px}
-  .quiz-cta{display:inline-block;margin-top:16px;padding:11px 22px;border-radius:999px;background:var(--accent);color:#fff;text-decoration:none;font-size:15px;font-weight:600;box-shadow:0 2px 8px rgba(176,137,104,.3)}
-  .quiz-cta:hover{background:var(--accent-dark)}
-  .container{max-width:1080px;margin:0 auto;padding:24px}
-  .controls{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:8px}
-  #search{flex:1;min-width:220px;padding:12px 16px;border:1px solid var(--line);border-radius:12px;font-size:15px;background:var(--card)}
-  #search:focus{outline:2px solid var(--accent)}
-  select{padding:12px 14px;border:1px solid var(--line);border-radius:12px;font-size:14px;background:var(--card);color:var(--ink)}
-  .chips{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 20px}
-  .chip{padding:7px 14px;border-radius:999px;border:1px solid var(--line);background:var(--card);font-size:13px;cursor:pointer;color:var(--sub)}
-  .chip.active{background:var(--accent);border-color:var(--accent);color:#fff}
-  .count{font-size:13px;color:var(--sub);margin-bottom:14px}
-  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:16px}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:10px}
-  .card .top{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
-  .kname{font-size:18px;font-weight:700}
-  .kname a{color:inherit;text-decoration:none}
-  .kname a:hover{color:var(--accent);text-decoration:underline}
-  .detail-link{display:inline-block;margin-top:4px;font-size:13px;color:var(--accent);text-decoration:none}
-  .detail-link:hover{text-decoration:underline}
-  .iname{font-size:12px;color:var(--sub)}
-  .cat{font-size:11px;background:#f3ece5;color:var(--accent-dark);padding:4px 10px;border-radius:999px;white-space:nowrap}
-  .desc{font-size:14px;color:#4d453e}
-  .benefits{display:flex;flex-wrap:wrap;gap:6px}
-  .benefit{font-size:12px;background:#f6f1ec;color:#6e635a;padding:3px 9px;border-radius:6px}
-  .skin-row{display:flex;flex-wrap:wrap;gap:6px}
-  .skin{font-size:12px;padding:3px 9px;border-radius:6px}
-  .skin.good{background:var(--good-bg);color:var(--good)}
-  .skin.caution{background:var(--caution-bg);color:var(--caution)}
-  .skin.bad{background:var(--bad-bg);color:var(--bad)}
-  .grade{display:flex;align-items:center;gap:8px;font-size:13px}
-  .grade-badge{width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:14px}
-  .cautions{font-size:12px;color:#9c6b3f;background:#fdf6ec;border-left:3px solid var(--caution);padding:8px 10px;border-radius:0 8px 8px 0}
-  .new-badge{font-size:10px;background:var(--bad);color:#fff;padding:2px 7px;border-radius:999px;margin-left:6px;vertical-align:middle}
-  footer{text-align:center;padding:36px 16px;font-size:12px;color:var(--sub)}
-  .empty{text-align:center;color:var(--sub);padding:60px 0;grid-column:1/-1}
-  @media(max-width:600px){header h1{font-size:24px}}
+  .wrap{max-width:760px;margin:0 auto;padding:24px}
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;margin-bottom:18px}
+  label{display:block;font-size:13px;color:var(--sub);font-weight:600;margin-bottom:6px}
+  textarea{width:100%;min-height:120px;padding:13px;border:1px solid var(--line);border-radius:11px;font-size:14px;font-family:inherit;resize:vertical}
+  .row{display:flex;gap:10px;align-items:end;margin-top:12px;flex-wrap:wrap}
+  select{padding:11px 14px;border:1px solid var(--line);border-radius:11px;font-size:14px;background:#fff}
+  .go{flex:1;min-width:140px;padding:14px;border:none;border-radius:11px;background:var(--accent);color:#fff;font-size:16px;font-weight:700;cursor:pointer}
+  .go:hover{background:var(--accent-dark)}
+  .ex{font-size:12px;color:var(--sub);margin-top:10px}
+  .ex a{color:var(--accent);cursor:pointer;text-decoration:underline}
+  .result{display:none}
+  .summary{border-radius:14px;padding:20px;margin-bottom:18px;font-size:15px}
+  .summary.s-good{background:var(--good-bg);border:1px solid #bfe6d0}
+  .summary.s-cau{background:var(--caution-bg);border:1px solid #f0dcb0}
+  .summary.s-bad{background:var(--bad-bg);border:1px solid #f0c8c5}
+  .summary b{font-size:17px}
+  .stat{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+  .stat span{font-size:12.5px;background:rgba(255,255,255,.6);padding:4px 10px;border-radius:999px}
+  h2{font-size:16px;margin:22px 0 10px;color:#6e4f3a}
+  .ing{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:13px 15px;margin-bottom:9px}
+  .ing .gb{width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:14px;flex-shrink:0}
+  .ing .info{flex:1;min-width:0}
+  .ing .nm{font-weight:700;font-size:15px}
+  .ing .nm a{color:inherit;text-decoration:none}.ing .nm a:hover{color:var(--accent);text-decoration:underline}
+  .ing .meta{font-size:12.5px;color:var(--sub)}
+  .fit{font-size:12px;font-weight:700;padding:4px 10px;border-radius:7px;flex-shrink:0}
+  .fit.good{background:var(--good-bg);color:var(--good)}.fit.caution{background:var(--caution-bg);color:var(--caution)}.fit.bad{background:var(--bad-bg);color:var(--bad)}
+  .unknown{font-size:13px;color:var(--sub);background:#f6f1ec;border-radius:10px;padding:12px 14px}
+  .unknown b{color:var(--ink)}
+  .pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+  .pcard{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:13px;overflow:hidden;text-decoration:none;color:inherit;background:#fff}
+  .pcard:hover{border-color:var(--accent)}
+  .pcard img{width:100%;height:120px;object-fit:cover;background:#f3ece5}
+  .pcard .pb{padding:12px;display:flex;flex-direction:column;gap:5px}
+  .pcard .psrc{align-self:flex-start;font-size:10.5px;font-weight:700;color:var(--good);background:var(--good-bg);padding:2px 8px;border-radius:999px}
+  .pcard .pn{font-size:13.5px;font-weight:700;line-height:1.4}
+  .pcard .pbt{font-size:12px;color:var(--accent);font-weight:600}
+  .affiliate-notice{font-size:11.5px;color:#a4937f;background:#f6f1ec;border-radius:8px;padding:9px 12px;margin-top:10px}
+  .nav{text-align:center;margin-top:20px}
+  .nav a{color:var(--accent);text-decoration:none;font-size:14px;margin:0 8px}
+  footer{text-align:center;padding:30px 16px;font-size:12px;color:var(--sub)}
 </style>
 </head>
 <body>
 <header>
-  <h1>🌿 성분 사전</h1>
-  <p>화장품 성분, 내 피부에 맞는지 쉽게 확인하세요</p>
-  <p class="updated" id="updated"></p>
-  <a class="quiz-cta" href="quiz.html">🧫 1분 피부타입 진단하기 →</a>
-  <a class="quiz-cta" href="analyzer.html" style="background:#6e4f3a">🔬 전성분 분석하기 →</a>
-  <a class="quiz-cta" href="combos.html" style="background:#8a7f76">⚗️ 성분 궁합 체크 →</a>
-  <a class="quiz-cta" href="avoid.html" style="background:#a86b5e">🚫 상황별 피할 성분 →</a>
+  <h1>🔬 전성분 분석기</h1>
+  <p>화장품 뒷면의 전성분을 붙여넣으면, 내 피부에 맞는지 분석해 드려요</p>
 </header>
-<div class="container">
-  <div class="controls">
-    <input id="search" type="search" placeholder="성분명, 효능으로 검색 (예: 보습, 나이아신아마이드)">
-    <select id="category"><option value="">전체 카테고리</option></select>
-    <select id="sort">
-      <option value="name">이름순</option>
-      <option value="safety">안전등급 좋은순</option>
-      <option value="new">최신 등록순</option>
-    </select>
+<div class="wrap">
+  <div class="panel">
+    <label>전성분을 붙여넣으세요 (쉼표로 구분된 형태 그대로)</label>
+    <textarea id="input" placeholder="예) 정제수, 글리세린, 나이아신아마이드, 부틸렌글라이콜, 센텔라아시아티카추출물, 판테놀, 향료 ..."></textarea>
+    <div class="row">
+      <div>
+        <label>내 피부타입</label>
+        <select id="skin">
+          <option value="">선택 안 함</option>
+          <option value="건성">건성</option><option value="지성">지성</option>
+          <option value="민감성">민감성</option><option value="복합성">복합성</option>
+          <option value="여드름성">여드름성</option>
+        </select>
+      </div>
+      <button class="go" onclick="analyze()">분석하기</button>
+    </div>
+    <div class="ex">예시로 해보기: <a onclick="demo()">샘플 전성분 넣기</a></div>
   </div>
-  <div class="chips" id="skinChips">
-    <button class="chip active" data-skin="">전체 피부</button>
-    <button class="chip" data-skin="건성">건성</button>
-    <button class="chip" data-skin="지성">지성</button>
-    <button class="chip" data-skin="민감성">민감성</button>
-    <button class="chip" data-skin="복합성">복합성</button>
-    <button class="chip" data-skin="여드름성">여드름성</button>
+
+  <div class="result" id="result">
+    <div class="summary" id="summary"></div>
+    <h2>📋 분석된 성분</h2>
+    <div id="matched"></div>
+    <div id="unknownBox"></div>
+    <div id="productBox"></div>
+    <div class="nav">
+      <a href="quiz.html">🧫 피부타입 진단하기</a> ·
+      <a href="index.html">📖 성분 사전</a>
+    </div>
   </div>
-  <div class="count" id="count"></div>
-  <div class="grid" id="grid"></div>
 </div>
-<footer>
-  안전등급은 EWG Skin Deep 공개 자료를 참고한 값이며(1~2 낮은 위험 · 3~6 보통 · 7~10 높은 위험), 의학적 판단의 근거가 아닙니다.<br>
-  피부 고민이 지속되면 피부과 전문의와 상담하세요.
-</footer>
+<footer>분석은 보유 성분 데이터 기준의 일반 참고용이며, 의학적 판단이 아닙니다. 전성분 표기 방식에 따라 일부 성분은 인식되지 않을 수 있습니다.</footer>
+
 <script>
 const DATA = {"meta": {"version": "1.0", "updated": "2026-06-12", "note": "안전등급은 EWG Skin Deep 공개 등급을 참고한 값으로, 실제 제품 적용 전 반드시 원자료 확인 필요"}, "ingredients": [{"id": "hyaluronic-acid", "korean_name": "히알루론산", "inci_name": "Sodium Hyaluronate", "category": "보습", "description": "피부 속 수분을 자석처럼 끌어당겨 잡아주는 성분. 자기 무게의 1,000배에 달하는 수분을 머금을 수 있어 촉촉함을 오래 유지해줍니다.", "benefits": ["수분 공급", "피부 장벽 강화", "잔주름 완화"], "skin_types": {"건성": "good", "지성": "good", "민감성": "good", "복합성": "good", "여드름성": "good"}, "safety_grade": 1, "cautions": "특별한 주의사항 없음. 모든 피부에 무난한 대표 보습 성분.", "status": "published", "added_date": "2026-06-12"}, {"id": "niacinamide", "korean_name": "나이아신아마이드", "inci_name": "Niacinamide", "category": "미백·톤개선", "description": "비타민B3의 한 형태로, 멜라닌이 피부 표면으로 이동하는 것을 막아 칙칙함을 개선합니다. 피지 조절과 모공 케어에도 도움을 주는 만능 성분.", "benefits": ["미백", "피지 조절", "모공 케어", "장벽 강화"], "skin_types": {"건성": "good", "지성": "good", "민감성": "caution", "복합성": "good", "여드름성": "good"}, "safety_grade": 1, "cautions": "고농도(10% 이상)는 민감성 피부에 홍조·따가움을 유발할 수 있음. 2~5%부터 시작 권장.", "status": "published", "added_date": "2026-06-12"}, {"id": "retinol", "korean_name": "레티놀", "inci_name": "Retinol", "category": "주름·안티에이징", "description": "비타민A 유도체로, 피부 세포의 턴오버를 촉진해 주름과 탄력을 개선하는 안티에이징 대표 성분. 효과가 강한 만큼 적응 기간이 필요합니다.", "benefits": ["주름 개선", "탄력 증진", "피부결 정돈", "여드름 완화"], "skin_types": {"건성": "caution", "지성": "good", "민감성": "bad", "복합성": "good", "여드름성": "good"}, "safety_grade": 6, "cautions": "초기 각질·붉어짐(레티노이드 반응) 가능. 저농도부터 주 2~3회 시작, 낮에는 반드시 자외선차단제 사용. 임산부 사용 금지.", "status": "published", "added_date": "2026-06-12"}, {"id": "ascorbic-acid", "korean_name": "비타민C (아스코빅애씨드)", "inci_name": "Ascorbic Acid", "category": "미백·톤개선", "description": "강력한 항산화 성분으로 멜라닌 생성을 억제해 기미·잡티를 옅게 하고 피부 톤을 환하게 가꿔줍니다. 콜라겐 합성도 도와 탄력에도 기여합니다.", "benefits": ["미백", "항산화", "콜라겐 생성 촉진", "광손상 보호"], "skin_types": {"건성": "good", "지성": "good", "민감성": "caution", "복합성": "good", "여드름성": "good"}, "safety_grade": 1, "cautions": "산성이 강해 민감성 피부는 따가움 가능. 빛·공기에 쉽게 산화되므로 갈변된 제품은 사용 중단.", "status": "published", "added_date": "2026-06-12"}, {"id": "salicylic-acid", "korean_name": "살리실릭애씨드 (BHA)", "inci_name": "Salicylic Acid", "category": "각질·모공", "description": "지용성 각질 제거 성분으로 모공 속 피지와 노폐물까지 녹여냅니다. 블랙헤드와 여드름성 피부 관리의 핵심 성분.", "benefits": ["모공 속 각질 제거", "블랙헤드 완화", "여드름 예방", "피지 조절"], "skin_types": {"건성": "caution", "지성": "good", "민감성": "caution", "복합성": "good", "여드름성": "good"}, "safety_grade": 3, "cautions": "건성 피부는 과사용 시 당김·각질 유발. 국내 화장품 배합 한도 0.5%(씻어내는 제품 일부 예외).", "status": "published", "added_date": "2026-06-12"}, {"id": "glycolic-acid", "korean_name": "글라이콜릭애씨드 (AHA)", "inci_name": "Glycolic Acid", "category": "각질·모공", "description": "사탕수수에서 유래한 수용성 각질 제거 성분. 분자가 작아 침투력이 좋고, 묵은 각질을 정리해 피부결을 매끈하게 만듭니다.", "benefits": ["각질 제거", "피부결 개선", "톤 균일화", "잔주름 완화"], "skin_types": {"건성": "good", "지성": "good", "민감성": "bad", "복합성": "good", "여드름성": "caution"}, "safety_grade": 4, "cautions": "사용 후 자외선 민감도 증가 — 자외선차단제 필수. 레티놀과 같은 날 사용은 자극 위험.", "status": "published", "added_date": "2026-06-12"}, {"id": "ceramide", "korean_name": "세라마이드", "inci_name": "Ceramide NP", "category": "장벽·보습", "description": "피부 장벽을 구성하는 지질 성분으로, 벽돌 사이의 시멘트처럼 피부 세포를 단단히 붙잡아 수분 증발을 막고 외부 자극을 차단합니다.", "benefits": ["피부 장벽 복구", "수분 손실 방지", "민감 피부 진정"], "skin_types": {"건성": "good", "지성": "good", "민감성": "good", "복합성": "good", "여드름성": "good"}, "safety_grade": 1, "cautions": "특별한 주의사항 없음. 손상된 장벽 회복에 우선 추천.", "status": "published", "added_date": "2026-06-12"}, {"id": "panthenol", "korean_name": "판테놀", "inci_name": "Panthenol", "category": "진정·보습", "description": "프로비타민B5. 피부에 흡수되면 판토텐산으로 전환되어 손상된 피부의 재생을 돕고 수분을 채워주는 순한 진정 성분입니다.", "benefits": ["진정", "보습", "피부 재생 보조", "자극 완화"], "skin_types": {"건성": "good", "지성": "good", "민감성": "good", "복합성": "good", "여드름성": "good"}, "safety_grade": 1, "cautions": "특별한 주의사항 없음.", "status": "published", "added_date": "2026-06-12"}, {"id": "centella", "korean_name": "센텔라아시아티카 (시카)", "inci_name": "Centella Asiatica Extract", "category": "진정·재생", "description": "호랑이풀이라 불리는 병풀 추출물. 마데카소사이드 등 활성 성분이 자극받은 피부를 빠르게 진정시키고 재생을 돕습니다.", "benefits": ["진정", "재생", "홍조 완화", "항염"], "skin_types": {"건성": "good", "지성": "good", "민감성": "good", "복합성": "good", "여드름성": "good"}, "safety_grade": 1, "cautions": "드물게 국화과 알레르기 보유자는 패치 테스트 권장.", "status": "published", "added_date": "2026-06-12"}, {"id": "tea-tree", "korean_name": "티트리오일", "inci_name": "Melaleuca Alternifolia Leaf Oil", "category": "트러블 케어", "description": "호주 티트리 나무 잎에서 추출한 오일로, 항균 작용이 뛰어나 트러블 부위 스팟 케어에 널리 쓰입니다.", "benefits": ["항균", "트러블 완화", "피지 조절"], "skin_types": {"건성": "caution", "지성": "good", "민감성": "caution", "복합성": "good", "여드름성": "good"}, "safety_grade": 4, "cautions": "원액 사용 금지(자극·알레르기 위험). 희석된 제품으로 국소 사용 권장.", "status": "published", "added_date": "2026-06-12"}, {"id": "glycerin", "korean_name": "글리세린", "inci_name": "Glycerin", "category": "보습", "description": "가장 오래되고 검증된 보습 성분. 공기 중과 피부 깊은 층의 수분을 끌어와 각질층에 채워주는 휴멕턴트의 표준입니다.", "benefits": ["수분 공급", "피부 유연화", "장벽 보조"], "skin_types": {"건성": "good", "지성": "good", "민감성": "good", "복합성": "good", "여드름성": "good"}, "safety_grade": 1, "cautions": "특별한 주의사항 없음.", "status": "published", "added_date": "2026-06-12"}, {"id": "squalane", "korean_name": "스쿠알란", "inci_name": "Squalane", "category": "보습·오일", "description": "피부 피지와 유사한 구조의 가벼운 오일. 끈적임 없이 흡수되어 유분막을 만들어 수분 증발을 막습니다. 사탕수수·올리브 유래가 일반적.", "benefits": ["보습", "유수분 밸런스", "피부 유연화"], "skin_types": {"건성": "good", "지성": "good", "민감성": "good", "복합성": "good", "여드름성": "good"}, "safety_grade": 1, "cautions": "특별한 주의사항 없음. 오일 중 가장 가벼운 축에 속함.", "status": "published", "added_date": "2026-06-12"}, {"id": "peptide", "korean_name": "펩타이드", "inci_name": "Palmitoyl Pentapeptide-4", "category": "주름·안티에이징", "description": "아미노산이 연결된 작은 단백질 조각으로, 피부에 '콜라겐을 만들라'는 신호를 보내 탄력과 주름 개선을 돕습니다. 레티놀보다 순한 안티에이징 대안.", "benefits": ["탄력 증진", "주름 완화", "재생 보조"], "skin_types": {"건성": "good", "지성": "good", "민감성": "good", "복합성": "good", "여드름성": "good"}, "safety_grade": 1, "cautions": "특별한 주의사항 없음. 비타민C(순수형)와 동시 사용 시 효율 저하 가능성 논의 있음.", "status": "published", "added_date": "2026-06-12"}, {"id": "allantoin", "korean_name": "알란토인", "inci_name": "Allantoin", "category": "진정·재생", "description": "컴프리 뿌리에서 유래한 진정 성분. 각질을 부드럽게 하고 자극받은 피부를 달래줘 민감성 피부 제품에 자주 쓰입니다.", "benefits": ["진정", "각질 연화", "재생 보조"], "skin_types": {"건성": "good", "지성": "good", "민감성": "good", "복합성": "good", "여드름성": "good"}, "safety_grade": 1, "cautions": "특별한 주의사항 없음.", "status": "published", "added_date": "2026-06-12"}, {"id": "azelaic-acid", "korean_name": "아젤라익애씨드", "inci_name": "Azelaic Acid", "category": "트러블 케어", "description": "곡물에서 유래한 산 성분으로 항균·항염 작용과 멜라닌 억제 효과를 동시에 지녀 여드름과 여드름 자국(색소침착) 관리에 모두 유효합니다.", "benefits": ["여드름 완화", "붉은 자국 개선", "항염", "미백 보조"], "skin_types": {"건성": "good", "지성": "good", "민감성": "good", "복합성": "good", "여드름성": "good"}, "safety_grade": 1, "cautions": "초기 가려움·따가움이 있을 수 있으나 대부분 적응됨. 국내 화장품에는 10% 이하 배합이 일반적.", "status": "published", "added_date": "2026-06-12"}, {"id": "arbutin", "korean_name": "알부틴", "inci_name": "Arbutin", "category": "미백·톤개선", "description": "월귤나무 잎에서 유래한 미백 성분. 멜라닌을 만드는 효소(티로시나제)의 활동을 억제해 기미·잡티 생성을 예방합니다. 식약처 고시 미백 기능성 원료.", "benefits": ["미백", "잡티 예방", "톤 개선"], "skin_types": {"건성": "good", "지성": "good", "민감성": "good", "복합성": "good", "여드름성": "good"}, "safety_grade": 3, "cautions": "기능성화장품 기준 2~5% 배합. 고온·빛에 분해될 수 있어 보관 주의.", "status": "published", "added_date": "2026-06-12"}, {"id": "tranexamic-acid", "korean_name": "트라넥사믹애씨드", "inci_name": "Tranexamic Acid", "category": "미백·톤개선", "description": "기미·색소침착의 신호 전달 자체를 차단하는 신세대 미백 성분. 자극이 적어 민감성 피부의 색소 관리에도 적합합니다.", "benefits": ["기미 완화", "색소침착 개선", "홍조 완화"], "skin_types": {"건성": "good", "지성": "good", "민감성": "good", "복합성": "good", "여드름성": "good"}, "safety_grade": 1, "cautions": "특별한 주의사항 없음.", "status": "published", "added_date": "2026-06-12"}, {"id": "bisabolol", "korean_name": "비사보롤", "inci_name": "Bisabolol", "category": "진정·보습", "description": "캐모마일 꽃의 핵심 진정 성분. 항염 효과와 함께 다른 성분의 흡수를 돕는 역할도 해 민감성 피부 라인에 자주 배합됩니다.", "benefits": ["진정", "항염", "성분 흡수 보조"], "skin_types": {"건성": "good", "지성": "good", "민감성": "good", "복합성": "good", "여드름성": "good"}, "safety_grade": 1, "cautions": "특별한 주의사항 없음.", "status": "published", "added_date": "2026-06-12"}, {"id": "propolis", "korean_name": "프로폴리스", "inci_name": "Propolis Extract", "category": "진정·영양", "description": "꿀벌이 벌집을 보호하기 위해 만드는 천연 수지. 항균·항산화 성분이 풍부해 트러블 진정과 윤기 부여에 좋습니다.", "benefits": ["항균", "진정", "영양·윤기 공급", "항산화"], "skin_types": {"건성": "good", "지성": "good", "민감성": "caution", "복합성": "good", "여드름성": "good"}, "safety_grade": 2, "cautions": "벌·꿀 알레르기가 있다면 패치 테스트 필수.", "status": "published", "added_date": "2026-06-12"}, {"id": "collagen", "korean_name": "콜라겐", "inci_name": "Hydrolyzed Collagen", "category": "보습·탄력", "description": "피부 탄력을 담당하는 단백질. 화장품 속 콜라겐은 분자가 커 피부 깊이 흡수되기보다 표면 보습막을 형성해 촉촉함과 매끄러움을 줍니다.", "benefits": ["표면 보습", "피부 유연화", "일시적 탄력감"], "skin_types": {"건성": "good", "지성": "good", "민감성": "good", "복합성": "good", "여드름성": "good"}, "safety_grade": 1, "cautions": "바르는 콜라겐이 진피 콜라겐을 직접 늘리지는 않음 — 보습 성분으로 이해하는 것이 정확.", "status": "published", "added_date": "2026-06-12"}, {"id": "aloe-vera", "korean_name": "알로에베라", "inci_name": "Aloe Barbadensis Leaf Extract", "category": "진정·보습", "description": "수분 함량 99%의 알로에 잎 추출물. 열감 있는 피부를 시원하게 진정시키고 가벼운 수분을 공급합니다.", "benefits": ["진정", "수분 공급", "쿨링"], "skin_types": {"건성": "good", "지성": "good", "민감성": "good", "복합성": "good", "여드름성": "good"}, "safety_grade": 1, "cautions": "특별한 주의사항 없음.", "status": "published", "added_date": "2026-06-12"}, {"id": "green-tea", "korean_name": "녹차추출물", "inci_name": "Camellia Sinensis Leaf Extract", "category": "항산화", "description": "카테킨(EGCG)이 풍부한 항산화 성분. 활성산소로부터 피부를 보호하고 피지 산화를 막아 지성 피부 트러블 예방에도 도움됩니다.", "benefits": ["항산화", "피지 산화 방지", "진정"], "skin_types": {"건성": "good", "지성": "good", "민감성": "good", "복합성": "good", "여드름성": "good"}, "safety_grade": 1, "cautions": "특별한 주의사항 없음.", "status": "published", "added_date": "2026-06-12"}, {"id": "zinc-oxide", "korean_name": "징크옥사이드", "inci_name": "Zinc Oxide", "category": "자외선차단", "description": "피부 위에 막을 형성해 자외선을 반사·산란시키는 무기(미네랄) 자외선차단 성분. UVA·UVB를 폭넓게 막고 자극이 적어 민감성 피부 선크림에 주로 쓰입니다.", "benefits": ["UVA·UVB 차단", "저자극", "진정 보조"], "skin_types": {"건성": "good", "지성": "good", "민감성": "good", "복합성": "good", "여드름성": "good"}, "safety_grade": 2, "cautions": "백탁 현상이 있을 수 있음. 스프레이형은 흡입 주의.", "status": "published", "added_date": "2026-06-12"}, {"id": "fragrance", "korean_name": "향료", "inci_name": "Fragrance / Parfum", "category": "주의 성분", "description": "제품의 향을 내는 성분의 총칭. 수십~수백 가지 화합물의 혼합물일 수 있으며, 화장품 알레르기의 가장 흔한 원인 중 하나입니다.", "benefits": ["사용감·향 개선"], "skin_types": {"건성": "caution", "지성": "caution", "민감성": "bad", "복합성": "caution", "여드름성": "caution"}, "safety_grade": 8, "cautions": "민감성·트러블 피부는 무향(fragrance-free) 제품 권장. EU 지정 알레르기 유발 향료 26종은 별도 표기 의무.", "status": "published", "added_date": "2026-06-12"}, {"id": "phenoxyethanol", "korean_name": "페녹시에탄올", "inci_name": "Phenoxyethanol", "category": "보존제", "description": "파라벤 대체재로 가장 널리 쓰이는 보존제. 미생물 오염을 막아 제품을 안전하게 유지합니다. 법정 배합 한도 내에서는 안전성이 확인된 성분.", "benefits": ["제품 변질 방지"], "skin_types": {"건성": "good", "지성": "good", "민감성": "caution", "복합성": "good", "여드름성": "good"}, "safety_grade": 4, "cautions": "국내·EU 배합 한도 1%. 극민감성 피부는 드물게 자극 가능.", "status": "published", "added_date": "2026-06-12"}, {"id": "solanum-melongena-eggplant-fruit-extract", "korean_name": "가지열매추출물", "inci_name": "Solanum Melongena (Eggplant) Fruit Extract", "category": "항산화", "description": "가지 열매에서 얻은 추출물. 안토시아닌 등 항산화 성분이 풍부해 외부 자극으로부터 피부를 보호하고 수분을 더해줍니다.", "benefits": ["항산화", "보습", "진정"], "skin_types": {"건성": "good", "지성": "good", "민감성": "good", "복합성": "good", "여드름성": "good"}, "safety_grade": 1, "cautions": "특별한 주의사항 없음.", "status": "published", "added_date": "2026-06-12", "cas_no": "84012-19-1"}, {"id": "agarum-cribrosum-extract", "korean_name": "구멍쇠미역추출물", "inci_name": "Agarum Cribrosum Extract", "category": "보습", "description": "구멍쇠미역(해조류)에서 추출한 성분. 바다 유래 미네랄과 다당류가 피부에 수분을 채우고 매끄럽게 가꿔줍니다.", "benefits": ["수분 공급", "미네랄 공급", "진정"], "skin_types": {"건성": "good", "지성": "good", "민감성": "good", "복합성": "good", "여드름성": "good"}, "safety_grade": 1, "cautions": "특별한 주의사항 없음.", "status": "published", "added_date": "2026-06-12"}, {"id": "lupine-amino-acids", "korean_name": "루핀아미노산", "inci_name": "Lupine Amino Acids", "category": "보습·탄력", "description": "루핀콩 단백질을 잘게 분해해 얻은 아미노산 혼합물. 피부 구성 성분과 닮아 흡수가 잘 되고 탄력·보습을 돕습니다.", "benefits": ["보습", "탄력 보조", "피부 컨디셔닝"], "skin_types": {"건성": "good", "지성": "good", "민감성": "caution", "복합성": "good", "여드름성": "good"}, "safety_grade": 1, "cautions": "콩(두류) 알레르기가 있다면 패치 테스트 권장.", "status": "published", "added_date": "2026-06-12"}, {"id": "leucine", "korean_name": "류신", "inci_name": "Leucine", "category": "보습·컨디셔닝", "description": "필수 아미노산의 하나로, 제형을 부드럽게 하고 피부 표면을 매끄럽게 정돈하는 보조 성분입니다.", "benefits": ["피부 컨디셔닝", "보습 보조"], "skin_types": {"건성": "good", "지성": "good", "민감성": "good", "복합성": "good", "여드름성": "good"}, "safety_grade": 1, "cautions": "특별한 주의사항 없음.", "status": "published", "added_date": "2026-06-12", "cas_no": "328-39-2(DL-)\r,61-90-5(L-)"}, {"id": "leuconostoc-radish-root-ferment-filtrate", "korean_name": "류코노스톡/무발효여과물", "inci_name": "Leuconostoc/Radish Root Ferment Filtrate", "category": "발효·보존 보조", "description": "무 뿌리를 유산균(류코노스톡)으로 발효해 거른 성분. 제품을 자연스럽게 신선하게 유지하면서 순하게 수분을 더해 무방부 콘셉트 제품에 자주 쓰입니다.", "benefits": ["천연 보존 보조", "보습", "진정"], "skin_types": {"건성": "good", "지성": "good", "민감성": "good", "복합성": "good", "여드름성": "good"}, "safety_grade": 1, "cautions": "특별한 주의사항 없음.", "status": "published", "added_date": "2026-06-12"}, {"id": "leukocyte-extract", "korean_name": "백혈구추출물", "inci_name": "Leukocyte Extract", "category": "재생·영양", "description": "면역세포(백혈구)에서 유래한 단백질 성분으로, 피부의 회복과 영양 공급을 돕는 목적으로 소량 배합됩니다.", "benefits": ["재생 보조", "영양 공급"], "skin_types": {"건성": "good", "지성": "good", "민감성": "caution", "복합성": "good", "여드름성": "good"}, "safety_grade": 2, "cautions": "동물 유래 성분. 비건 제품을 찾는다면 확인이 필요합니다.", "status": "published", "added_date": "2026-06-12"}, {"id": "rhinacanthus-communis-extract", "korean_name": "리나칸투스 콤무니스추출물", "inci_name": "Rhinacanthus Communis Extract", "category": "진정·트러블", "description": "동남아에서 약용으로 쓰이는 식물 추출물. 자극받은 피부를 달래고 트러블 케어를 보조합니다.", "benefits": ["진정", "항균 보조", "트러블 완화"], "skin_types": {"건성": "good", "지성": "good", "민감성": "good", "복합성": "good", "여드름성": "good"}, "safety_grade": 1, "cautions": "특별한 주의사항 없음.", "status": "published", "added_date": "2026-06-12"}, {"id": "linalool", "korean_name": "리날룰", "inci_name": "Linalool", "category": "주의 성분 (향료)", "description": "라벤더 등 많은 식물에 들어 있는 천연 향 성분. 은은한 향을 더하지만 공기 중에서 산화되면 알레르기를 유발할 수 있어 EU가 표기를 의무화한 향료 26종 중 하나입니다.", "benefits": ["향 부여"], "skin_types": {"건성": "caution", "지성": "caution", "민감성": "bad", "복합성": "caution", "여드름성": "caution"}, "safety_grade": 6, "cautions": "향료 알레르기·민감성 피부는 주의. 무향 제품을 권장합니다.", "status": "published", "added_date": "2026-06-12", "cas_no": "78-70-6"}, {"id": "linalyl-acetate", "korean_name": "리날릴아세테이트", "inci_name": "Linalyl Acetate", "category": "주의 성분 (향료)", "description": "베르가못·라벤더 향의 핵심이 되는 향 성분. 향을 부드럽게 내지만 향료 민감성 피부에는 자극이 될 수 있습니다.", "benefits": ["향 부여"], "skin_types": {"건성": "caution", "지성": "caution", "민감성": "bad", "복합성": "caution", "여드름성": "caution"}, "safety_grade": 4, "cautions": "향료 민감성 피부는 주의.", "status": "published", "added_date": "2026-06-12", "cas_no": "115-95-7"}, {"id": "linolenic-acid", "korean_name": "리놀레닉애씨드", "inci_name": "Linolenic Acid", "category": "장벽·진정", "description": "들기름·아마씨 등에 풍부한 오메가-3 계열 필수지방산. 피부 장벽을 채워 수분을 지키고 붉어진 피부를 진정시킵니다.", "benefits": ["피부 장벽 강화", "진정", "수분 손실 방지"], "skin_types": {"건성": "good", "지성": "good", "민감성": "good", "복합성": "good", "여드름성": "good"}, "safety_grade": 1, "cautions": "특별한 주의사항 없음.", "status": "published", "added_date": "2026-06-12", "cas_no": "463-40-1"}, {"id": "linoleamide-mea", "korean_name": "리놀레아마이드엠이에이", "inci_name": "Linoleamide MEA", "category": "점도·사용감 조절", "description": "지방산에서 유래한 성분으로, 주로 클렌저·샴푸에서 거품을 안정시키고 제형의 점도를 잡아주는 역할을 합니다.", "benefits": ["점도 조절", "거품 안정", "사용감 개선"], "skin_types": {"건성": "good", "지성": "good", "민감성": "good", "복합성": "good", "여드름성": "good"}, "safety_grade": 2, "cautions": "특별한 주의사항 없음.", "status": "published", "added_date": "2026-06-12", "cas_no": "10015-67-5\r,68171-52-8"}, {"id": "abies-koreana-leaf-powder", "korean_name": "구상나무잎가루", "inci_name": "Abies Koreana Leaf Powder", "category": "각질·향", "description": "한국 특산 구상나무 잎을 곱게 간 가루. 부드러운 물리적 스크럽과 숲 향의 청량감을 더해줍니다.", "benefits": ["부드러운 각질 케어", "은은한 향", "청량감"], "skin_types": {"건성": "good", "지성": "good", "민감성": "caution", "복합성": "good", "여드름성": "caution"}, "safety_grade": 1, "cautions": "물리적 알갱이가 있어 민감성·트러블 피부는 강하게 문지르지 않도록 주의.", "status": "published", "added_date": "2026-06-12"}, {"id": "linoleamidopropyl-dimethylamine-dimer-dilinoleate", "korean_name": "리놀레아미도프로필다이메틸아민다이머다이리놀리에이트", "inci_name": "Linoleamidopropyl Dimethylamine Dimer Dilinoleate", "category": "헤어·컨디셔닝", "description": "지방산에서 유래한 컨디셔닝 성분으로, 주로 헤어 제품에서 모발을 매끄럽고 차분하게 정돈합니다.", "benefits": ["모발 컨디셔닝", "정전기 방지", "부드러움"], "skin_types": {"건성": "good", "지성": "good", "민감성": "good", "복합성": "good", "여드름성": "good"}, "safety_grade": 2, "cautions": "주로 헤어 제품용 성분.", "status": "published", "added_date": "2026-06-12", "cas_no": "125804-10-6"}, {"id": "linoleamidopropyl-ethyldimonium-ethosulfate", "korean_name": "리놀레아미도프로필에틸다이모늄에토설페이트", "inci_name": "Linoleamidopropyl Ethyldimonium Ethosulfate", "category": "헤어·컨디셔닝", "description": "양이온성 컨디셔닝 성분. 모발 표면에 부드럽게 흡착해 엉킴과 정전기를 줄여줍니다.", "benefits": ["모발 컨디셔닝", "정전기 방지"], "skin_types": {"건성": "good", "지성": "good", "민감성": "good", "복합성": "good", "여드름성": "good"}, "safety_grade": 3, "cautions": "주로 헤어 제품용 성분.", "status": "published", "added_date": "2026-06-12", "cas_no": "99542-23-1"}, {"id": "linoleamidopropyl-pg-dimonium-chloride-phosphate", "korean_name": "리놀레아미도프로필피지-다이모늄클로라이드포스페이트", "inci_name": "Linoleamidopropyl PG-Dimonium Chloride Phosphate", "category": "헤어·컨디셔닝", "description": "지방산 유래 컨디셔닝 성분으로, 모발과 두피에 순하게 수분감과 매끄러움을 더합니다.", "benefits": ["모발 컨디셔닝", "보습", "정전기 방지"], "skin_types": {"건성": "good", "지성": "good", "민감성": "good", "복합성": "good", "여드름성": "good"}, "safety_grade": 2, "cautions": "주로 헤어 제품용 성분.", "status": "published", "added_date": "2026-06-12"}, {"id": "linoleamidopropyl-pg-dimonium-chloride-phosphate-dimethicone", "korean_name": "리놀레아미도프로필피지-다이모늄클로라이드포스페이트다이메티콘", "inci_name": "Linoleamidopropyl PG-Dimonium Chloride Phosphate Dimethicone", "category": "헤어·컨디셔닝", "description": "위 컨디셔닝 성분에 실리콘(다이메티콘)을 결합한 형태로, 모발에 윤기와 매끄러운 코팅감을 줍니다.", "benefits": ["모발 컨디셔닝", "윤기 부여"], "skin_types": {"건성": "good", "지성": "good", "민감성": "good", "복합성": "good", "여드름성": "good"}, "safety_grade": 2, "cautions": "주로 헤어 제품용 성분.", "status": "published", "added_date": "2026-06-12", "cas_no": "179005-04-0"}, {"id": "linoleic-acid", "korean_name": "리놀레익애씨드", "inci_name": "Linoleic Acid", "category": "장벽·트러블", "description": "해바라기씨유 등에 풍부한 오메가-6 필수지방산. 피부 장벽의 핵심 구성 성분으로, 특히 피지의 리놀레익애씨드가 부족한 여드름 피부에 도움을 줍니다.", "benefits": ["피부 장벽 강화", "여드름 완화 보조", "수분 손실 방지"], "skin_types": {"건성": "good", "지성": "good", "민감성": "good", "복합성": "good", "여드름성": "good"}, "safety_grade": 1, "cautions": "특별한 주의사항 없음.", "status": "published", "added_date": "2026-06-12", "cas_no": "342889-37-6 \t\r,60-33-3"}, {"id": "phaseolus-lunatus-green-bean-seed-extract", "korean_name": "리마콩씨추출물", "inci_name": "Phaseolus Lunatus (Green Bean) Seed Extract", "category": "보습·탄력", "description": "리마콩 씨에서 얻은 추출물. 단백질·아미노산이 풍부해 피부에 영양과 탄력을 더합니다.", "benefits": ["보습", "탄력 보조", "진정"], "skin_types": {"건성": "good", "지성": "good", "민감성": "caution", "복합성": "good", "여드름성": "good"}, "safety_grade": 1, "cautions": "콩(두류) 알레르기가 있다면 패치 테스트 권장.", "status": "published", "added_date": "2026-06-12", "cas_no": "85085-22-9"}, {"id": "limonene", "korean_name": "리모넨", "inci_name": "Limonene", "category": "주의 성분 (향료)", "description": "감귤류 껍질에 풍부한 상큼한 향 성분. 향을 더하지만 산화되면 자극·알레르기를 유발할 수 있어 EU 표기 의무 향료 26종에 포함됩니다.", "benefits": ["향 부여"], "skin_types": {"건성": "caution", "지성": "caution", "민감성": "bad", "복합성": "caution", "여드름성": "caution"}, "safety_grade": 6, "cautions": "향료 알레르기·민감성 피부는 주의. 무향 제품을 권장합니다.", "status": "published", "added_date": "2026-06-12", "cas_no": "68647-72-3 (generic)\r,5989-27-5(D-)\r,7705-13-7(D-)\r,138-86-3 (DL-)"}, {"id": "limonia-acidissima-wood-powder", "korean_name": "리모니아 아키디시마목부가루", "inci_name": "Limonia Acidissima Wood Powder", "category": "각질·향", "description": "우드애플 나무의 목부를 곱게 간 가루. 가벼운 물리적 각질 케어와 우디 향을 더합니다.", "benefits": ["부드러운 각질 케어", "은은한 향"], "skin_types": {"건성": "good", "지성": "good", "민감성": "caution", "복합성": "good", "여드름성": "caution"}, "safety_grade": 1, "cautions": "물리적 알갱이가 있어 민감성·트러블 피부는 강하게 문지르지 않도록 주의.", "status": "published", "added_date": "2026-06-12"}, {"id": "riboflavin-lactoflavin", "korean_name": "리보플라빈", "inci_name": "Riboflavin,Lactoflavin", "category": "항산화·착색", "description": "비타민B2. 항산화 작용을 하며 제품에 은은한 노란빛을 더하는 천연 착색 역할도 합니다.", "benefits": ["항산화", "자연 착색", "컨디셔닝"], "skin_types": {"건성": "good", "지성": "good", "민감성": "good", "복합성": "good", "여드름성": "good"}, "safety_grade": 1, "cautions": "노란색을 띠어 제형 색에 영향을 줄 수 있음.", "status": "published", "added_date": "2026-06-12", "cas_no": "83-88-5"}, {"id": "abies-koreana-leaf-extract", "korean_name": "구상나무잎추출물", "inci_name": "Abies Koreana Leaf Extract", "category": "진정·항산화", "description": "구상나무 잎에서 추출한 성분. 피톤치드 계열 성분이 피부를 진정시키고 항산화로 보호합니다.", "benefits": ["진정", "항산화", "수렴"], "skin_types": {"건성": "good", "지성": "good", "민감성": "good", "복합성": "good", "여드름성": "good"}, "safety_grade": 1, "cautions": "특별한 주의사항 없음.", "status": "published", "added_date": "2026-06-12"}, {"id": "litsea-cubeba-fruit-oil", "korean_name": "리씨열매오일", "inci_name": "Litsea Cubeba Fruit Oil", "category": "주의 성분 (에센셜오일)", "description": "리씨(May Chang) 열매에서 추출한 레몬 향 에센셜오일. 상쾌한 향과 항균 효과가 있지만 농도가 높으면 자극이 될 수 있습니다.", "benefits": ["향 부여", "항균 보조"], "skin_types": {"건성": "caution", "지성": "good", "민감성": "bad", "복합성": "good", "여드름성": "caution"}, "safety_grade": 4, "cautions": "정유 성분으로 민감성 피부는 주의. 광과민 가능성이 있어 사용 후 자외선 노출에 유의.", "status": "published", "added_date": "2026-06-12", "cas_no": "68855-99-2"}, {"id": "litchi-chinensis-pericarp-extract", "korean_name": "리치과피추출물", "inci_name": "Litchi Chinensis Pericarp Extract", "category": "항산화", "description": "리치 껍질 추출물. 폴리페놀 항산화 성분이 풍부해 피부를 보호하고 환한 톤을 돕습니다.", "benefits": ["항산화", "톤 개선 보조", "진정"], "skin_types": {"건성": "good", "지성": "good", "민감성": "good", "복합성": "good", "여드름성": "good"}, "safety_grade": 1, "cautions": "특별한 주의사항 없음.", "status": "published", "added_date": "2026-06-12", "cas_no": "91722-81-5"}, {"id": "litchi-chinensis-seed-extract", "korean_name": "리치씨추출물", "inci_name": "Litchi Chinensis Seed Extract", "category": "항산화·보습", "description": "리치 씨에서 얻은 추출물로, 항산화와 함께 피부에 수분과 탄력을 더해줍니다.", "benefits": ["항산화", "보습", "탄력 보조"], "skin_types": {"건성": "good", "지성": "good", "민감성": "good", "복합성": "good", "여드름성": "good"}, "safety_grade": 1, "cautions": "특별한 주의사항 없음.", "status": "published", "added_date": "2026-06-12"}, {"id": "litchi-chinensis-fruit-extract", "korean_name": "리치추출물", "inci_name": "Litchi Chinensis Fruit Extract", "category": "항산화·보습", "description": "리치 과육 추출물. 비타민C 등 영양 성분이 풍부해 피부에 생기와 수분을 더합니다.", "benefits": ["항산화", "수분 공급", "영양 공급"], "skin_types": {"건성": "good", "지성": "good", "민감성": "good", "복합성": "good", "여드름성": "good"}, "safety_grade": 1, "cautions": "특별한 주의사항 없음.", "status": "published", "added_date": "2026-06-12"}, {"id": "lithothamnion-calcareum-powder", "korean_name": "리토탐니온 칼카룸가루", "inci_name": "Lithothamnion Calcareum Powder", "category": "미네랄·보습", "description": "칼슘·마그네슘이 풍부한 홍조류를 갈아 만든 가루. 미네랄을 공급하고 피부 표면을 매끄럽게 정돈합니다.", "benefits": ["미네랄 공급", "보습", "피부 정돈"], "skin_types": {"건성": "good", "지성": "good", "민감성": "good", "복합성": "good", "여드름성": "good"}, "safety_grade": 1, "cautions": "특별한 주의사항 없음.", "status": "published", "added_date": "2026-06-12"}, {"id": "lithium-magnesium-sodium-silicate", "korean_name": "리튬마그네슘소듐실리케이트", "inci_name": "Lithium Magnesium Sodium Silicate", "category": "점증·흡착", "description": "합성 점토 성분으로, 제형을 안정적으로 굳혀주고 과잉 피지를 흡착하는 역할을 합니다. 마스크·클레이 제품에 자주 쓰입니다.", "benefits": ["점도 조절", "피지 흡착", "제형 안정"], "skin_types": {"건성": "good", "지성": "good", "민감성": "good", "복합성": "good", "여드름성": "good"}, "safety_grade": 2, "cautions": "특별한 주의사항 없음.", "status": "published", "added_date": "2026-06-12", "cas_no": "53320-86-8"}, {"id": "lithium-stearate", "korean_name": "리튬스테아레이트", "inci_name": "Lithium Stearate", "category": "점도·사용감 조절", "description": "지방산(스테아릭애씨드)의 리튬염으로, 제형의 점도와 발림성을 조절하는 보조 성분입니다.", "benefits": ["점도 조절", "사용감 개선"], "skin_types": {"건성": "good", "지성": "good", "민감성": "good", "복합성": "good", "여드름성": "good"}, "safety_grade": 2, "cautions": "특별한 주의사항 없음.", "status": "published", "added_date": "2026-06-12", "cas_no": "12/5/85"}, {"id": "hyaluronic-acid-0", "korean_name": "하이알루로닉애씨드", "inci_name": "Hyaluronic Acid", "category": "보습", "description": "순수 형태의 히알루론산. 피부 속 수분을 끌어당겨 머금어 촉촉함을 오래 유지하는 대표 보습 성분입니다.", "benefits": ["수분 공급", "피부 장벽 강화", "탄력 보조"], "skin_types": {"건성": "good", "지성": "good", "민감성": "good", "복합성": "good", "여드름성": "good"}, "safety_grade": 1, "cautions": "특별한 주의사항 없음. 모든 피부에 무난합니다.", "status": "published", "added_date": "2026-06-12"}, {"id": "hydrolyzed-hyaluronic-acid", "korean_name": "하이드롤라이즈드하이알루로닉애씨드", "inci_name": "Hydrolyzed Hyaluronic Acid", "category": "보습", "description": "히알루론산을 잘게 쪼갠 저분자 형태. 분자가 작아 각질층 안쪽까지 수분을 전달해 속부터 촉촉하게 합니다.", "benefits": ["저분자 수분 공급", "속보습"], "skin_types": {"건성": "good", "지성": "good", "민감성": "good", "복합성": "good", "여드름성": "good"}, "safety_grade": 1, "cautions": "특별한 주의사항 없음.", "status": "published", "added_date": "2026-06-12"}, {"id": "magnesium-ascorbyl-phosphate", "korean_name": "마그네슘아스코빌포스페이트", "inci_name": "Magnesium Ascorbyl Phosphate", "category": "미백·톤개선", "description": "물에 안정적인 비타민C 유도체. 순수 비타민C보다 순해 민감성 피부도 부담 없이 미백·항산화 효과를 기대할 수 있습니다.", "benefits": ["미백", "항산화", "저자극"], "skin_types": {"건성": "good", "지성": "good", "민감성": "good", "복합성": "good", "여드름성": "good"}, "safety_grade": 1, "cautions": "특별한 주의사항 없음.", "status": "published", "added_date": "2026-06-12"}, {"id": "3-o-ethyl-ascorbic-acid", "korean_name": "3-O-에틸아스코빅애씨드", "inci_name": "3-O-Ethyl Ascorbic Acid", "category": "미백·톤개선", "description": "비타민C 유도체 중 안정성이 뛰어난 형태. 순수 비타민C의 미백 효과를 유지하면서 쉽게 산화되지 않아 자극이 덜합니다.", "benefits": ["미백", "항산화", "안정성 우수"], "skin_types": {"건성": "good", "지성": "good", "민감성": "good", "복합성": "good", "여드름성": "good"}, "safety_grade": 1, "cautions": "특별한 주의사항 없음.", "status": "published", "added_date": "2026-06-12"}, {"id": "tocopherol", "korean_name": "토코페롤", "inci_name": "Tocopherol", "category": "항산화", "description": "비타민E. 강력한 항산화 작용으로 활성산소로부터 피부를 보호하고, 다른 성분의 산화도 막아 제품을 안정시킵니다.", "benefits": ["항산화", "보습", "장벽 보호"], "skin_types": {"건성": "good", "지성": "good", "민감성": "good", "복합성": "good", "여드름성": "good"}, "safety_grade": 1, "cautions": "특별한 주의사항 없음.", "status": "published", "added_date": "2026-06-12"}, {"id": "soluble-collagen", "korean_name": "수용성콜라겐", "inci_name": "Soluble Collagen", "category": "보습·탄력", "description": "가수분해하지 않은 천연 콜라겐. 피부 표면에 보습막을 형성해 촉촉함과 매끄러움을 줍니다.", "benefits": ["표면 보습", "피부 유연화", "일시적 탄력감"], "skin_types": {"건성": "good", "지성": "good", "민감성": "good", "복합성": "good", "여드름성": "good"}, "safety_grade": 1, "cautions": "동물 유래 성분 — 비건 제품을 찾는다면 확인 필요.", "status": "published", "added_date": "2026-06-12"}, {"id": "dexpanthenol", "korean_name": "덱스판테놀", "inci_name": "Dexpanthenol", "category": "진정·보습", "description": "판테놀의 활성형(프로비타민B5). 자극받은 피부를 빠르게 달래고 장벽 회복을 도와 더모 코스메틱 제품에 자주 쓰입니다.", "benefits": ["진정", "보습", "재생 보조"], "skin_types": {"건성": "good", "지성": "good", "민감성": "good", "복합성": "good", "여드름성": "good"}, "safety_grade": 1, "cautions": "특별한 주의사항 없음.", "status": "published", "added_date": "2026-06-12"}, {"id": "adenosine", "korean_name": "아데노신", "inci_name": "Adenosine", "category": "주름·안티에이징", "description": "세포 에너지원에서 유래한 식약처 고시 주름개선 기능성 성분. 순하면서도 주름 완화 효과가 검증돼 안티에이징 제품에 널리 쓰입니다.", "benefits": ["주름 개선", "탄력 보조"], "skin_types": {"건성": "good", "지성": "good", "민감성": "good", "복합성": "good", "여드름성": "good"}, "safety_grade": 1, "cautions": "특별한 주의사항 없음.", "status": "published", "added_date": "2026-06-12"}, {"id": "madecassoside", "korean_name": "마데카소사이드", "inci_name": "Madecassoside", "category": "진정·재생", "description": "병풀(센텔라)의 핵심 활성 성분. 자극받은 피부를 빠르게 진정시키고 재생을 도와 시카 제품의 주역으로 쓰입니다.", "benefits": ["진정", "재생", "항염"], "skin_types": {"건성": "good", "지성": "good", "민감성": "good", "복합성": "good", "여드름성": "good"}, "safety_grade": 1, "cautions": "특별한 주의사항 없음.", "status": "published", "added_date": "2026-06-12"}, {"id": "madecassic-acid", "korean_name": "마데카식애씨드", "inci_name": "Madecassic Acid", "category": "진정·재생", "description": "병풀에서 얻은 활성 성분으로, 붉어진 피부를 가라앉히고 피부 진정을 돕습니다.", "benefits": ["진정", "항염", "재생 보조"], "skin_types": {"건성": "good", "지성": "good", "민감성": "good", "복합성": "good", "여드름성": "good"}, "safety_grade": 1, "cautions": "특별한 주의사항 없음.", "status": "published", "added_date": "2026-06-12"}, {"id": "alpha-arbutin", "korean_name": "알파-알부틴", "inci_name": "Alpha-Arbutin", "category": "미백·톤개선", "description": "알부틴 중 미백 효율이 가장 높은 형태. 안정적이고 흡수가 잘 돼 톤 개선 효과가 뛰어납니다.", "benefits": ["미백", "잡티 예방", "흡수율 우수"], "skin_types": {"건성": "good", "지성": "good", "민감성": "good", "복합성": "good", "여드름성": "good"}, "safety_grade": 2, "cautions": "특별한 주의사항 없음.", "status": "published", "added_date": "2026-06-12"}, {"id": "houttuynia-cordata-extract", "korean_name": "약모밀추출물", "inci_name": "Houttuynia Cordata Extract", "category": "진정·트러블", "description": "약모밀(어성초) 추출물. 항염 작용이 뛰어나 예민하고 트러블 잦은 피부를 차분하게 진정시킵니다.", "benefits": ["진정", "항염", "트러블 완화"], "skin_types": {"건성": "good", "지성": "good", "민감성": "good", "복합성": "good", "여드름성": "good"}, "safety_grade": 1, "cautions": "특별한 주의사항 없음.", "status": "published", "added_date": "2026-06-12"}, {"id": "centella-asiatica-leaf-extract", "korean_name": "병풀잎추출물", "inci_name": "Centella Asiatica Leaf Extract", "category": "진정·재생", "description": "병풀 잎 추출물. 자극받은 피부를 빠르게 진정시키고 재생을 돕는 시카 케어의 대표 성분입니다.", "benefits": ["진정", "재생", "홍조 완화"], "skin_types": {"건성": "good", "지성": "good", "민감성": "good", "복합성": "good", "여드름성": "good"}, "safety_grade": 1, "cautions": "특별한 주의사항 없음.", "status": "published", "added_date": "2026-06-12"}, {"id": "bakuchiol", "korean_name": "바쿠치올", "inci_name": "Bakuchiol", "category": "주름·안티에이징", "description": "식물 유래 '천연 레티놀 대안'. 레티놀과 비슷한 주름·탄력 개선 효과를 내면서 자극이 적어 민감성 피부도 쓸 수 있습니다.", "benefits": ["주름 개선", "탄력 보조", "저자극"], "skin_types": {"건성": "good", "지성": "good", "민감성": "good", "복합성": "good", "여드름성": "good"}, "safety_grade": 2, "cautions": "특별한 주의사항 없음.", "status": "published", "added_date": "2026-06-12"}, {"id": "caffeine", "korean_name": "카페인", "inci_name": "Caffeine", "category": "탄력·부기 케어", "description": "혈행을 자극해 부기를 빼주는 성분. 특히 눈가 붓기·다크서클 케어 아이크림에 자주 쓰입니다.", "benefits": ["부기 완화", "항산화", "혈행 보조"], "skin_types": {"건성": "good", "지성": "good", "민감성": "good", "복합성": "good", "여드름성": "good"}, "safety_grade": 1, "cautions": "특별한 주의사항 없음.", "status": "published", "added_date": "2026-06-12"}, {"id": "ethylhexylglycerin", "korean_name": "에틸헥실글리세린", "inci_name": "Ethylhexylglycerin", "category": "보존 보조·보습", "description": "순한 보존 보조 성분. 페녹시에탄올 등과 함께 쓰여 적은 양으로 제품을 안전하게 지키고 가벼운 보습도 더합니다.", "benefits": ["보존 보조", "보습", "데오드란트 효과"], "skin_types": {"건성": "good", "지성": "good", "민감성": "good", "복합성": "good", "여드름성": "good"}, "safety_grade": 1, "cautions": "특별한 주의사항 없음.", "status": "published", "added_date": "2026-06-12"}]};
+const PRODUCTS = {"_guide": "제휴 제품 목록. status가 active인 제품만 페이지에 노출됩니다. url에 제휴 링크를 넣고 status를 'active'로 바꾸세요. source에는 제휴처 이름(예: 올리브영, 쿠팡)을 적으면 제품 카드에 출처 배지가 표시됩니다.", "affiliate_notice": "본 페이지의 일부 상품 링크는 제휴 마케팅의 일환으로, 이를 통해 일정액의 수수료를 제공받을 수 있습니다.", "products": [{"id": "skin1004-cica-sun-serum", "name": "스킨1004 마다가스카르 센텔라 히알루-시카 워터핏 선세럼 50ml (2입 기획)", "url": "https://oy.run/PgtpFEmsTsA9iX", "image": "https://image.oliveyoung.co.kr/cfimages/cf-goods/uploads/images/thumbnails/10/0000/0021/A00000021555908ko.jpg?l=ko&QT=85&SF=webp&sharpen=1x0.5", "price": "", "source": "올리브영", "note": "센텔라·히알루론산이 든 진정 선세럼. 자외선 차단과 보습·진정을 한 번에.", "ingredients": ["centella", "centella-asiatica-leaf-extract", "madecassoside", "hyaluronic-acid", "hydrolyzed-hyaluronic-acid"], "skin_types": ["민감성", "건성", "복합성", "지성"], "status": "active"}, {"id": "biohealbo-probioderm-collagen-mask", "name": "바이오힐보 프로바이오덤 콜라겐 리모델링 세럼 겔 마스크", "url": "https://oy.run/tAiJa3lkSOCOmJ", "image": "https://image.oliveyoung.co.kr/cfimages/cf-goods/uploads/images/thumbnails/10/0000/0020/A00000020438836ko.jpg?l=ko&QT=85&SF=webp&sharpen=1x0.5", "price": "9,900원", "source": "올리브영", "note": "콜라겐 4종 하이드로겔 마스크. 탄력·광채와 모공 케어에.", "ingredients": ["collagen", "soluble-collagen"], "skin_types": ["건성", "복합성", "지성", "민감성"], "status": "active"}]};
+const FIT_LABEL={good:"추천",caution:"주의",bad:"비추천"};
 
-const grid=document.getElementById('grid'),search=document.getElementById('search'),
-catSel=document.getElementById('category'),sortSel=document.getElementById('sort'),
-countEl=document.getElementById('count');
-let skinFilter='';
+function esc(s){return String(s==null?"":s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+function norm(s){return String(s||"").toLowerCase().replace(/[\s()\[\]{}·,./\-_+]/g,"")}
+function gradeColor(g){return g<=2?"#3a9b6e":g<=6?"#c98a1b":"#c4534f"}
 
-document.getElementById('updated').textContent='최근 업데이트: '+DATA.meta.updated+' · 등록 성분 '+DATA.ingredients.length+'개';
-
-[...new Set(DATA.ingredients.map(i=>i.category))].sort().forEach(c=>{
-  const o=document.createElement('option');o.value=c;o.textContent=c;catSel.appendChild(o);
+// 성분 사전 인덱스 (정규화된 한글명·영문명 → 성분)
+const INDEX=[];
+DATA.ingredients.forEach(i=>{
+  INDEX.push({key:norm(i.korean_name),ing:i});
+  if(i.inci_name) INDEX.push({key:norm(i.inci_name),ing:i});
 });
 
-document.getElementById('skinChips').addEventListener('click',e=>{
-  if(!e.target.classList.contains('chip'))return;
-  document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));
-  e.target.classList.add('active');
-  skinFilter=e.target.dataset.skin;render();
-});
-search.addEventListener('input',render);
-catSel.addEventListener('change',render);
-sortSel.addEventListener('change',render);
+function commonPrefix(a,b){ let n=0; const m=Math.min(a.length,b.length); while(n<m&&a[n]===b[n])n++; return n; }
+function matchToken(tok){
+  const t=norm(tok);
+  if(t.length<2) return null;
+  // 1) 완전 일치  2) 포함(사전명 3자+)  3) 공통 접두 5자 이상(예: 센텔라아시아티카추출물 ↔ 센텔라아시아티카)
+  let best=null, bestScore=0;
+  for(const e of INDEX){
+    if(!e.key) continue;
+    if(e.key===t) return e.ing;
+    let score=0;
+    if(t.includes(e.key) && e.key.length>=3) score=e.key.length+1;
+    else if(e.key.includes(t) && t.length>=3) score=t.length;
+    else { const cp=commonPrefix(e.key,t); if(cp>=5) score=cp; }
+    if(score>bestScore){ bestScore=score; best=e.ing; }
+  }
+  return best;
+}
 
-function gradeColor(g){return g<=2?'#3a9b6e':g<=6?'#c98a1b':'#c4534f'}
-function isNew(d){return (Date.now()-new Date(d))/(1000*3600*24)<14}
-const skinLabel={good:'추천',caution:'주의',bad:'비추천'};
+function demo(){
+  document.getElementById("input").value="정제수, 글리세린, 나이아신아마이드, 부틸렌글라이콜, 센텔라아시아티카추출물, 판테놀, 아데노신, 하이알루로닉애씨드, 향료, 리모넨, 페녹시에탄올";
+  document.getElementById("skin").value="민감성";
+}
 
-function render(){
-  const q=search.value.trim().toLowerCase(),cat=catSel.value;
-  let list=DATA.ingredients.filter(i=>{
-    if(cat&&i.category!==cat)return false;
-    if(skinFilter&&i.skin_types[skinFilter]!=='good')return false;
-    if(q){
-      const hay=(i.korean_name+' '+i.inci_name+' '+i.category+' '+i.benefits.join(' ')+' '+i.description).toLowerCase();
-      if(!hay.includes(q))return false;
-    }
-    return true;
+function analyze(){
+  const raw=document.getElementById("input").value.trim();
+  if(!raw){ alert("전성분을 붙여넣어 주세요."); return; }
+  const skin=document.getElementById("skin").value;
+  // 토큰 분리: 쉼표·줄바꿈·가운뎃점·세미콜론
+  const tokens=raw.split(/[,\n;]+/).map(s=>s.trim()).filter(Boolean);
+
+  const matched=[], unknown=[], seen=new Set();
+  tokens.forEach(tok=>{
+    const ing=matchToken(tok);
+    if(ing){ if(!seen.has(ing.id)){ seen.add(ing.id); matched.push(ing); } }
+    else unknown.push(tok.replace(/\d+(\.\d+)?%?$/,"").trim());
   });
-  const s=sortSel.value;
-  if(s==='safety')list.sort((a,b)=>a.safety_grade-b.safety_grade);
-  else if(s==='new')list.sort((a,b)=>new Date(b.added_date)-new Date(a.added_date));
-  else list.sort((a,b)=>a.korean_name.localeCompare(b.korean_name,'ko'));
 
-  countEl.textContent=list.length+'개 성분'+(skinFilter?' · '+skinFilter+' 피부 추천만 표시 중':'');
-  grid.innerHTML=list.length?list.map(card).join(''):'<div class="empty">조건에 맞는 성분이 없습니다 🧴</div>';
+  // 피부타입 기준 적합도 집계
+  let bad=0,cau=0,good=0;
+  if(skin) matched.forEach(i=>{ const v=i.skin_types[skin]; if(v==="bad")bad++; else if(v==="caution")cau++; else if(v==="good")good++; });
+
+  // 요약
+  const sum=document.getElementById("summary");
+  if(!skin){
+    sum.className="summary s-good";
+    sum.innerHTML=`<b>${matched.length}개 성분을 분석했어요.</b><br>피부타입을 선택하면 나에게 맞는지까지 알려드려요.
+      <div class="stat"><span>인식 ${matched.length}개</span><span>미인식 ${unknown.length}개</span></div>`;
+  } else {
+    let cls="s-good", msg="";
+    if(bad>0){ cls="s-bad"; msg=`<b>${skin} 피부에 주의가 필요한 제품이에요.</b><br>비추천 성분 ${bad}개가 포함돼 있어요. 사용 전 패치 테스트를 권해요.`; }
+    else if(cau>=2){ cls="s-cau"; msg=`<b>${skin} 피부에 대체로 무난하지만 주의 성분이 있어요.</b><br>주의 성분 ${cau}개를 확인하세요.`; }
+    else { cls="s-good"; msg=`<b>${skin} 피부에 잘 맞는 편이에요! 👍</b><br>추천 성분 ${good}개가 들어 있어요.`; }
+    sum.className="summary "+cls;
+    sum.innerHTML=msg+`<div class="stat"><span>👍 추천 ${good}</span><span>⚠️ 주의 ${cau}</span><span>🚫 비추천 ${bad}</span><span>미인식 ${unknown.length}</span></div>`;
+  }
+
+  // 성분 목록: 주의도 높은 순(bad>caution>good), 그 다음 안전등급
+  const rank=i=>{ if(!skin) return 10-i.safety_grade; const v=i.skin_types[skin]; return ({bad:0,caution:1,good:2}[v]??1)*100 - i.safety_grade; };
+  matched.sort((a,b)=>rank(a)-rank(b));
+  document.getElementById("matched").innerHTML=matched.map(i=>{
+    const v=skin?i.skin_types[skin]:null;
+    const fit=v?`<span class="fit ${v}">${skin} ${FIT_LABEL[v]}</span>`:"";
+    return `<div class="ing">
+      <span class="gb" style="background:${gradeColor(i.safety_grade)}">${i.safety_grade}</span>
+      <div class="info"><div class="nm"><a href="detail/${encodeURIComponent(i.id)}.html">${esc(i.korean_name)}</a></div>
+        <div class="meta">${esc(i.category)} · ${esc((i.benefits||[]).slice(0,3).join(", "))}</div></div>
+      ${fit}</div>`;
+  }).join("") || '<p class="unknown">사전에 등록된 성분을 찾지 못했어요.</p>';
+
+  // 미인식
+  const ub=document.getElementById("unknownBox");
+  if(unknown.length){
+    const uniq=[...new Set(unknown.filter(u=>u.length>1))].slice(0,30);
+    ub.innerHTML=`<h2>❓ 사전에 없는 성분 (${uniq.length})</h2>
+      <div class="unknown">아직 사전에 없거나 표기가 달라 인식하지 못한 성분이에요:<br><b>${uniq.map(esc).join(", ")}</b></div>`;
+  } else ub.innerHTML="";
+
+  // 제휴 제품 추천 (피부타입 매칭, 분석된 성분과 겹치면 우선)
+  const pb=document.getElementById("productBox");
+  let prods=(PRODUCTS.products||[]).filter(p=>p.status==="active"||p.url);
+  if(skin) prods=prods.filter(p=>(p.skin_types||[]).includes(skin));
+  if(prods.length){
+    pb.innerHTML=`<h2>🛒 ${skin?skin+" 피부":"내 피부"} 추천 제품</h2><div class="pgrid">${prods.slice(0,4).map(pcard).join("")}</div>
+      <div class="affiliate-notice">${esc(PRODUCTS.affiliate_notice||"")}</div>`;
+  } else pb.innerHTML="";
+
+  document.getElementById("result").style.display="block";
+  document.getElementById("result").scrollIntoView({behavior:"smooth"});
 }
 
-function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
-
-function card(i){
-  const skins=Object.entries(i.skin_types).map(([k,v])=>
-    `<span class="skin ${v}">${k} ${skinLabel[v]||v}</span>`).join('');
-  const url=`detail/${encodeURIComponent(i.id)}.html`;
-  return `<div class="card">
-    <div class="top">
-      <div><div class="kname"><a href="${url}">${esc(i.korean_name)}</a>${isNew(i.added_date)?'<span class="new-badge">NEW</span>':''}</div>
-      <div class="iname">${esc(i.inci_name)}</div></div>
-      <span class="cat">${esc(i.category)}</span>
-    </div>
-    <div class="grade"><span class="grade-badge" style="background:${gradeColor(i.safety_grade)}">${i.safety_grade}</span>
-      <span>안전등급 (EWG 참고)</span></div>
-    <div class="desc">${esc(i.description)}</div>
-    <div class="benefits">${i.benefits.map(b=>`<span class="benefit">#${esc(b)}</span>`).join('')}</div>
-    <div class="skin-row">${skins}</div>
-    ${i.cautions?`<div class="cautions">⚠️ ${esc(i.cautions)}</div>`:''}
-    <a class="detail-link" href="${url}">자세히 보기 →</a>
-  </div>`;
+function pcard(p){
+  const img=p.image?`<img src="${esc(p.image)}" alt="${esc(p.name)}" loading="lazy">`:"";
+  const badge=p.source?`<span class="psrc">${esc(p.source)}</span>`:"";
+  const src=p.source?esc(p.source):"제휴처";
+  return `<a class="pcard" href="${esc(p.url)}" target="_blank" rel="nofollow sponsored noopener">
+    ${img}<div class="pb">${badge}<div class="pn">${esc(p.name)}</div><span class="pbt">${src}에서 보기 →</span></div></a>`;
 }
-render();
 </script>
 </body>
 </html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>전성분 분석기 — 내 화장품, 내 피부에 맞을까? | 성분 사전</title>
+<meta name="description" content="화장품 전성분을 붙여넣으면 피부타입별 적합도, 안전등급, 주의 성분을 자동으로 분석해 드립니다.">
+<meta name="robots" content="index,follow">
+<!--__SITE_META__-->
+<style>
+  :root{--bg:#faf7f4;--card:#fff;--ink:#2b2622;--sub:#8a7f76;--accent:#b08968;--accent-dark:#8c6a4f;--line:#eee5dd;
+    --good:#3a9b6e;--good-bg:#e7f5ee;--caution:#c98a1b;--caution-bg:#fdf3e0;--bad:#c4534f;--bad-bg:#fbe9e8}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Apple SD Gothic Neo','Pretendard','Noto Sans KR',sans-serif;background:var(--bg);color:var(--ink);line-height:1.7}
+  header{background:linear-gradient(135deg,#f3e9df,#e9d9c8);padding:44px 24px 34px;text-align:center}
+  header h1{font-size:27px;font-weight:800;letter-spacing:-0.5px}
+  header p{color:#7a6a58;margin-top:8px;font-size:15px}
+  .wrap{max-width:760px;margin:0 auto;padding:24px}
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;margin-bottom:18px}
+  label{display:block;font-size:13px;color:var(--sub);font-weight:600;margin-bottom:6px}
+  textarea{width:100%;min-height:120px;padding:13px;border:1px solid var(--line);border-radius:11px;font-size:14px;font-family:inherit;resize:vertical}
+  .row{display:flex;gap:10px;align-items:end;margin-top:12px;flex-wrap:wrap}
+  select{padding:11px 14px;border:1px solid var(--line);border-radius:11px;font-size:14px;background:#fff}
+  .go{flex:1;min-width:140px;padding:14px;border:none;border-radius:11px;background:var(--accent);color:#fff;font-size:16px;font-weight:700;cursor:pointer}
+  .go:hover{background:var(--accent-dark)}
+  .ex{font-size:12px;color:var(--sub);margin-top:10px}
+  .ex a{color:var(--accent);cursor:pointer;text-decoration:underline}
+  .result{display:none}
+  .summary{border-radius:14px;padding:20px;margin-bottom:18px;font-size:15px}
+  .summary.s-good{background:var(--good-bg);border:1px solid #bfe6d0}
+  .summary.s-cau{background:var(--caution-bg);border:1px solid #f0dcb0}
+  .summary.s-bad{background:var(--bad-bg);border:1px solid #f0c8c5}
+  .summary b{font-size:17px}
+  .stat{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+  .stat span{font-size:12.5px;background:rgba(255,255,255,.6);padding:4px 10px;border-radius:999px}
+  h2{font-size:16px;margin:22px 0 10px;color:#6e4f3a}
+  .ing{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:13px 15px;margin-bottom:9px}
+  .ing .gb{width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:14px;flex-shrink:0}
+  .ing .info{flex:1;min-width:0}
+  .ing .nm{font-weight:700;font-size:15px}
+  .ing .nm a{color:inherit;text-decoration:none}.ing .nm a:hover{color:var(--accent);text-decoration:underline}
+  .ing .meta{font-size:12.5px;color:var(--sub)}
+  .fit{font-size:12px;font-weight:700;padding:4px 10px;border-radius:7px;flex-shrink:0}
+  .fit.good{background:var(--good-bg);color:var(--good)}.fit.caution{background:var(--caution-bg);color:var(--caution)}.fit.bad{background:var(--bad-bg);color:var(--bad)}
+  .unknown{font-size:13px;color:var(--sub);background:#f6f1ec;border-radius:10px;padding:12px 14px}
+  .unknown b{color:var(--ink)}
+  .pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+  .pcard{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:13px;overflow:hidden;text-decoration:none;color:inherit;background:#fff}
+  .pcard:hover{border-color:var(--accent)}
+  .pcard img{width:100%;height:120px;object-fit:cover;background:#f3ece5}
+  .pcard .pb{padding:12px;display:flex;flex-direction:column;gap:5px}
+  .pcard .psrc{align-self:flex-start;font-size:10.5px;font-weight:700;color:var(--good);background:var(--good-bg);padding:2px 8px;border-radius:999px}
+  .pcard .pn{font-size:13.5px;font-weight:700;line-height:1.4}
+  .pcard .pbt{font-size:12px;color:var(--accent);font-weight:600}
+  .affiliate-notice{font-size:11.5px;color:#a4937f;background:#f6f1ec;border-radius:8px;padding:9px 12px;margin-top:10px}
+  .nav{text-align:center;margin-top:20px}
+  .nav a{color:var(--accent);text-decoration:none;font-size:14px;margin:0 8px}
+  footer{text-align:center;padding:30px 16px;font-size:12px;color:var(--sub)}
+</style>
+</head>
+<body>
+<header>
+  <h1>🔬 전성분 분석기</h1>
+  <p>화장품 뒷면의 전성분을 붙여넣으면, 내 피부에 맞는지 분석해 드려요</p>
+</header>
+<div class="wrap">
+  <div class="panel">
+    <label>전성분을 붙여넣으세요 (쉼표로 구분된 형태 그대로)</label>
+    <textarea id="input" placeholder="예) 정제수, 글리세린, 나이아신아마이드, 부틸렌글라이콜, 센텔라아시아티카추출물, 판테놀, 향료 ..."></textarea>
+    <div class="row">
+      <div>
+        <label>내 피부타입</label>
+        <select id="skin">
+          <option value="">선택 안 함</option>
+          <option value="건성">건성</option><option value="지성">지성</option>
+          <option value="민감성">민감성</option><option value="복합성">복합성</option>
+          <option value="여드름성">여드름성</option>
+        </select>
+      </div>
+      <button class="go" onclick="analyze()">분석하기</button>
+    </div>
+    <div class="ex">예시로 해보기: <a onclick="demo()">샘플 전성분 넣기</a></div>
+  </div>
+
+  <div class="result" id="result">
+    <div class="summary" id="summary"></div>
+    <h2>📋 분석된 성분</h2>
+    <div id="matched"></div>
+    <div id="unknownBox"></div>
+    <div id="productBox"></div>
+    <div class="nav">
+      <a href="quiz.html">🧫 피부타입 진단하기</a> ·
+      <a href="index.html">📖 성분 사전</a>
+    </div>
+  </div>
+</div>
+<footer>분석은 보유 성분 데이터 기준의 일반 참고용이며, 의학적 판단이 아닙니다. 전성분 표기 방식에 따라 일부 성분은 인식되지 않을 수 있습니다.</footer>
+
+<script>
+const DATA = /*__DATA__*/;
+const PRODUCTS = /*__PRODUCTS__*/;
+const FIT_LABEL={good:"추천",caution:"주의",bad:"비추천"};
+
+function esc(s){return String(s==null?"":s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+function norm(s){return String(s||"").toLowerCase().replace(/[\s()\[\]{}·,./\-_+]/g,"")}
+function gradeColor(g){return g<=2?"#3a9b6e":g<=6?"#c98a1b":"#c4534f"}
+
+// 성분 사전 인덱스 (정규화된 한글명·영문명 → 성분)
+const INDEX=[];
+DATA.ingredients.forEach(i=>{
+  INDEX.push({key:norm(i.korean_name),ing:i});
+  if(i.inci_name) INDEX.push({key:norm(i.inci_name),ing:i});
+});
+
+function commonPrefix(a,b){ let n=0; const m=Math.min(a.length,b.length); while(n<m&&a[n]===b[n])n++; return n; }
+function matchToken(tok){
+  const t=norm(tok);
+  if(t.length<2) return null;
+  // 1) 완전 일치  2) 포함(사전명 3자+)  3) 공통 접두 5자 이상(예: 센텔라아시아티카추출물 ↔ 센텔라아시아티카)
+  let best=null, bestScore=0;
+  for(const e of INDEX){
+    if(!e.key) continue;
+    if(e.key===t) return e.ing;
+    let score=0;
+    if(t.includes(e.key) && e.key.length>=3) score=e.key.length+1;
+    else if(e.key.includes(t) && t.length>=3) score=t.length;
+    else { const cp=commonPrefix(e.key,t); if(cp>=5) score=cp; }
+    if(score>bestScore){ bestScore=score; best=e.ing; }
+  }
+  return best;
+}
+
+function demo(){
+  document.getElementById("input").value="정제수, 글리세린, 나이아신아마이드, 부틸렌글라이콜, 센텔라아시아티카추출물, 판테놀, 아데노신, 하이알루로닉애씨드, 향료, 리모넨, 페녹시에탄올";
+  document.getElementById("skin").value="민감성";
+}
+
+function analyze(){
+  const raw=document.getElementById("input").value.trim();
+  if(!raw){ alert("전성분을 붙여넣어 주세요."); return; }
+  const skin=document.getElementById("skin").value;
+  // 토큰 분리: 쉼표·줄바꿈·가운뎃점·세미콜론
+  const tokens=raw.split(/[,\n;]+/).map(s=>s.trim()).filter(Boolean);
+
+  const matched=[], unknown=[], seen=new Set();
+  tokens.forEach(tok=>{
+    const ing=matchToken(tok);
+    if(ing){ if(!seen.has(ing.id)){ seen.add(ing.id); matched.push(ing); } }
+    else unknown.push(tok.replace(/\d+(\.\d+)?%?$/,"").trim());
+  });
+
+  // 피부타입 기준 적합도 집계
+  let bad=0,cau=0,good=0;
+  if(skin) matched.forEach(i=>{ const v=i.skin_types[skin]; if(v==="bad")bad++; else if(v==="caution")cau++; else if(v==="good")good++; });
+
+  // 요약
+  const sum=document.getElementById("summary");
+  if(!skin){
+    sum.className="summary s-good";
+    sum.innerHTML=`<b>${matched.length}개 성분을 분석했어요.</b><br>피부타입을 선택하면 나에게 맞는지까지 알려드려요.
+      <div class="stat"><span>인식 ${matched.length}개</span><span>미인식 ${unknown.length}개</span></div>`;
+  } else {
+    let cls="s-good", msg="";
+    if(bad>0){ cls="s-bad"; msg=`<b>${skin} 피부에 주의가 필요한 제품이에요.</b><br>비추천 성분 ${bad}개가 포함돼 있어요. 사용 전 패치 테스트를 권해요.`; }
+    else if(cau>=2){ cls="s-cau"; msg=`<b>${skin} 피부에 대체로 무난하지만 주의 성분이 있어요.</b><br>주의 성분 ${cau}개를 확인하세요.`; }
+    else { cls="s-good"; msg=`<b>${skin} 피부에 잘 맞는 편이에요! 👍</b><br>추천 성분 ${good}개가 들어 있어요.`; }
+    sum.className="summary "+cls;
+    sum.innerHTML=msg+`<div class="stat"><span>👍 추천 ${good}</span><span>⚠️ 주의 ${cau}</span><span>🚫 비추천 ${bad}</span><span>미인식 ${unknown.length}</span></div>`;
+  }
+
+  // 성분 목록: 주의도 높은 순(bad>caution>good), 그 다음 안전등급
+  const rank=i=>{ if(!skin) return 10-i.safety_grade; const v=i.skin_types[skin]; return ({bad:0,caution:1,good:2}[v]??1)*100 - i.safety_grade; };
+  matched.sort((a,b)=>rank(a)-rank(b));
+  document.getElementById("matched").innerHTML=matched.map(i=>{
+    const v=skin?i.skin_types[skin]:null;
+    const fit=v?`<span class="fit ${v}">${skin} ${FIT_LABEL[v]}</span>`:"";
+    return `<div class="ing">
+      <span class="gb" style="background:${gradeColor(i.safety_grade)}">${i.safety_grade}</span>
+      <div class="info"><div class="nm"><a href="detail/${encodeURIComponent(i.id)}.html">${esc(i.korean_name)}</a></div>
+        <div class="meta">${esc(i.category)} · ${esc((i.benefits||[]).slice(0,3).join(", "))}</div></div>
+      ${fit}</div>`;
+  }).join("") || '<p class="unknown">사전에 등록된 성분을 찾지 못했어요.</p>';
+
+  // 미인식
+  const ub=document.getElementById("unknownBox");
+  if(unknown.length){
+    const uniq=[...new Set(unknown.filter(u=>u.length>1))].slice(0,30);
+    ub.innerHTML=`<h2>❓ 사전에 없는 성분 (${uniq.length})</h2>
+      <div class="unknown">아직 사전에 없거나 표기가 달라 인식하지 못한 성분이에요:<br><b>${uniq.map(esc).join(", ")}</b></div>`;
+  } else ub.innerHTML="";
+
+  // 제휴 제품 추천 (피부타입 매칭, 분석된 성분과 겹치면 우선)
+  const pb=document.getElementById("productBox");
+  let prods=(PRODUCTS.products||[]).filter(p=>p.status==="active"||p.url);
+  if(skin) prods=prods.filter(p=>(p.skin_types||[]).includes(skin));
+  if(prods.length){
+    pb.innerHTML=`<h2>🛒 ${skin?skin+" 피부":"내 피부"} 추천 제품</h2><div class="pgrid">${prods.slice(0,4).map(pcard).join("")}</div>
+      <div class="affiliate-notice">${esc(PRODUCTS.affiliate_notice||"")}</div>`;
+  } else pb.innerHTML="";
+
+  document.getElementById("result").style.display="block";
+  document.getElementById("result").scrollIntoView({behavior:"smooth"});
+}
+
+function pcard(p){
+  const img=p.image?`<img src="${esc(p.image)}" alt="${esc(p.name)}" loading="lazy">`:"";
+  const badge=p.source?`<span class="psrc">${esc(p.source)}</span>`:"";
+  const src=p.source?esc(p.source):"제휴처";
+  return `<a class="pcard" href="${esc(p.url)}" target="_blank" rel="nofollow sponsored noopener">
+    ${img}<div class="pb">${badge}<div class="pn">${esc(p.name)}</div><span class="pbt">${src}에서 보기 →</span></div></a>`;
+}
+</script>
+</body>
+</html>

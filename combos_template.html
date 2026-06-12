@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>성분 궁합·충돌 체크 — 같이 써도 될까? | 성분 사전</title>
+<meta name="description" content="레티놀, 비타민C, AHA·BHA 등 화장품 성분을 함께 써도 되는지 궁합과 충돌을 한눈에 확인하세요.">
+<meta name="robots" content="index,follow">
+<!--__SITE_META__-->
+<style>
+  :root{--bg:#faf7f4;--card:#fff;--ink:#2b2622;--sub:#8a7f76;--accent:#b08968;--accent-dark:#8c6a4f;--line:#eee5dd;
+    --good:#3a9b6e;--good-bg:#e7f5ee;--caution:#c98a1b;--caution-bg:#fdf3e0;--bad:#c4534f;--bad-bg:#fbe9e8;--info:#5b7fa6;--info-bg:#eaf1f8}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Apple SD Gothic Neo','Pretendard','Noto Sans KR',sans-serif;background:var(--bg);color:var(--ink);line-height:1.7}
+  header{background:linear-gradient(135deg,#f3e9df,#e9d9c8);padding:44px 24px 34px;text-align:center}
+  header h1{font-size:27px;font-weight:800;letter-spacing:-0.5px}
+  header p{color:#7a6a58;margin-top:8px;font-size:15px}
+  .wrap{max-width:760px;margin:0 auto;padding:24px}
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;margin-bottom:18px}
+  label{display:block;font-size:13px;color:var(--sub);font-weight:600;margin-bottom:8px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:#fff;font-size:14px;cursor:pointer;color:var(--sub)}
+  .chip.on{background:var(--accent);border-color:var(--accent);color:#fff}
+  .search{margin-top:14px}
+  input{width:100%;padding:11px 13px;border:1px solid var(--line);border-radius:10px;font-size:14px}
+  .sresult{margin-top:6px;display:flex;flex-wrap:wrap;gap:6px}
+  .sresult button{font-size:13px;background:#f6f1ec;border:1px solid var(--line);border-radius:8px;padding:6px 11px;cursor:pointer;color:#6e635a}
+  .selected{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;min-height:10px}
+  .seltag{display:inline-flex;align-items:center;gap:6px;background:var(--accent);color:#fff;font-size:13px;padding:6px 12px;border-radius:999px}
+  .seltag b{cursor:pointer;font-weight:800}
+  h2{font-size:16px;margin:22px 0 12px;color:#6e4f3a}
+  .rule{border-radius:13px;padding:16px 18px;margin-bottom:12px;border-left:5px solid}
+  .rule .rt{font-weight:800;font-size:15px;margin-bottom:5px;display:flex;align-items:center;gap:8px}
+  .rule .rd{font-size:14px;color:#4d453e}
+  .rule .rwho{font-size:12px;color:var(--sub);margin-top:7px}
+  .tag{font-size:11px;font-weight:800;padding:3px 9px;border-radius:999px;color:#fff}
+  .synergy{background:var(--good-bg);border-color:var(--good)} .synergy .tag{background:var(--good)}
+  .caution{background:var(--caution-bg);border-color:var(--caution)} .caution .tag{background:var(--caution)}
+  .avoid{background:var(--bad-bg);border-color:var(--bad)} .avoid .tag{background:var(--bad)}
+  .info{background:var(--info-bg);border-color:var(--info)} .info .tag{background:var(--info)}
+  .none{background:#f6f1ec;border-radius:12px;padding:16px;color:var(--sub);font-size:14px;text-align:center}
+  .nav{text-align:center;margin-top:20px}
+  .nav a{color:var(--accent);text-decoration:none;font-size:14px;margin:0 8px}
+  footer{text-align:center;padding:30px 16px;font-size:12px;color:var(--sub)}
+</style>
+</head>
+<body>
+<header>
+  <h1>⚗️ 성분 궁합·충돌 체크</h1>
+  <p>같이 써도 되는 성분일까? 함께 쓸 성분을 골라보세요</p>
+</header>
+<div class="wrap">
+  <div class="panel">
+    <label>자주 찾는 성분 (눌러서 선택)</label>
+    <div class="chips" id="quickChips"></div>
+    <div class="search">
+      <input id="search" placeholder="다른 성분 검색해서 추가 (예: 아젤라익, 토코페롤)" oninput="renderSearch()">
+      <div class="sresult" id="sresult"></div>
+    </div>
+    <label style="margin-top:16px">선택한 성분</label>
+    <div class="selected" id="selected"><span class="none" style="padding:8px 0;background:none">아직 선택한 성분이 없어요.</span></div>
+  </div>
+
+  <div id="resultBox"></div>
+
+  <div class="nav">
+    <a href="analyzer.html">🔬 전성분 분석기</a> · <a href="quiz.html">🧫 피부타입 진단</a> · <a href="index.html">📖 성분 사전</a>
+  </div>
+</div>
+<footer>궁합·충돌 안내는 일반적인 스킨케어 통념에 기반한 참고 정보이며, 의학적 조언이 아닙니다. 자극이 있으면 사용을 중단하고 전문가와 상담하세요.</footer>
+
+<script>
+const DATA = /*__DATA__*/;
+const COMBOS = /*__COMBOS__*/;
+const QUICK=(COMBOS.quick_ingredients&&COMBOS.quick_ingredients.length)?COMBOS.quick_ingredients
+  :["retinol","ascorbic-acid","niacinamide","salicylic-acid","glycolic-acid","peptide","hyaluronic-acid","centella","panthenol","ceramide","bakuchiol","tocopherol"];
+const TYPE_LABEL={synergy:"궁합",caution:"주의",avoid:"비권장",info:"참고"};
+const TYPE_ICON={synergy:"💚",caution:"⚠️",avoid:"🚫",info:"ℹ️"};
+
+const byId={}; DATA.ingredients.forEach(i=>byId[i.id]=i);
+const selected=new Set();
+function esc(s){return String(s==null?"":s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+function nameOf(id){return byId[id]?byId[id].korean_name:id}
+
+// 빠른 선택 칩
+const qc=document.getElementById("quickChips");
+QUICK.filter(id=>byId[id]).forEach(id=>{
+  const b=document.createElement("button"); b.className="chip"; b.textContent=nameOf(id); b.dataset.id=id;
+  b.onclick=()=>{ toggle(id); b.classList.toggle("on",selected.has(id)); };
+  qc.appendChild(b);
+});
+
+function renderSearch(){
+  const q=(document.getElementById("search").value||"").trim().toLowerCase();
+  const box=document.getElementById("sresult"); box.innerHTML="";
+  if(!q) return;
+  DATA.ingredients.filter(i=>(i.korean_name+i.inci_name).toLowerCase().includes(q)).slice(0,8).forEach(i=>{
+    const b=document.createElement("button"); b.textContent="+ "+i.korean_name;
+    b.onclick=()=>{ toggle(i.id); syncChips(); document.getElementById("search").value=""; box.innerHTML=""; };
+    box.appendChild(b);
+  });
+}
+function syncChips(){ document.querySelectorAll(".chip").forEach(c=>c.classList.toggle("on",selected.has(c.dataset.id))); }
+
+function toggle(id){ if(selected.has(id))selected.delete(id); else selected.add(id); renderSelected(); check(); }
+function renderSelected(){
+  const el=document.getElementById("selected");
+  if(!selected.size){ el.innerHTML='<span class="none" style="padding:8px 0;background:none">아직 선택한 성분이 없어요.</span>'; return; }
+  el.innerHTML=[...selected].map(id=>`<span class="seltag">${esc(nameOf(id))} <b onclick="toggle('${id}')">×</b></span>`).join("");
+}
+
+function check(){
+  const box=document.getElementById("resultBox");
+  if(selected.size<2){ box.innerHTML=""; return; }
+  const hits=[];
+  COMBOS.rules.forEach(r=>{
+    const a=r.a.filter(x=>selected.has(x)), b=r.b.filter(x=>selected.has(x));
+    // a·b 양쪽에 선택 성분이 있고, 서로 다른 성분 쌍이 존재해야 발동
+    const pair=[]; a.forEach(x=>b.forEach(y=>{ if(x!==y) pair.push([x,y]); }));
+    if(pair.length){ hits.push({r,who:[...new Set(pair.flat())]}); }
+  });
+  // 정렬: avoid > caution > synergy > info
+  const order={avoid:0,caution:1,synergy:2,info:3};
+  hits.sort((x,y)=>order[x.r.type]-order[y.r.type]);
+  let html='<h2>결과</h2>';
+  if(!hits.length){
+    html+='<div class="none">선택한 성분들 사이에 알려진 충돌이나 특별한 궁합 규칙이 없어요. 대체로 함께 사용해도 무방합니다. 🙂</div>';
+  } else {
+    html+=hits.map(h=>`<div class="rule ${h.r.type}">
+      <div class="rt"><span class="tag">${TYPE_ICON[h.r.type]} ${TYPE_LABEL[h.r.type]}</span> ${esc(h.r.title)}</div>
+      <div class="rd">${esc(h.r.desc)}</div>
+      <div class="rwho">관련 성분: ${h.who.map(id=>esc(nameOf(id))).join(", ")}</div></div>`).join("");
+  }
+  box.innerHTML=html;
+  box.scrollIntoView({behavior:"smooth",block:"nearest"});
+}
+</script>
+</body>
+</html>
