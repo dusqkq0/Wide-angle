@@ -266,8 +266,12 @@ if __name__ == "__main__":
     print(f"[OK] 수집 {len(items)}건 중 신규 {added}건을 draft로 추가")
 
     if not args.no_build:
-        from generate_page import generate, generate_details
+        from generate_page import generate, generate_quiz, generate_details
         n = generate(DATA_PATH, BASE / "template.html", BASE / "index.html")
         print(f"[OK] index.html 재생성 — 게시 성분 {n}개 (draft 제외)")
+        quiz_tpl = BASE / "quiz_template.html"
+        if quiz_tpl.exists():
+            generate_quiz(DATA_PATH, quiz_tpl, BASE / "quiz.html")
+            print(f"[OK] quiz.html 진단 퀴즈 재생성")
         generate_details(DATA_PATH, BASE, base_url="")
         print(f"[OK] detail/ 상세 페이지 + sitemap.xml 재생성")

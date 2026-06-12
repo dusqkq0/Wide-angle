@@ -39,8 +39,8 @@ def published(data: dict) -> list:
     return [i for i in data["ingredients"] if i.get("status", "published") == "published"]
 
 
-def generate(data_path: Path, template_path: Path, out_path: Path) -> int:
-    """메인 페이지 생성."""
+def _inject(data_path: Path, template_path: Path, out_path: Path) -> int:
+    """템플릿의 /*__DATA__*/ 자리에 게시 성분 데이터를 주입해 저장."""
     data = json.loads(data_path.read_text(encoding="utf-8"))
     data["ingredients"] = published(data)
     data["meta"]["updated"] = date.today().isoformat()
@@ -51,6 +51,16 @@ def generate(data_path: Path, template_path: Path, out_path: Path) -> int:
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(html, encoding="utf-8")
     return len(data["ingredients"])
+
+
+def generate(data_path: Path, template_path: Path, out_path: Path) -> int:
+    """메인 페이지 생성."""
+    return _inject(data_path, template_path, out_path)
+
+
+def generate_quiz(data_path: Path, template_path: Path, out_path: Path) -> int:
+    """피부타입 진단 퀴즈 페이지 생성 (성분 데이터 주입)."""
+    return _inject(data_path, template_path, out_path)
 
 
 DETAIL_CSS = """
@@ -170,7 +180,8 @@ def generate_details(data_path: Path, out_dir: Path, base_url: str) -> int:
 
     # sitemap.xml
     today = date.today().isoformat()
-    urls = [f"{base_url}index.html"] + [f"{base_url}detail/{i['id']}.html" for i in items]
+    urls = [f"{base_url}index.html", f"{base_url}quiz.html"] \
+        + [f"{base_url}detail/{i['id']}.html" for i in items]
     sm = ['<?xml version="1.0" encoding="UTF-8"?>',
           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for u in urls:
@@ -185,6 +196,8 @@ if __name__ == "__main__":
     ap.add_argument("--data", default=BASE / "data/ingredients.json", type=Path)
     ap.add_argument("--template", default=BASE / "template.html", type=Path)
     ap.add_argument("--out", default=BASE / "index.html", type=Path)
+    ap.add_argument("--quiz-template", default=BASE / "quiz_template.html", type=Path)
+    ap.add_argument("--no-quiz", action="store_true", help="진단 퀴즈 페이지 생성 생략")
     ap.add_argument("--base-url", default="",
                     help="배포 도메인 (예: https://ingredients.mybrand.com/). sitemap·canonical에 사용")
     ap.add_argument("--no-details", action="store_true", help="상세 페이지·sitemap 생략")
@@ -196,6 +209,11 @@ if __name__ == "__main__":
 
     n = generate(args.data, args.template, args.out)
     print(f"[OK] {args.out} 생성 — 성분 {n}개 게시")
+
+    if not args.no_quiz and args.quiz_template.exists():
+        quiz_out = args.out.parent / "quiz.html"
+        generate_quiz(args.data, args.quiz_template, quiz_out)
+        print(f"[OK] {quiz_out} 진단 퀴즈 페이지 생성")
 
     if not args.no_details:
         out_dir = args.out.parent
