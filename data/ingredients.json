@@ -1,0 +1,3766 @@
+{
+  "meta": {
+    "version": "1.0",
+    "updated": "2026-06-12",
+    "note": "안전등급은 EWG Skin Deep 공개 등급을 참고한 값으로, 실제 제품 적용 전 반드시 원자료 확인 필요"
+  },
+  "ingredients": [
+    {
+      "id": "hyaluronic-acid",
+      "korean_name": "히알루론산",
+      "inci_name": "Sodium Hyaluronate",
+      "category": "보습",
+      "description": "피부 속 수분을 자석처럼 끌어당겨 잡아주는 성분. 자기 무게의 1,000배에 달하는 수분을 머금을 수 있어 촉촉함을 오래 유지해줍니다.",
+      "benefits": [
+        "수분 공급",
+        "피부 장벽 강화",
+        "잔주름 완화"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "good",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "safety_grade": 1,
+      "cautions": "특별한 주의사항 없음. 모든 피부에 무난한 대표 보습 성분.",
+      "status": "published",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "niacinamide",
+      "korean_name": "나이아신아마이드",
+      "inci_name": "Niacinamide",
+      "category": "미백·톤개선",
+      "description": "비타민B3의 한 형태로, 멜라닌이 피부 표면으로 이동하는 것을 막아 칙칙함을 개선합니다. 피지 조절과 모공 케어에도 도움을 주는 만능 성분.",
+      "benefits": [
+        "미백",
+        "피지 조절",
+        "모공 케어",
+        "장벽 강화"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "caution",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "safety_grade": 1,
+      "cautions": "고농도(10% 이상)는 민감성 피부에 홍조·따가움을 유발할 수 있음. 2~5%부터 시작 권장.",
+      "status": "published",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "retinol",
+      "korean_name": "레티놀",
+      "inci_name": "Retinol",
+      "category": "주름·안티에이징",
+      "description": "비타민A 유도체로, 피부 세포의 턴오버를 촉진해 주름과 탄력을 개선하는 안티에이징 대표 성분. 효과가 강한 만큼 적응 기간이 필요합니다.",
+      "benefits": [
+        "주름 개선",
+        "탄력 증진",
+        "피부결 정돈",
+        "여드름 완화"
+      ],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "good",
+        "민감성": "bad",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "safety_grade": 6,
+      "cautions": "초기 각질·붉어짐(레티노이드 반응) 가능. 저농도부터 주 2~3회 시작, 낮에는 반드시 자외선차단제 사용. 임산부 사용 금지.",
+      "status": "published",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "ascorbic-acid",
+      "korean_name": "비타민C (아스코빅애씨드)",
+      "inci_name": "Ascorbic Acid",
+      "category": "미백·톤개선",
+      "description": "강력한 항산화 성분으로 멜라닌 생성을 억제해 기미·잡티를 옅게 하고 피부 톤을 환하게 가꿔줍니다. 콜라겐 합성도 도와 탄력에도 기여합니다.",
+      "benefits": [
+        "미백",
+        "항산화",
+        "콜라겐 생성 촉진",
+        "광손상 보호"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "caution",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "safety_grade": 1,
+      "cautions": "산성이 강해 민감성 피부는 따가움 가능. 빛·공기에 쉽게 산화되므로 갈변된 제품은 사용 중단.",
+      "status": "published",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "salicylic-acid",
+      "korean_name": "살리실릭애씨드 (BHA)",
+      "inci_name": "Salicylic Acid",
+      "category": "각질·모공",
+      "description": "지용성 각질 제거 성분으로 모공 속 피지와 노폐물까지 녹여냅니다. 블랙헤드와 여드름성 피부 관리의 핵심 성분.",
+      "benefits": [
+        "모공 속 각질 제거",
+        "블랙헤드 완화",
+        "여드름 예방",
+        "피지 조절"
+      ],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "good",
+        "민감성": "caution",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "safety_grade": 3,
+      "cautions": "건성 피부는 과사용 시 당김·각질 유발. 국내 화장품 배합 한도 0.5%(씻어내는 제품 일부 예외).",
+      "status": "published",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "glycolic-acid",
+      "korean_name": "글라이콜릭애씨드 (AHA)",
+      "inci_name": "Glycolic Acid",
+      "category": "각질·모공",
+      "description": "사탕수수에서 유래한 수용성 각질 제거 성분. 분자가 작아 침투력이 좋고, 묵은 각질을 정리해 피부결을 매끈하게 만듭니다.",
+      "benefits": [
+        "각질 제거",
+        "피부결 개선",
+        "톤 균일화",
+        "잔주름 완화"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "bad",
+        "복합성": "good",
+        "여드름성": "caution"
+      },
+      "safety_grade": 4,
+      "cautions": "사용 후 자외선 민감도 증가 — 자외선차단제 필수. 레티놀과 같은 날 사용은 자극 위험.",
+      "status": "published",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "ceramide",
+      "korean_name": "세라마이드",
+      "inci_name": "Ceramide NP",
+      "category": "장벽·보습",
+      "description": "피부 장벽을 구성하는 지질 성분으로, 벽돌 사이의 시멘트처럼 피부 세포를 단단히 붙잡아 수분 증발을 막고 외부 자극을 차단합니다.",
+      "benefits": [
+        "피부 장벽 복구",
+        "수분 손실 방지",
+        "민감 피부 진정"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "good",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "safety_grade": 1,
+      "cautions": "특별한 주의사항 없음. 손상된 장벽 회복에 우선 추천.",
+      "status": "published",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "panthenol",
+      "korean_name": "판테놀",
+      "inci_name": "Panthenol",
+      "category": "진정·보습",
+      "description": "프로비타민B5. 피부에 흡수되면 판토텐산으로 전환되어 손상된 피부의 재생을 돕고 수분을 채워주는 순한 진정 성분입니다.",
+      "benefits": [
+        "진정",
+        "보습",
+        "피부 재생 보조",
+        "자극 완화"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "good",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "safety_grade": 1,
+      "cautions": "특별한 주의사항 없음.",
+      "status": "published",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "centella",
+      "korean_name": "센텔라아시아티카 (시카)",
+      "inci_name": "Centella Asiatica Extract",
+      "category": "진정·재생",
+      "description": "호랑이풀이라 불리는 병풀 추출물. 마데카소사이드 등 활성 성분이 자극받은 피부를 빠르게 진정시키고 재생을 돕습니다.",
+      "benefits": [
+        "진정",
+        "재생",
+        "홍조 완화",
+        "항염"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "good",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "safety_grade": 1,
+      "cautions": "드물게 국화과 알레르기 보유자는 패치 테스트 권장.",
+      "status": "published",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "tea-tree",
+      "korean_name": "티트리오일",
+      "inci_name": "Melaleuca Alternifolia Leaf Oil",
+      "category": "트러블 케어",
+      "description": "호주 티트리 나무 잎에서 추출한 오일로, 항균 작용이 뛰어나 트러블 부위 스팟 케어에 널리 쓰입니다.",
+      "benefits": [
+        "항균",
+        "트러블 완화",
+        "피지 조절"
+      ],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "good",
+        "민감성": "caution",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "safety_grade": 4,
+      "cautions": "원액 사용 금지(자극·알레르기 위험). 희석된 제품으로 국소 사용 권장.",
+      "status": "published",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "glycerin",
+      "korean_name": "글리세린",
+      "inci_name": "Glycerin",
+      "category": "보습",
+      "description": "가장 오래되고 검증된 보습 성분. 공기 중과 피부 깊은 층의 수분을 끌어와 각질층에 채워주는 휴멕턴트의 표준입니다.",
+      "benefits": [
+        "수분 공급",
+        "피부 유연화",
+        "장벽 보조"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "good",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "safety_grade": 1,
+      "cautions": "특별한 주의사항 없음.",
+      "status": "published",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "squalane",
+      "korean_name": "스쿠알란",
+      "inci_name": "Squalane",
+      "category": "보습·오일",
+      "description": "피부 피지와 유사한 구조의 가벼운 오일. 끈적임 없이 흡수되어 유분막을 만들어 수분 증발을 막습니다. 사탕수수·올리브 유래가 일반적.",
+      "benefits": [
+        "보습",
+        "유수분 밸런스",
+        "피부 유연화"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "good",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "safety_grade": 1,
+      "cautions": "특별한 주의사항 없음. 오일 중 가장 가벼운 축에 속함.",
+      "status": "published",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "peptide",
+      "korean_name": "펩타이드",
+      "inci_name": "Palmitoyl Pentapeptide-4",
+      "category": "주름·안티에이징",
+      "description": "아미노산이 연결된 작은 단백질 조각으로, 피부에 '콜라겐을 만들라'는 신호를 보내 탄력과 주름 개선을 돕습니다. 레티놀보다 순한 안티에이징 대안.",
+      "benefits": [
+        "탄력 증진",
+        "주름 완화",
+        "재생 보조"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "good",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "safety_grade": 1,
+      "cautions": "특별한 주의사항 없음. 비타민C(순수형)와 동시 사용 시 효율 저하 가능성 논의 있음.",
+      "status": "published",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "allantoin",
+      "korean_name": "알란토인",
+      "inci_name": "Allantoin",
+      "category": "진정·재생",
+      "description": "컴프리 뿌리에서 유래한 진정 성분. 각질을 부드럽게 하고 자극받은 피부를 달래줘 민감성 피부 제품에 자주 쓰입니다.",
+      "benefits": [
+        "진정",
+        "각질 연화",
+        "재생 보조"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "good",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "safety_grade": 1,
+      "cautions": "특별한 주의사항 없음.",
+      "status": "published",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "azelaic-acid",
+      "korean_name": "아젤라익애씨드",
+      "inci_name": "Azelaic Acid",
+      "category": "트러블 케어",
+      "description": "곡물에서 유래한 산 성분으로 항균·항염 작용과 멜라닌 억제 효과를 동시에 지녀 여드름과 여드름 자국(색소침착) 관리에 모두 유효합니다.",
+      "benefits": [
+        "여드름 완화",
+        "붉은 자국 개선",
+        "항염",
+        "미백 보조"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "good",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "safety_grade": 1,
+      "cautions": "초기 가려움·따가움이 있을 수 있으나 대부분 적응됨. 국내 화장품에는 10% 이하 배합이 일반적.",
+      "status": "published",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "arbutin",
+      "korean_name": "알부틴",
+      "inci_name": "Arbutin",
+      "category": "미백·톤개선",
+      "description": "월귤나무 잎에서 유래한 미백 성분. 멜라닌을 만드는 효소(티로시나제)의 활동을 억제해 기미·잡티 생성을 예방합니다. 식약처 고시 미백 기능성 원료.",
+      "benefits": [
+        "미백",
+        "잡티 예방",
+        "톤 개선"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "good",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "safety_grade": 3,
+      "cautions": "기능성화장품 기준 2~5% 배합. 고온·빛에 분해될 수 있어 보관 주의.",
+      "status": "published",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "tranexamic-acid",
+      "korean_name": "트라넥사믹애씨드",
+      "inci_name": "Tranexamic Acid",
+      "category": "미백·톤개선",
+      "description": "기미·색소침착의 신호 전달 자체를 차단하는 신세대 미백 성분. 자극이 적어 민감성 피부의 색소 관리에도 적합합니다.",
+      "benefits": [
+        "기미 완화",
+        "색소침착 개선",
+        "홍조 완화"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "good",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "safety_grade": 1,
+      "cautions": "특별한 주의사항 없음.",
+      "status": "published",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "bisabolol",
+      "korean_name": "비사보롤",
+      "inci_name": "Bisabolol",
+      "category": "진정·보습",
+      "description": "캐모마일 꽃의 핵심 진정 성분. 항염 효과와 함께 다른 성분의 흡수를 돕는 역할도 해 민감성 피부 라인에 자주 배합됩니다.",
+      "benefits": [
+        "진정",
+        "항염",
+        "성분 흡수 보조"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "good",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "safety_grade": 1,
+      "cautions": "특별한 주의사항 없음.",
+      "status": "published",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "propolis",
+      "korean_name": "프로폴리스",
+      "inci_name": "Propolis Extract",
+      "category": "진정·영양",
+      "description": "꿀벌이 벌집을 보호하기 위해 만드는 천연 수지. 항균·항산화 성분이 풍부해 트러블 진정과 윤기 부여에 좋습니다.",
+      "benefits": [
+        "항균",
+        "진정",
+        "영양·윤기 공급",
+        "항산화"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "caution",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "safety_grade": 2,
+      "cautions": "벌·꿀 알레르기가 있다면 패치 테스트 필수.",
+      "status": "published",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "collagen",
+      "korean_name": "콜라겐",
+      "inci_name": "Hydrolyzed Collagen",
+      "category": "보습·탄력",
+      "description": "피부 탄력을 담당하는 단백질. 화장품 속 콜라겐은 분자가 커 피부 깊이 흡수되기보다 표면 보습막을 형성해 촉촉함과 매끄러움을 줍니다.",
+      "benefits": [
+        "표면 보습",
+        "피부 유연화",
+        "일시적 탄력감"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "good",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "safety_grade": 1,
+      "cautions": "바르는 콜라겐이 진피 콜라겐을 직접 늘리지는 않음 — 보습 성분으로 이해하는 것이 정확.",
+      "status": "published",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "aloe-vera",
+      "korean_name": "알로에베라",
+      "inci_name": "Aloe Barbadensis Leaf Extract",
+      "category": "진정·보습",
+      "description": "수분 함량 99%의 알로에 잎 추출물. 열감 있는 피부를 시원하게 진정시키고 가벼운 수분을 공급합니다.",
+      "benefits": [
+        "진정",
+        "수분 공급",
+        "쿨링"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "good",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "safety_grade": 1,
+      "cautions": "특별한 주의사항 없음.",
+      "status": "published",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "green-tea",
+      "korean_name": "녹차추출물",
+      "inci_name": "Camellia Sinensis Leaf Extract",
+      "category": "항산화",
+      "description": "카테킨(EGCG)이 풍부한 항산화 성분. 활성산소로부터 피부를 보호하고 피지 산화를 막아 지성 피부 트러블 예방에도 도움됩니다.",
+      "benefits": [
+        "항산화",
+        "피지 산화 방지",
+        "진정"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "good",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "safety_grade": 1,
+      "cautions": "특별한 주의사항 없음.",
+      "status": "published",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "zinc-oxide",
+      "korean_name": "징크옥사이드",
+      "inci_name": "Zinc Oxide",
+      "category": "자외선차단",
+      "description": "피부 위에 막을 형성해 자외선을 반사·산란시키는 무기(미네랄) 자외선차단 성분. UVA·UVB를 폭넓게 막고 자극이 적어 민감성 피부 선크림에 주로 쓰입니다.",
+      "benefits": [
+        "UVA·UVB 차단",
+        "저자극",
+        "진정 보조"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "good",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "safety_grade": 2,
+      "cautions": "백탁 현상이 있을 수 있음. 스프레이형은 흡입 주의.",
+      "status": "published",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "fragrance",
+      "korean_name": "향료",
+      "inci_name": "Fragrance / Parfum",
+      "category": "주의 성분",
+      "description": "제품의 향을 내는 성분의 총칭. 수십~수백 가지 화합물의 혼합물일 수 있으며, 화장품 알레르기의 가장 흔한 원인 중 하나입니다.",
+      "benefits": [
+        "사용감·향 개선"
+      ],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "bad",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 8,
+      "cautions": "민감성·트러블 피부는 무향(fragrance-free) 제품 권장. EU 지정 알레르기 유발 향료 26종은 별도 표기 의무.",
+      "status": "published",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "phenoxyethanol",
+      "korean_name": "페녹시에탄올",
+      "inci_name": "Phenoxyethanol",
+      "category": "보존제",
+      "description": "파라벤 대체재로 가장 널리 쓰이는 보존제. 미생물 오염을 막아 제품을 안전하게 유지합니다. 법정 배합 한도 내에서는 안전성이 확인된 성분.",
+      "benefits": [
+        "제품 변질 방지"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "caution",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "safety_grade": 4,
+      "cautions": "국내·EU 배합 한도 1%. 극민감성 피부는 드물게 자극 가능.",
+      "status": "published",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "solanum-melongena-eggplant-fruit-extract",
+      "korean_name": "가지열매추출물",
+      "inci_name": "Solanum Melongena (Eggplant) Fruit Extract",
+      "category": "항산화",
+      "description": "가지 열매에서 얻은 추출물. 안토시아닌 등 항산화 성분이 풍부해 외부 자극으로부터 피부를 보호하고 수분을 더해줍니다.",
+      "benefits": [
+        "항산화",
+        "보습",
+        "진정"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "good",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "safety_grade": 1,
+      "cautions": "특별한 주의사항 없음.",
+      "status": "published",
+      "added_date": "2026-06-12",
+      "cas_no": "84012-19-1"
+    },
+    {
+      "id": "agarum-cribrosum-extract",
+      "korean_name": "구멍쇠미역추출물",
+      "inci_name": "Agarum Cribrosum Extract",
+      "category": "보습",
+      "description": "구멍쇠미역(해조류)에서 추출한 성분. 바다 유래 미네랄과 다당류가 피부에 수분을 채우고 매끄럽게 가꿔줍니다.",
+      "benefits": [
+        "수분 공급",
+        "미네랄 공급",
+        "진정"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "good",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "safety_grade": 1,
+      "cautions": "특별한 주의사항 없음.",
+      "status": "published",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "lupine-amino-acids",
+      "korean_name": "루핀아미노산",
+      "inci_name": "Lupine Amino Acids",
+      "category": "보습·탄력",
+      "description": "루핀콩 단백질을 잘게 분해해 얻은 아미노산 혼합물. 피부 구성 성분과 닮아 흡수가 잘 되고 탄력·보습을 돕습니다.",
+      "benefits": [
+        "보습",
+        "탄력 보조",
+        "피부 컨디셔닝"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "caution",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "safety_grade": 1,
+      "cautions": "콩(두류) 알레르기가 있다면 패치 테스트 권장.",
+      "status": "published",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "leucine",
+      "korean_name": "류신",
+      "inci_name": "Leucine",
+      "category": "보습·컨디셔닝",
+      "description": "필수 아미노산의 하나로, 제형을 부드럽게 하고 피부 표면을 매끄럽게 정돈하는 보조 성분입니다.",
+      "benefits": [
+        "피부 컨디셔닝",
+        "보습 보조"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "good",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "safety_grade": 1,
+      "cautions": "특별한 주의사항 없음.",
+      "status": "published",
+      "added_date": "2026-06-12",
+      "cas_no": "328-39-2(DL-)\r,61-90-5(L-)"
+    },
+    {
+      "id": "leuconostoc-radish-root-ferment-filtrate",
+      "korean_name": "류코노스톡/무발효여과물",
+      "inci_name": "Leuconostoc/Radish Root Ferment Filtrate",
+      "category": "발효·보존 보조",
+      "description": "무 뿌리를 유산균(류코노스톡)으로 발효해 거른 성분. 제품을 자연스럽게 신선하게 유지하면서 순하게 수분을 더해 무방부 콘셉트 제품에 자주 쓰입니다.",
+      "benefits": [
+        "천연 보존 보조",
+        "보습",
+        "진정"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "good",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "safety_grade": 1,
+      "cautions": "특별한 주의사항 없음.",
+      "status": "published",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "leukocyte-extract",
+      "korean_name": "백혈구추출물",
+      "inci_name": "Leukocyte Extract",
+      "category": "재생·영양",
+      "description": "면역세포(백혈구)에서 유래한 단백질 성분으로, 피부의 회복과 영양 공급을 돕는 목적으로 소량 배합됩니다.",
+      "benefits": [
+        "재생 보조",
+        "영양 공급"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "caution",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "safety_grade": 2,
+      "cautions": "동물 유래 성분. 비건 제품을 찾는다면 확인이 필요합니다.",
+      "status": "published",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "rhinacanthus-communis-extract",
+      "korean_name": "리나칸투스 콤무니스추출물",
+      "inci_name": "Rhinacanthus Communis Extract",
+      "category": "진정·트러블",
+      "description": "동남아에서 약용으로 쓰이는 식물 추출물. 자극받은 피부를 달래고 트러블 케어를 보조합니다.",
+      "benefits": [
+        "진정",
+        "항균 보조",
+        "트러블 완화"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "good",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "safety_grade": 1,
+      "cautions": "특별한 주의사항 없음.",
+      "status": "published",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "linalool",
+      "korean_name": "리날룰",
+      "inci_name": "Linalool",
+      "category": "주의 성분 (향료)",
+      "description": "라벤더 등 많은 식물에 들어 있는 천연 향 성분. 은은한 향을 더하지만 공기 중에서 산화되면 알레르기를 유발할 수 있어 EU가 표기를 의무화한 향료 26종 중 하나입니다.",
+      "benefits": [
+        "향 부여"
+      ],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "bad",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 6,
+      "cautions": "향료 알레르기·민감성 피부는 주의. 무향 제품을 권장합니다.",
+      "status": "published",
+      "added_date": "2026-06-12",
+      "cas_no": "78-70-6"
+    },
+    {
+      "id": "linalyl-acetate",
+      "korean_name": "리날릴아세테이트",
+      "inci_name": "Linalyl Acetate",
+      "category": "주의 성분 (향료)",
+      "description": "베르가못·라벤더 향의 핵심이 되는 향 성분. 향을 부드럽게 내지만 향료 민감성 피부에는 자극이 될 수 있습니다.",
+      "benefits": [
+        "향 부여"
+      ],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "bad",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 4,
+      "cautions": "향료 민감성 피부는 주의.",
+      "status": "published",
+      "added_date": "2026-06-12",
+      "cas_no": "115-95-7"
+    },
+    {
+      "id": "linolenic-acid",
+      "korean_name": "리놀레닉애씨드",
+      "inci_name": "Linolenic Acid",
+      "category": "장벽·진정",
+      "description": "들기름·아마씨 등에 풍부한 오메가-3 계열 필수지방산. 피부 장벽을 채워 수분을 지키고 붉어진 피부를 진정시킵니다.",
+      "benefits": [
+        "피부 장벽 강화",
+        "진정",
+        "수분 손실 방지"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "good",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "safety_grade": 1,
+      "cautions": "특별한 주의사항 없음.",
+      "status": "published",
+      "added_date": "2026-06-12",
+      "cas_no": "463-40-1"
+    },
+    {
+      "id": "linoleamide-mea",
+      "korean_name": "리놀레아마이드엠이에이",
+      "inci_name": "Linoleamide MEA",
+      "category": "점도·사용감 조절",
+      "description": "지방산에서 유래한 성분으로, 주로 클렌저·샴푸에서 거품을 안정시키고 제형의 점도를 잡아주는 역할을 합니다.",
+      "benefits": [
+        "점도 조절",
+        "거품 안정",
+        "사용감 개선"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "good",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "safety_grade": 2,
+      "cautions": "특별한 주의사항 없음.",
+      "status": "published",
+      "added_date": "2026-06-12",
+      "cas_no": "10015-67-5\r,68171-52-8"
+    },
+    {
+      "id": "abies-koreana-leaf-powder",
+      "korean_name": "구상나무잎가루",
+      "inci_name": "Abies Koreana Leaf Powder",
+      "category": "각질·향",
+      "description": "한국 특산 구상나무 잎을 곱게 간 가루. 부드러운 물리적 스크럽과 숲 향의 청량감을 더해줍니다.",
+      "benefits": [
+        "부드러운 각질 케어",
+        "은은한 향",
+        "청량감"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "caution",
+        "복합성": "good",
+        "여드름성": "caution"
+      },
+      "safety_grade": 1,
+      "cautions": "물리적 알갱이가 있어 민감성·트러블 피부는 강하게 문지르지 않도록 주의.",
+      "status": "published",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "linoleamidopropyl-dimethylamine-dimer-dilinoleate",
+      "korean_name": "리놀레아미도프로필다이메틸아민다이머다이리놀리에이트",
+      "inci_name": "Linoleamidopropyl Dimethylamine Dimer Dilinoleate",
+      "category": "헤어·컨디셔닝",
+      "description": "지방산에서 유래한 컨디셔닝 성분으로, 주로 헤어 제품에서 모발을 매끄럽고 차분하게 정돈합니다.",
+      "benefits": [
+        "모발 컨디셔닝",
+        "정전기 방지",
+        "부드러움"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "good",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "safety_grade": 2,
+      "cautions": "주로 헤어 제품용 성분.",
+      "status": "published",
+      "added_date": "2026-06-12",
+      "cas_no": "125804-10-6"
+    },
+    {
+      "id": "linoleamidopropyl-ethyldimonium-ethosulfate",
+      "korean_name": "리놀레아미도프로필에틸다이모늄에토설페이트",
+      "inci_name": "Linoleamidopropyl Ethyldimonium Ethosulfate",
+      "category": "헤어·컨디셔닝",
+      "description": "양이온성 컨디셔닝 성분. 모발 표면에 부드럽게 흡착해 엉킴과 정전기를 줄여줍니다.",
+      "benefits": [
+        "모발 컨디셔닝",
+        "정전기 방지"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "good",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "safety_grade": 3,
+      "cautions": "주로 헤어 제품용 성분.",
+      "status": "published",
+      "added_date": "2026-06-12",
+      "cas_no": "99542-23-1"
+    },
+    {
+      "id": "linoleamidopropyl-pg-dimonium-chloride-phosphate",
+      "korean_name": "리놀레아미도프로필피지-다이모늄클로라이드포스페이트",
+      "inci_name": "Linoleamidopropyl PG-Dimonium Chloride Phosphate",
+      "category": "헤어·컨디셔닝",
+      "description": "지방산 유래 컨디셔닝 성분으로, 모발과 두피에 순하게 수분감과 매끄러움을 더합니다.",
+      "benefits": [
+        "모발 컨디셔닝",
+        "보습",
+        "정전기 방지"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "good",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "safety_grade": 2,
+      "cautions": "주로 헤어 제품용 성분.",
+      "status": "published",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "linoleamidopropyl-pg-dimonium-chloride-phosphate-dimethicone",
+      "korean_name": "리놀레아미도프로필피지-다이모늄클로라이드포스페이트다이메티콘",
+      "inci_name": "Linoleamidopropyl PG-Dimonium Chloride Phosphate Dimethicone",
+      "category": "헤어·컨디셔닝",
+      "description": "위 컨디셔닝 성분에 실리콘(다이메티콘)을 결합한 형태로, 모발에 윤기와 매끄러운 코팅감을 줍니다.",
+      "benefits": [
+        "모발 컨디셔닝",
+        "윤기 부여"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "good",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "safety_grade": 2,
+      "cautions": "주로 헤어 제품용 성분.",
+      "status": "published",
+      "added_date": "2026-06-12",
+      "cas_no": "179005-04-0"
+    },
+    {
+      "id": "linoleic-acid",
+      "korean_name": "리놀레익애씨드",
+      "inci_name": "Linoleic Acid",
+      "category": "장벽·트러블",
+      "description": "해바라기씨유 등에 풍부한 오메가-6 필수지방산. 피부 장벽의 핵심 구성 성분으로, 특히 피지의 리놀레익애씨드가 부족한 여드름 피부에 도움을 줍니다.",
+      "benefits": [
+        "피부 장벽 강화",
+        "여드름 완화 보조",
+        "수분 손실 방지"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "good",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "safety_grade": 1,
+      "cautions": "특별한 주의사항 없음.",
+      "status": "published",
+      "added_date": "2026-06-12",
+      "cas_no": "342889-37-6 \t\r,60-33-3"
+    },
+    {
+      "id": "phaseolus-lunatus-green-bean-seed-extract",
+      "korean_name": "리마콩씨추출물",
+      "inci_name": "Phaseolus Lunatus (Green Bean) Seed Extract",
+      "category": "보습·탄력",
+      "description": "리마콩 씨에서 얻은 추출물. 단백질·아미노산이 풍부해 피부에 영양과 탄력을 더합니다.",
+      "benefits": [
+        "보습",
+        "탄력 보조",
+        "진정"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "caution",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "safety_grade": 1,
+      "cautions": "콩(두류) 알레르기가 있다면 패치 테스트 권장.",
+      "status": "published",
+      "added_date": "2026-06-12",
+      "cas_no": "85085-22-9"
+    },
+    {
+      "id": "limonene",
+      "korean_name": "리모넨",
+      "inci_name": "Limonene",
+      "category": "주의 성분 (향료)",
+      "description": "감귤류 껍질에 풍부한 상큼한 향 성분. 향을 더하지만 산화되면 자극·알레르기를 유발할 수 있어 EU 표기 의무 향료 26종에 포함됩니다.",
+      "benefits": [
+        "향 부여"
+      ],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "bad",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 6,
+      "cautions": "향료 알레르기·민감성 피부는 주의. 무향 제품을 권장합니다.",
+      "status": "published",
+      "added_date": "2026-06-12",
+      "cas_no": "68647-72-3 (generic)\r,5989-27-5(D-)\r,7705-13-7(D-)\r,138-86-3 (DL-)"
+    },
+    {
+      "id": "limonia-acidissima-wood-powder",
+      "korean_name": "리모니아 아키디시마목부가루",
+      "inci_name": "Limonia Acidissima Wood Powder",
+      "category": "각질·향",
+      "description": "우드애플 나무의 목부를 곱게 간 가루. 가벼운 물리적 각질 케어와 우디 향을 더합니다.",
+      "benefits": [
+        "부드러운 각질 케어",
+        "은은한 향"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "caution",
+        "복합성": "good",
+        "여드름성": "caution"
+      },
+      "safety_grade": 1,
+      "cautions": "물리적 알갱이가 있어 민감성·트러블 피부는 강하게 문지르지 않도록 주의.",
+      "status": "published",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "riboflavin-lactoflavin",
+      "korean_name": "리보플라빈",
+      "inci_name": "Riboflavin,Lactoflavin",
+      "category": "항산화·착색",
+      "description": "비타민B2. 항산화 작용을 하며 제품에 은은한 노란빛을 더하는 천연 착색 역할도 합니다.",
+      "benefits": [
+        "항산화",
+        "자연 착색",
+        "컨디셔닝"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "good",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "safety_grade": 1,
+      "cautions": "노란색을 띠어 제형 색에 영향을 줄 수 있음.",
+      "status": "published",
+      "added_date": "2026-06-12",
+      "cas_no": "83-88-5"
+    },
+    {
+      "id": "abies-koreana-leaf-extract",
+      "korean_name": "구상나무잎추출물",
+      "inci_name": "Abies Koreana Leaf Extract",
+      "category": "진정·항산화",
+      "description": "구상나무 잎에서 추출한 성분. 피톤치드 계열 성분이 피부를 진정시키고 항산화로 보호합니다.",
+      "benefits": [
+        "진정",
+        "항산화",
+        "수렴"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "good",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "safety_grade": 1,
+      "cautions": "특별한 주의사항 없음.",
+      "status": "published",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "litsea-cubeba-fruit-oil",
+      "korean_name": "리씨열매오일",
+      "inci_name": "Litsea Cubeba Fruit Oil",
+      "category": "주의 성분 (에센셜오일)",
+      "description": "리씨(May Chang) 열매에서 추출한 레몬 향 에센셜오일. 상쾌한 향과 항균 효과가 있지만 농도가 높으면 자극이 될 수 있습니다.",
+      "benefits": [
+        "향 부여",
+        "항균 보조"
+      ],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "good",
+        "민감성": "bad",
+        "복합성": "good",
+        "여드름성": "caution"
+      },
+      "safety_grade": 4,
+      "cautions": "정유 성분으로 민감성 피부는 주의. 광과민 가능성이 있어 사용 후 자외선 노출에 유의.",
+      "status": "published",
+      "added_date": "2026-06-12",
+      "cas_no": "68855-99-2"
+    },
+    {
+      "id": "litchi-chinensis-pericarp-extract",
+      "korean_name": "리치과피추출물",
+      "inci_name": "Litchi Chinensis Pericarp Extract",
+      "category": "항산화",
+      "description": "리치 껍질 추출물. 폴리페놀 항산화 성분이 풍부해 피부를 보호하고 환한 톤을 돕습니다.",
+      "benefits": [
+        "항산화",
+        "톤 개선 보조",
+        "진정"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "good",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "safety_grade": 1,
+      "cautions": "특별한 주의사항 없음.",
+      "status": "published",
+      "added_date": "2026-06-12",
+      "cas_no": "91722-81-5"
+    },
+    {
+      "id": "litchi-chinensis-seed-extract",
+      "korean_name": "리치씨추출물",
+      "inci_name": "Litchi Chinensis Seed Extract",
+      "category": "항산화·보습",
+      "description": "리치 씨에서 얻은 추출물로, 항산화와 함께 피부에 수분과 탄력을 더해줍니다.",
+      "benefits": [
+        "항산화",
+        "보습",
+        "탄력 보조"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "good",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "safety_grade": 1,
+      "cautions": "특별한 주의사항 없음.",
+      "status": "published",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "litchi-chinensis-fruit-extract",
+      "korean_name": "리치추출물",
+      "inci_name": "Litchi Chinensis Fruit Extract",
+      "category": "항산화·보습",
+      "description": "리치 과육 추출물. 비타민C 등 영양 성분이 풍부해 피부에 생기와 수분을 더합니다.",
+      "benefits": [
+        "항산화",
+        "수분 공급",
+        "영양 공급"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "good",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "safety_grade": 1,
+      "cautions": "특별한 주의사항 없음.",
+      "status": "published",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "lithothamnion-calcareum-powder",
+      "korean_name": "리토탐니온 칼카룸가루",
+      "inci_name": "Lithothamnion Calcareum Powder",
+      "category": "미네랄·보습",
+      "description": "칼슘·마그네슘이 풍부한 홍조류를 갈아 만든 가루. 미네랄을 공급하고 피부 표면을 매끄럽게 정돈합니다.",
+      "benefits": [
+        "미네랄 공급",
+        "보습",
+        "피부 정돈"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "good",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "safety_grade": 1,
+      "cautions": "특별한 주의사항 없음.",
+      "status": "published",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "lithium-magnesium-sodium-silicate",
+      "korean_name": "리튬마그네슘소듐실리케이트",
+      "inci_name": "Lithium Magnesium Sodium Silicate",
+      "category": "점증·흡착",
+      "description": "합성 점토 성분으로, 제형을 안정적으로 굳혀주고 과잉 피지를 흡착하는 역할을 합니다. 마스크·클레이 제품에 자주 쓰입니다.",
+      "benefits": [
+        "점도 조절",
+        "피지 흡착",
+        "제형 안정"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "good",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "safety_grade": 2,
+      "cautions": "특별한 주의사항 없음.",
+      "status": "published",
+      "added_date": "2026-06-12",
+      "cas_no": "53320-86-8"
+    },
+    {
+      "id": "lithium-stearate",
+      "korean_name": "리튬스테아레이트",
+      "inci_name": "Lithium Stearate",
+      "category": "점도·사용감 조절",
+      "description": "지방산(스테아릭애씨드)의 리튬염으로, 제형의 점도와 발림성을 조절하는 보조 성분입니다.",
+      "benefits": [
+        "점도 조절",
+        "사용감 개선"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "good",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "safety_grade": 2,
+      "cautions": "특별한 주의사항 없음.",
+      "status": "published",
+      "added_date": "2026-06-12",
+      "cas_no": "12/5/85"
+    },
+    {
+      "id": "hyaluronic-acid-0",
+      "korean_name": "하이알루로닉애씨드",
+      "inci_name": "Hyaluronic Acid",
+      "category": "보습",
+      "description": "순수 형태의 히알루론산. 피부 속 수분을 끌어당겨 머금어 촉촉함을 오래 유지하는 대표 보습 성분입니다.",
+      "benefits": [
+        "수분 공급",
+        "피부 장벽 강화",
+        "탄력 보조"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "good",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "safety_grade": 1,
+      "cautions": "특별한 주의사항 없음. 모든 피부에 무난합니다.",
+      "status": "published",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "hydrolyzed-hyaluronic-acid",
+      "korean_name": "하이드롤라이즈드하이알루로닉애씨드",
+      "inci_name": "Hydrolyzed Hyaluronic Acid",
+      "category": "보습",
+      "description": "히알루론산을 잘게 쪼갠 저분자 형태. 분자가 작아 각질층 안쪽까지 수분을 전달해 속부터 촉촉하게 합니다.",
+      "benefits": [
+        "저분자 수분 공급",
+        "속보습"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "good",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "safety_grade": 1,
+      "cautions": "특별한 주의사항 없음.",
+      "status": "published",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "gold-thioethylamino-hyaluronic-acid",
+      "korean_name": "골드티오에틸아미노하이알루로닉애씨드",
+      "inci_name": "Gold Thioethylamino Hyaluronic Acid",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 하이알루로닉애씨드와 티오에틸아민 및 금콜로이드를 반응하여 얻은 복합물이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "lactococcus-hyaluronic-acid-ferment-filtrate",
+      "korean_name": "락토코쿠스/하이알루로닉애씨드발효여과물",
+      "inci_name": "Lactococcus/Hyaluronic Acid Ferment Filtrate",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 미생물의 일종인 Lactococcus로 하이알루로닉애씨드를 발효하여 여과한 것이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "hyaluronic-acid-peg-800-crosspolymer",
+      "korean_name": "하이알루로닉애씨드/피이지-800크로스폴리머",
+      "inci_name": "Hyaluronic Acid/PEG-800 Crosspolymer",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 하이알루로닉애씨드와 피이지-800을 이온화 방사선으로 교차결합시킨 중합체이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "isoniacinamide",
+      "korean_name": "아이소나이아신아마이드",
+      "inci_name": "Isoniacinamide",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 다음과 같은 구조를 갖는 유기화합물이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "niacinamide-ascorbate",
+      "korean_name": "나이아신아마이드아스코베이트",
+      "inci_name": "Niacinamide Ascorbate",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 나이아신아마이드의 아스코빅애씨드염이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "niacinamide-glycolate",
+      "korean_name": "나이아신아마이드글라이콜레이트",
+      "inci_name": "Niacinamide Glycolate",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 다음의 구조를 갖는 나이아신아마이드와 클라이콜릭애씨드의 염이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "niacinamide-lactate",
+      "korean_name": "나이아신아마이드락테이트",
+      "inci_name": "Niacinamide Lactate",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 다음의 구조를 갖는 나이아신아마이드와 락틱애씨드의 염이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "niacinamide-malate",
+      "korean_name": "나이아신아마이드말레이트",
+      "inci_name": "Niacinamide Malate",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 다음의 구조를 갖는 나이아신아마이드와 말릭애씨드의 염이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "niacinamide-mandelate",
+      "korean_name": "나이아신아마이드만델레이트",
+      "inci_name": "Niacinamide Mandelate",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 다음의 구조를 갖는 나이아신아마이드와 만델릭애씨드의 염이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "niacinamide-hydroxycitrate",
+      "korean_name": "나이아신아마이드하이드록시시트레이트",
+      "inci_name": "Niacinamide Hydroxycitrate",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 다음의 구조를 갖는 하이드록시시트릭애씨드 및 나이아신아마이드의 염이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "hydrogenated-retinol",
+      "korean_name": "하이드로제네이티드레티놀",
+      "inci_name": "Hydrogenated Retinol",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 레티놀에 조건화 수소첨가반응을 하여 얻은 것이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "magnesium-ascorbyl-phosphate",
+      "korean_name": "마그네슘아스코빌포스페이트",
+      "inci_name": "Magnesium Ascorbyl Phosphate",
+      "category": "미백·톤개선",
+      "description": "물에 안정적인 비타민C 유도체. 순수 비타민C보다 순해 민감성 피부도 부담 없이 미백·항산화 효과를 기대할 수 있습니다.",
+      "benefits": [
+        "미백",
+        "항산화",
+        "저자극"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "good",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "safety_grade": 1,
+      "cautions": "특별한 주의사항 없음.",
+      "status": "published",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "sodium-ascorbyl-phosphate",
+      "korean_name": "소듐아스코빌포스페이트",
+      "inci_name": "Sodium Ascorbyl Phosphate",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 다음의 구조를 갖는 유기화합물이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "aminopropyl-ascorbyl-phosphate",
+      "korean_name": "아미노프로필아스코빌포스페이트",
+      "inci_name": "Aminopropyl Ascorbyl Phosphate",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 다음의 구조를 갖는 유기화합물이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "ascorbyl-glucoside",
+      "korean_name": "아스코빌글루코사이드",
+      "inci_name": "Ascorbyl Glucoside",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 아스코빅애씨드와 글루코오스의 축합반응물이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "ascorbyl-dipalmitate",
+      "korean_name": "아스코빌다이팔미테이트",
+      "inci_name": "Ascorbyl Dipalmitate",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 주로 다음의 구조를 갖는 아스코빅애씨드와 팔미틱애씨드의 다이에스터이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "ascorbyl-methylsilanol-pectinate",
+      "korean_name": "아스코빌메틸실란올펙티네이트",
+      "inci_name": "Ascorbyl Methylsilanol Pectinate",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 아스코빅애씨드와 반응한 펙틴의 올리고머릭메틸실란올 유도체이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "ascorbyl-stearate",
+      "korean_name": "아스코빌스테아레이트",
+      "inci_name": "Ascorbyl Stearate",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 아스코빅애씨드와 스테아릭애씨드의 에스터이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "ascorbyl-tetraisopalmitate",
+      "korean_name": "아스코빌테트라이소팔미테이트",
+      "inci_name": "Ascorbyl Tetraisopalmitate",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 주로 아스코빅애씨드와 이소팔미틱애씨드의 테트라에스터이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "methoxy-peg-7-ascorbic-acid",
+      "korean_name": "메톡시피이지-7아스코빅애씨드",
+      "inci_name": "Methoxy PEG-7 Ascorbic Acid",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 유기화합물이며 주로 n은 평균6인 다음의 구조를 갖는다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "3-o-cetyl-ascorbic-acid",
+      "korean_name": "3-O-세틸아스코빅애씨드",
+      "inci_name": "3-O-Cetyl Ascorbic Acid",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 다음의 구조를 갖는 유기화합물이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "ascorbic-acid-polypeptide",
+      "korean_name": "아스코빅애씨드폴리펩타이드",
+      "inci_name": "Ascorbic Acid Polypeptide",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 아스코빅애씨드와 가수분해된 단백질의 반응물이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "2-o-ethyl-ascorbic-acid",
+      "korean_name": "2-O-에틸아스코빅애씨드",
+      "inci_name": "2-O-Ethyl Ascorbic Acid",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 다음의 구조를 갖는 유기화합물이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "diethyl-ascorbic-acid",
+      "korean_name": "다이에틸아스코빅애씨드",
+      "inci_name": "Diethyl Ascorbic Acid",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 다음의 구조를 갖는 유기화합물이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "3-o-ethyl-ascorbic-acid",
+      "korean_name": "3-O-에틸아스코빅애씨드",
+      "inci_name": "3-O-Ethyl Ascorbic Acid",
+      "category": "미백·톤개선",
+      "description": "비타민C 유도체 중 안정성이 뛰어난 형태. 순수 비타민C의 미백 효과를 유지하면서 쉽게 산화되지 않아 자극이 덜합니다.",
+      "benefits": [
+        "미백",
+        "항산화",
+        "안정성 우수"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "good",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "safety_grade": 1,
+      "cautions": "특별한 주의사항 없음.",
+      "status": "published",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "tocopherol",
+      "korean_name": "토코페롤",
+      "inci_name": "Tocopherol",
+      "category": "항산화",
+      "description": "비타민E. 강력한 항산화 작용으로 활성산소로부터 피부를 보호하고, 다른 성분의 산화도 막아 제품을 안정시킵니다.",
+      "benefits": [
+        "항산화",
+        "보습",
+        "장벽 보호"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "good",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "safety_grade": 1,
+      "cautions": "특별한 주의사항 없음.",
+      "status": "published",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "tocopherol-wheat-polypeptides",
+      "korean_name": "토코페롤/밀폴리펩타이드",
+      "inci_name": "Tocopherol/Wheat Polypeptides",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 토코페롤과 밀펩타이드를 가열공정처리하여 얻은 것이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "glucosyl-ceramide",
+      "korean_name": "글루코실세라마이드",
+      "inci_name": "Glucosyl Ceramide",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 식물 및 동물에서 발견되는 주요한 글라이코스핑고리피드이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "ceramide-ns",
+      "korean_name": "세라마이드엔에스",
+      "inci_name": "Ceramide NS",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 포화 또는 불포화 지방산이 결합된 D-에리스로 구조를 갖는 스핑고신이 함유된 N-아실레이티드스핑고리피드로, 구명칭은 세라마이드2이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "ceramide-ap",
+      "korean_name": "세라마이드에이피",
+      "inci_name": "Ceramide AP",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 α-하이드록시포화 또는 불포화 지방산이 결합된 D-에리스로 구조를 갖는 피토스핑고신이 함유된 N-아실레이티드스핑고리피드이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "ceramide-eop",
+      "korean_name": "세라마이드이오피",
+      "inci_name": "Ceramide EOP",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 포화 또는 불포화 지방산으로 에스터화된 ω-하이드록시에씨드와 결합된 D-에리스로 구조를 갖는 피토스핑고신이 함유된 스핑고리피드이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "ceramide-eos",
+      "korean_name": "세라마이드이오에스",
+      "inci_name": "Ceramide EOS",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 포화 또는 불포화 지방산으로 에스터화된 ω-하이드록시에씨드와 결합된 D-에리스로 구조를 갖는 스핑고신이 함유된 스핑고리피드이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "ceramide-ng",
+      "korean_name": "세라마이드엔지",
+      "inci_name": "Ceramide NG",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 포화 또는 불포화 지방산이 결합된 D-에리스로 구조를 갖는 스핑가닌이 함유된 N-아실레이티드스핑고리피드이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "ceramide-as",
+      "korean_name": "세라마이드에이에스",
+      "inci_name": "Ceramide AS",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 포화 또는 불포화 알파-하이드록시지방산이 결합된 D-에리스로 구조를 갖는 스핑고신으로 구성되는 N-아실화스핑고리피드이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "myristoyl-tetrapeptide-8",
+      "korean_name": "미리스토일테트라펩타이드-8",
+      "inci_name": "Myristoyl Tetrapeptide-8",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 미리스틱애씨드와 테트라펩타이드-8의 반응물이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "myristoyl-pentapeptide-8",
+      "korean_name": "미리스토일펜타펩타이드-8",
+      "inci_name": "Myristoyl Pentapeptide-8",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 미리스틱애씨드와 펜타펩타이드-8의 반응으로 얻은 것이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "biotinoyl-tripeptide-1",
+      "korean_name": "바이오티노일트라이펩타이드-1",
+      "inci_name": "Biotinoyl Tripeptide-1",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 바이오틴과 트라이펩타이드-1의 반응물이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "dipeptide-15",
+      "korean_name": "다이펩타이드-15",
+      "inci_name": "Dipeptide-15",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 글라이신으로 구성된 합성펩타이드이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "acetyl-decapeptide-3",
+      "korean_name": "아세틸데카펩타이드-3",
+      "inci_name": "Acetyl Decapeptide-3",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 데카펩타이드-3의 아세틸화 반응으로 얻은 것이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "acetyl-dipeptide-1-cetyl-ester",
+      "korean_name": "아세틸다이펩타이드-1세틸에스터",
+      "inci_name": "Acetyl Dipeptide-1 Cetyl Ester",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 다이펩타이드-1을 세틸알코올과 아세틱애씨드를 반응하여 얻은 것이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "acetyl-tetrapeptide-2",
+      "korean_name": "아세틸테트라펩타이드-2",
+      "inci_name": "Acetyl Tetrapeptide-2",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 아세틱애씨드와 테트라펩타이드-2의 반응물이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "acetyl-tetrapeptide-5",
+      "korean_name": "아세틸테트라펩타이드-5",
+      "inci_name": "Acetyl Tetrapeptide-5",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 아세틱애씨드와 테트라펩타이드-5의 반응물이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "myristoyl-hydrolyzed-collagen",
+      "korean_name": "미리스토일하이드롤라이즈드콜라겐",
+      "inci_name": "Myristoyl Hydrolyzed Collagen",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 미리스틱애씨드클로라이드 및 하이드롤라이즈드콜라겐의 축합반응물이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "succinoyl-atelocollagen",
+      "korean_name": "석시노일아텔로콜라겐",
+      "inci_name": "Succinoyl Atelocollagen",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 석시닉안하이드라이드와 아텔로콜라겐의 반응물이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "sodium-cocoyl-collagen-amino-acids",
+      "korean_name": "소듐코코일콜라겐아미노산",
+      "inci_name": "Sodium Cocoyl Collagen Amino Acids",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 코코넛애씨드클로라이드와 콜라겐아미노산 축합반응물의 소듐염이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "sodium-cocoyl-hydrolyzed-collagen",
+      "korean_name": "소듐코코일하이드롤라이즈드콜라겐",
+      "inci_name": "Sodium Cocoyl Hydrolyzed Collagen",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 코코넛애씨드클로라이드와 가수분해된 콜라겐과의 축합반응물의 소듐염이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "sodium-tea-lauroyl-collagen-amino-acids",
+      "korean_name": "소듐/티이에이-라우로일콜라겐아미노산",
+      "inci_name": "Sodium/TEA-Lauroyl Collagen Amino Acids",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 라우릭애씨드클로라이드와 콜라겐아미노산의 축합생산물의 트라이에탄올아민염과 소듐의 혼합물이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "soluble-collagen",
+      "korean_name": "수용성콜라겐",
+      "inci_name": "Soluble Collagen",
+      "category": "보습·탄력",
+      "description": "가수분해하지 않은 천연 콜라겐. 피부 표면에 보습막을 형성해 촉촉함과 매끄러움을 줍니다.",
+      "benefits": [
+        "표면 보습",
+        "피부 유연화",
+        "일시적 탄력감"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "good",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "safety_grade": 1,
+      "cautions": "동물 유래 성분 — 비건 제품을 찾는다면 확인 필요.",
+      "status": "published",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "steartrimonium-hydroxyethyl-hydrolyzed-collagen",
+      "korean_name": "스테아트라이모늄하이드록시에틸하이드롤라이즈드콜라겐",
+      "inci_name": "Steartrimonium Hydroxyethyl Hydrolyzed Collagen",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 스테아릴트라이메틸암모늄클로라이드와 가수분해된 콜라겐의 반응으로 생성된 4급 암모늄클로라이드이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "atelocollagen",
+      "korean_name": "아텔로콜라겐",
+      "inci_name": "Atelocollagen",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 콜라겐에서 텔로펩타이드가 효소적으로 제거될 때 얻은 단백질이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "silicone-quaternium-2-panthenol-succinate",
+      "korean_name": "실리콘쿼터늄-2판테놀석시네이트",
+      "inci_name": "Silicone Quaternium-2 Panthenol Succinate",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 실리콘쿼터늄-2와 판테닐석시네이트의 반응으로 얻은 것이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "allantoin-panthenol",
+      "korean_name": "알란토인판테놀",
+      "inci_name": "Allantoin Panthenol",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 알란토인과 판테놀의 복합물이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "tripaba-panthenol",
+      "korean_name": "트라이파바판테놀",
+      "inci_name": "TriPABA Panthenol",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 판테놀과 파바의 트라이에스터이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "dexpanthenol",
+      "korean_name": "덱스판테놀",
+      "inci_name": "Dexpanthenol",
+      "category": "진정·보습",
+      "description": "판테놀의 활성형(프로비타민B5). 자극받은 피부를 빠르게 달래고 장벽 회복을 도와 더모 코스메틱 제품에 자주 쓰입니다.",
+      "benefits": [
+        "진정",
+        "보습",
+        "재생 보조"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "good",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "safety_grade": 1,
+      "cautions": "특별한 주의사항 없음.",
+      "status": "published",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "adenosine",
+      "korean_name": "아데노신",
+      "inci_name": "Adenosine",
+      "category": "주름·안티에이징",
+      "description": "세포 에너지원에서 유래한 식약처 고시 주름개선 기능성 성분. 순하면서도 주름 완화 효과가 검증돼 안티에이징 제품에 널리 쓰입니다.",
+      "benefits": [
+        "주름 개선",
+        "탄력 보조"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "good",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "safety_grade": 1,
+      "cautions": "특별한 주의사항 없음.",
+      "status": "published",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "adenosine-cyclic-phosphate",
+      "korean_name": "아데노신사이클릭포스페이트",
+      "inci_name": "Adenosine Cyclic Phosphate",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 다음의 구조를 갖는 헤테로사이클릭 화합물이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "adenosine-triphosphate",
+      "korean_name": "아데노신트라이포스페이트",
+      "inci_name": "Adenosine Triphosphate",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 다음의 구조를 갖는 유기화합물이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "adenosine-phosphate",
+      "korean_name": "아데노신포스페이트",
+      "inci_name": "Adenosine Phosphate",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 다음의 구조를 갖는 헤테로사이클릭 유기화합물이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "disodium-adenosine-triphosphate",
+      "korean_name": "다이소듐아데노신트라이포스페이트",
+      "inci_name": "Disodium Adenosine Triphosphate",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 아데노신 트라이포스페이트의 다이소듐염이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "disodium-adenosine-phosphate",
+      "korean_name": "다이소듐아데노신포스페이트",
+      "inci_name": "Disodium Adenosine Phosphate",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 아데노신포스페이트의 다이소듐염이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "zinc-adenosine-triphosphate",
+      "korean_name": "징크아데노신트라이포스페이트",
+      "inci_name": "Zinc Adenosine Triphosphate",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 아데노신트라이포스페이트의 아연염이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "cyclic-adenosine-diphosphate-ribose",
+      "korean_name": "사이클릭아데노신다이포스페이트리보오스",
+      "inci_name": "Cyclic Adenosine Diphosphate Ribose",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 다음의 구조를 갖는 유기 화합물이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "madecassoside",
+      "korean_name": "마데카소사이드",
+      "inci_name": "Madecassoside",
+      "category": "진정·재생",
+      "description": "병풀(센텔라)의 핵심 활성 성분. 자극받은 피부를 빠르게 진정시키고 재생을 도와 시카 제품의 주역으로 쓰입니다.",
+      "benefits": [
+        "진정",
+        "재생",
+        "항염"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "good",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "safety_grade": 1,
+      "cautions": "특별한 주의사항 없음.",
+      "status": "published",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "madecassic-acid",
+      "korean_name": "마데카식애씨드",
+      "inci_name": "Madecassic Acid",
+      "category": "진정·재생",
+      "description": "병풀에서 얻은 활성 성분으로, 붉어진 피부를 가라앉히고 피부 진정을 돕습니다.",
+      "benefits": [
+        "진정",
+        "항염",
+        "재생 보조"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "good",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "safety_grade": 1,
+      "cautions": "특별한 주의사항 없음.",
+      "status": "published",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "allantoin-glycyrrhetinic-acid",
+      "korean_name": "알란토인글리시레티닉애씨드",
+      "inci_name": "Allantoin Glycyrrhetinic Acid",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 알란토인과 글리시레티닉애씨드의 복합물이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "allantoin-acetyl-methionine",
+      "korean_name": "알란토인아세틸메티오닌",
+      "inci_name": "Allantoin Acetyl Methionine",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 일반적으로 다음의 구조를 갖는 유기화합물이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "allantoin-ascorbate",
+      "korean_name": "알란토인아스코베이트",
+      "inci_name": "Allantoin Ascorbate",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 다음의 구조를 갖는 유기화합물이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "allantoin-polygalacturonic-acid",
+      "korean_name": "알란토인폴리갈락투로닉애씨드",
+      "inci_name": "Allantoin Polygalacturonic Acid",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 알란토인과 폴리갈락투로닉애씨드의 복합물이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "sodium-allantoin-pca",
+      "korean_name": "소듐알란토인피씨에이",
+      "inci_name": "Sodium Allantoin PCA",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 알란토인과 소듐피씨에이로 이루어진 복합물이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "allantoin-galacturonic-acid",
+      "korean_name": "알란토인갈락투로닉애씨드",
+      "inci_name": "Allantoin Galacturonic Acid",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 다음의 구조를 갖는 알란토인과 갈락투로닉애씨드의 혼합물이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "allantoin-biotin",
+      "korean_name": "알란토인바이오틴",
+      "inci_name": "Allantoin Biotin",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 다음의 구조를 갖는 유기화합물이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "alpha-arbutin",
+      "korean_name": "알파-알부틴",
+      "inci_name": "Alpha-Arbutin",
+      "category": "미백·톤개선",
+      "description": "알부틴 중 미백 효율이 가장 높은 형태. 안정적이고 흡수가 잘 돼 톤 개선 효과가 뛰어납니다.",
+      "benefits": [
+        "미백",
+        "잡티 예방",
+        "흡수율 우수"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "good",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "safety_grade": 2,
+      "cautions": "특별한 주의사항 없음.",
+      "status": "published",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "azelamide-mea",
+      "korean_name": "아젤라마이드엠이에이",
+      "inci_name": "Azelamide MEA",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 아젤라익애씨드의 에탄올아마이드 혼합물이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "azelaoyl-tripeptide-1",
+      "korean_name": "아젤라오일트라이펩타이드-1",
+      "inci_name": "Azelaoyl Tripeptide-1",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 아젤라익애씨드 및 트라이펩타이드-1의 반응으로 얻은 것이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "azelaoyl-octapeptide-9",
+      "korean_name": "아젤라오일옥타펩타이드-9",
+      "inci_name": "Azelaoyl Octapeptide-9",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 아젤라익애씨드 및 옥타펩타이드-9의 반응으로 얻은 것이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "azelaoyl-pentapeptide-37",
+      "korean_name": "아젤라오일펜타펩타이드-37",
+      "inci_name": "Azelaoyl Pentapeptide-37",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 아젤라익애씨드와 펜타펩타이드-37의 반응으로 얻은 것이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "azelamidopropyl-dimethyl-amine",
+      "korean_name": "아젤라미도프로필다이메틸아민",
+      "inci_name": "Azelamidopropyl Dimethyl Amine",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 다음의 구조를 갖는 유기화합물이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "azelaoyl-dipeptide-27",
+      "korean_name": "아젤라오일다이펩타이드-27",
+      "inci_name": "Azelaoyl Dipeptide-27",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 아젤라익애씨드와 다이펩타이드-27의 반응으로 얻어진 것이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "capryloyl-salicylic-acid",
+      "korean_name": "카프릴로일살리실릭애씨드",
+      "inci_name": "Capryloyl Salicylic Acid",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 살리실릭애씨드와 카프릴릭애씨드의 에스터이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "acetylsalicylic-acid",
+      "korean_name": "아세틸살리실릭애씨드",
+      "inci_name": "Acetylsalicylic Acid",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 다음의 구조를 갖는 유기화합물이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "thiosalicylic-acid",
+      "korean_name": "티오살리실릭애씨드",
+      "inci_name": "Thiosalicylic Acid",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 다음의 구조를 갖는 방향족 산이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "thioglycolic-acid",
+      "korean_name": "치오글라이콜릭애씨드",
+      "inci_name": "Thioglycolic Acid",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 주로 다음의 구조를 갖는 유기산이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "dithiodiglycolic-acid",
+      "korean_name": "다이티오다이글라이콜릭애씨드",
+      "inci_name": "Dithiodiglycolic Acid",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 다음의 구조를 갖는 다이카복실릭애씨드이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "lactic-acid-glycolic-acid-copolymer",
+      "korean_name": "락틱애씨드/글라이콜릭애씨드코폴리머",
+      "inci_name": "Lactic Acid/Glycolic Acid Copolymer",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 락틱애씨드 및 글라이콜릭애씨드 모노머의 공중합체이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "phenylthioglycolic-acid",
+      "korean_name": "페닐티오글라이콜릭애씨드",
+      "inci_name": "Phenylthioglycolic Acid",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 다음의 구조를 갖는 방향족 애씨드이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "thiodiglycolic-acid",
+      "korean_name": "티오다이글라이콜릭애씨드",
+      "inci_name": "Thiodiglycolic Acid",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 다음의 구조를 갖는 유기화합물이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "lactobacillus-phaseolus-radiatus-seed-ferment-filtrate",
+      "korean_name": "락토바실러스/녹두씨발효여과물",
+      "inci_name": "Lactobacillus/Phaseolus Radiatus Seed Ferment Filtrate",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 락토바실러스로 녹두 씨의 발효로 얻은 생성물을 여과한 것이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "lactobacillus-date-fruit-ferment-extract",
+      "korean_name": "락토바실러스/대추야자열매발효추출물",
+      "inci_name": "Lactobacillus/Date Fruit Ferment Extract",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 락토바실러스로 대추야자 열매를 발효하여 얻은 것이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "lactobacillus-ferment",
+      "korean_name": "락토바실러스발효물",
+      "inci_name": "Lactobacillus Ferment",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 미생물의 일종인 락토바실러스를 발효하여 얻은 생성물이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "lactobacillus-pear-juice-ferment-filtrate",
+      "korean_name": "락토바실러스/배즙발효여과물",
+      "inci_name": "Lactobacillus/Pear Juice Ferment Filtrate",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 락토바실러스에 의한 배즙의 발효로 얻은 생성물을 여과한 것이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "lactobacillus-water-hyacinth-ferment",
+      "korean_name": "락토바실러스/부레옥잠발효물",
+      "inci_name": "Lactobacillus/Water Hyacinth Ferment",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 락토바실러스로 부레옥잠을 발효한 것이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "lactobacillus-acerola-cherry-ferment",
+      "korean_name": "락토바실러스/아세로라체리발효물",
+      "inci_name": "Lactobacillus/Acerola Cherry Ferment",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 락토바실러스로 아세로라체리를 발효하여 얻은 생성물이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "propolis-wax-propolis-cera",
+      "korean_name": "프로폴리스왁스",
+      "inci_name": "Propolis Wax,Propolis Cera",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 벌집에 있는 수지물질인 프로폴리스 추출물에서 얻은 물질이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "saccharomyces-propolis-ferment-extract",
+      "korean_name": "효모/프로폴리스발효추출물",
+      "inci_name": "Saccharomyces/Propolis Ferment Extract",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 효모로 프로폴리스를 발효하여 추출한 것이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "lactobacillus-propolis-ferment-extract",
+      "korean_name": "락토바실러스/프로폴리스발효추출물",
+      "inci_name": "Lactobacillus/Propolis Ferment Extract",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 Lactobacillus속의 미생물로 프로폴리스를 발효하여 추출한 것이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "camellia-sinensis-leaf-powder",
+      "korean_name": "녹차가루",
+      "inci_name": "Camellia Sinensis Leaf Powder",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 차나무(녹차)의 건조된 토엽에서 얻은 가루이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "camellia-sinensis-flower-extract",
+      "korean_name": "녹차꽃추출물",
+      "inci_name": "Camellia Sinensis Flower Extract",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 차나무(녹차)의 꽃에서 추출한 것이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "camellia-sinensis-leaf-water",
+      "korean_name": "녹차수",
+      "inci_name": "Camellia Sinensis Leaf Water",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 차나무(녹차)의 잎을 수증기 증류하여 얻은 수용액이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "camellia-sinensis-seed-oil",
+      "korean_name": "녹차씨오일",
+      "inci_name": "Camellia Sinensis Seed Oil",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 차나무(녹차)의 씨로부터 압축하여 얻은 오일이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "camellia-sinensis-seed-extract",
+      "korean_name": "녹차씨추출물",
+      "inci_name": "Camellia Sinensis Seed Extract",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 차나무(녹차)의 씨에서 추출한 것이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "camellia-sinensis-catechins",
+      "korean_name": "녹차카테킨",
+      "inci_name": "Camellia Sinensis Catechins",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 차나무(녹차)의 잎에서 얻은 카테킨의 혼합물이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "houttuynia-cordata-powder",
+      "korean_name": "약모밀가루",
+      "inci_name": "Houttuynia Cordata Powder",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 약모밀의 지상부에서 얻은 가루이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "houttuynia-cordata-extract",
+      "korean_name": "약모밀추출물",
+      "inci_name": "Houttuynia Cordata Extract",
+      "category": "진정·트러블",
+      "description": "약모밀(어성초) 추출물. 항염 작용이 뛰어나 예민하고 트러블 잦은 피부를 차분하게 진정시킵니다.",
+      "benefits": [
+        "진정",
+        "항염",
+        "트러블 완화"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "good",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "safety_grade": 1,
+      "cautions": "특별한 주의사항 없음.",
+      "status": "published",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "bacillus-houttuynia-cordata-extract-ferment-filtrate",
+      "korean_name": "바실러스/약모밀추출물발효여과물",
+      "inci_name": "Bacillus/Houttuynia Cordata Extract Ferment Filtrate",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 바실러스로 어성초추출물을 발효하여 여과한 것이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "centella-asiatica-leaf-extract",
+      "korean_name": "병풀잎추출물",
+      "inci_name": "Centella Asiatica Leaf Extract",
+      "category": "진정·재생",
+      "description": "병풀 잎 추출물. 자극받은 피부를 빠르게 진정시키고 재생을 돕는 시카 케어의 대표 성분입니다.",
+      "benefits": [
+        "진정",
+        "재생",
+        "홍조 완화"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "good",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "safety_grade": 1,
+      "cautions": "특별한 주의사항 없음.",
+      "status": "published",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "centella-asiatica-meristem-cell-culture",
+      "korean_name": "병풀분열조직세포배양물",
+      "inci_name": "Centella Asiatica Meristem Cell Culture",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 병풀의 배양된 분열조직세포의 현탁액이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "centella-asiatica-leaf-water",
+      "korean_name": "병풀잎수",
+      "inci_name": "Centella Asiatica Leaf Water",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 병풀의 잎을 수증기 증류하여 얻은 수용액이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "bacillus-centella-asiatica-extract-ferment-filtrate",
+      "korean_name": "바실러스/병풀추출물발효여과물",
+      "inci_name": "Bacillus/Centella Asiatica Extract Ferment Filtrate",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 바실러스로 병풀추출물을 발효하여 여과한 것이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "bakuchiol",
+      "korean_name": "바쿠치올",
+      "inci_name": "Bakuchiol",
+      "category": "주름·안티에이징",
+      "description": "식물 유래 '천연 레티놀 대안'. 레티놀과 비슷한 주름·탄력 개선 효과를 내면서 자극이 적어 민감성 피부도 쓸 수 있습니다.",
+      "benefits": [
+        "주름 개선",
+        "탄력 보조",
+        "저자극"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "good",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "safety_grade": 2,
+      "cautions": "특별한 주의사항 없음.",
+      "status": "published",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "caffeine",
+      "korean_name": "카페인",
+      "inci_name": "Caffeine",
+      "category": "탄력·부기 케어",
+      "description": "혈행을 자극해 부기를 빼주는 성분. 특히 눈가 붓기·다크서클 케어 아이크림에 자주 쓰입니다.",
+      "benefits": [
+        "부기 완화",
+        "항산화",
+        "혈행 보조"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "good",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "safety_grade": 1,
+      "cautions": "특별한 주의사항 없음.",
+      "status": "published",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "caffeine-carboxyloyl-sh-decapeptide-1",
+      "korean_name": "카페인카복실로일에스에이치-데카펩타이드-1",
+      "inci_name": "Caffeine Carboxyloyl sh-Decapeptide-1",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 에스에이치-데카펩타이드-1로 카페인카복실릭애씨드를 반응하여 얻은 것이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "caffeine-benzoate",
+      "korean_name": "카페인벤조에이트",
+      "inci_name": "Caffeine Benzoate",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 카페인과 벤조익애씨드의 반응물이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "caffeine-salicylate",
+      "korean_name": "카페인살리실레이트",
+      "inci_name": "Caffeine Salicylate",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 다음의 구조를 갖는 유기염이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "caffeine-carboxylic-acid",
+      "korean_name": "카페인카복실릭애씨드",
+      "inci_name": "Caffeine Carboxylic Acid",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 다음의 구조를 갖는 헤테로고리화합물이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "caffeine-carboxyloyl-tripeptide-37",
+      "korean_name": "카페인카복실로일트라이펩타이드-37",
+      "inci_name": "Caffeine Carboxyloyl Tripeptide-37",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 카페인카복실릭애씨드와 트라이펩타이드-37이 반응하여 얻은 것이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "zinc-oxide-ci-77947",
+      "korean_name": "징크옥사이드",
+      "inci_name": "Zinc Oxide,CI 77947",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 주로 다음의 구조를 갖는 무기산화물이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "aluminum-zinc-oxide",
+      "korean_name": "알루미늄징크옥사이드",
+      "inci_name": "Aluminum Zinc Oxide",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 다음의 구조를 갖는 무기산화물이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "menthone-glycerin-acetal",
+      "korean_name": "멘톤글리세린아세탈",
+      "inci_name": "Menthone Glycerin Acetal",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 다음의 구조를 갖는 유기화합물이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "cetyl-glyceryl-ether-glycerin-copolymer",
+      "korean_name": "세틸글리세릴에터/글리세린코폴리머",
+      "inci_name": "Cetyl Glyceryl Ether/Glycerin Copolymer",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 글리세린과 글리세릴세틸에터 모노머의 공중합체이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "glycerin-phthalic-acid-copolymer",
+      "korean_name": "글리세린/프탈릭애씨드코폴리머",
+      "inci_name": "Glycerin/Phthalic Acid Copolymer",
+      "category": "미분류",
+      "description": "(검토 필요) 이 원료는 프탈릭애씨드모노머와 글리세린을 포함하는 공중합체이다.",
+      "benefits": [],
+      "skin_types": {
+        "건성": "caution",
+        "지성": "caution",
+        "민감성": "caution",
+        "복합성": "caution",
+        "여드름성": "caution"
+      },
+      "safety_grade": 5,
+      "cautions": "신규 수집 성분 — 검토 전입니다.",
+      "status": "draft",
+      "source": "",
+      "added_date": "2026-06-12"
+    },
+    {
+      "id": "ethylhexylglycerin",
+      "korean_name": "에틸헥실글리세린",
+      "inci_name": "Ethylhexylglycerin",
+      "category": "보존 보조·보습",
+      "description": "순한 보존 보조 성분. 페녹시에탄올 등과 함께 쓰여 적은 양으로 제품을 안전하게 지키고 가벼운 보습도 더합니다.",
+      "benefits": [
+        "보존 보조",
+        "보습",
+        "데오드란트 효과"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "good",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "safety_grade": 1,
+      "cautions": "특별한 주의사항 없음.",
+      "status": "published",
+      "added_date": "2026-06-12"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+# Python 캐시
+__pycache__/
+*.pyc
+
+# 크롤러 중간 수집 산출물 (재현 가능, 버전관리 불필요)
+data/mfds_fetch_page1.json
+data/mfds_popular.txt
+
+# OS·에디터 파일
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>성분 사전 — 화장품 성분 가이드</title>
+<style>
+  :root{
+    --bg:#faf7f4; --card:#ffffff; --ink:#2b2622; --sub:#8a7f76;
+    --accent:#b08968; --accent-dark:#8c6a4f; --line:#eee5dd;
+    --good:#3a9b6e; --good-bg:#e7f5ee; --caution:#c98a1b; --caution-bg:#fdf3e0;
+    --bad:#c4534f; --bad-bg:#fbe9e8;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Apple SD Gothic Neo','Pretendard','Noto Sans KR',sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+  header{background:linear-gradient(135deg,#f3e9df,#e9d9c8);padding:48px 24px 36px;text-align:center}
+  header h1{font-size:30px;font-weight:800;letter-spacing:-0.5px}
+  header p{color:#7a6a58;margin-top:8px;font-size:15px}
+  .updated{font-size:12px;color:#a4937f;margin-top:6px}
+  .container{max-width:1080px;margin:0 auto;padding:24px}
+  .controls{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:8px}
+  #search{flex:1;min-width:220px;padding:12px 16px;border:1px solid var(--line);border-radius:12px;font-size:15px;background:var(--card)}
+  #search:focus{outline:2px solid var(--accent)}
+  select{padding:12px 14px;border:1px solid var(--line);border-radius:12px;font-size:14px;background:var(--card);color:var(--ink)}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 20px}
+  .chip{padding:7px 14px;border-radius:999px;border:1px solid var(--line);background:var(--card);font-size:13px;cursor:pointer;color:var(--sub)}
+  .chip.active{background:var(--accent);border-color:var(--accent);color:#fff}
+  .count{font-size:13px;color:var(--sub);margin-bottom:14px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:16px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:10px}
+  .card .top{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
+  .kname{font-size:18px;font-weight:700}
+  .kname a{color:inherit;text-decoration:none}
+  .kname a:hover{color:var(--accent);text-decoration:underline}
+  .detail-link{display:inline-block;margin-top:4px;font-size:13px;color:var(--accent);text-decoration:none}
+  .detail-link:hover{text-decoration:underline}
+  .iname{font-size:12px;color:var(--sub)}
+  .cat{font-size:11px;background:#f3ece5;color:var(--accent-dark);padding:4px 10px;border-radius:999px;white-space:nowrap}
+  .desc{font-size:14px;color:#4d453e}
+  .benefits{display:flex;flex-wrap:wrap;gap:6px}
+  .benefit{font-size:12px;background:#f6f1ec;color:#6e635a;padding:3px 9px;border-radius:6px}
+  .skin-row{display:flex;flex-wrap:wrap;gap:6px}
+  .skin{font-size:12px;padding:3px 9px;border-radius:6px}
+  .skin.good{background:var(--good-bg);color:var(--good)}
+  .skin.caution{background:var(--caution-bg);color:var(--caution)}
+  .skin.bad{background:var(--bad-bg);color:var(--bad)}
+  .grade{display:flex;align-items:center;gap:8px;font-size:13px}
+  .grade-badge{width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:14px}
+  .cautions{font-size:12px;color:#9c6b3f;background:#fdf6ec;border-left:3px solid var(--caution);padding:8px 10px;border-radius:0 8px 8px 0}
+  .new-badge{font-size:10px;background:var(--bad);color:#fff;padding:2px 7px;border-radius:999px;margin-left:6px;vertical-align:middle}
+  footer{text-align:center;padding:36px 16px;font-size:12px;color:var(--sub)}
+  .empty{text-align:center;color:var(--sub);padding:60px 0;grid-column:1/-1}
+  @media(max-width:600px){header h1{font-size:24px}}
+</style>
+</head>
+<body>
+<header>
+  <h1>🌿 성분 사전</h1>
+  <p>화장품 성분, 내 피부에 맞는지 쉽게 확인하세요</p>
+  <p class="updated" id="updated"></p>
+</header>
+<div class="container">
+  <div class="controls">
+    <input id="search" type="search" placeholder="성분명, 효능으로 검색 (예: 보습, 나이아신아마이드)">
+    <select id="category"><option value="">전체 카테고리</option></select>
+    <select id="sort">
+      <option value="name">이름순</option>
+      <option value="safety">안전등급 좋은순</option>
+      <option value="new">최신 등록순</option>
+    </select>
+  </div>
+  <div class="chips" id="skinChips">
+    <button class="chip active" data-skin="">전체 피부</button>
+    <button class="chip" data-skin="건성">건성</button>
+    <button class="chip" data-skin="지성">지성</button>
+    <button class="chip" data-skin="민감성">민감성</button>
+    <button class="chip" data-skin="복합성">복합성</button>
+    <button class="chip" data-skin="여드름성">여드름성</button>
+  </div>
+  <div class="count" id="count"></div>
+  <div class="grid" id="grid"></div>
+</div>
+<footer>
+  안전등급은 EWG Skin Deep 공개 자료를 참고한 값이며(1~2 낮은 위험 · 3~6 보통 · 7~10 높은 위험), 의학적 판단의 근거가 아닙니다.<br>
+  피부 고민이 지속되면 피부과 전문의와 상담하세요.
+</footer>
+<script>
+const DATA = /*__DATA__*/;
+
+const grid=document.getElementById('grid'),search=document.getElementById('search'),
+catSel=document.getElementById('category'),sortSel=document.getElementById('sort'),
+countEl=document.getElementById('count');
+let skinFilter='';
+
+document.getElementById('updated').textContent='최근 업데이트: '+DATA.meta.updated+' · 등록 성분 '+DATA.ingredients.length+'개';
+
+[...new Set(DATA.ingredients.map(i=>i.category))].sort().forEach(c=>{
+  const o=document.createElement('option');o.value=c;o.textContent=c;catSel.appendChild(o);
+});
+
+document.getElementById('skinChips').addEventListener('click',e=>{
+  if(!e.target.classList.contains('chip'))return;
+  document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));
+  e.target.classList.add('active');
+  skinFilter=e.target.dataset.skin;render();
+});
+search.addEventListener('input',render);
+catSel.addEventListener('change',render);
+sortSel.addEventListener('change',render);
+
+function gradeColor(g){return g<=2?'#3a9b6e':g<=6?'#c98a1b':'#c4534f'}
+function isNew(d){return (Date.now()-new Date(d))/(1000*3600*24)<14}
+const skinLabel={good:'추천',caution:'주의',bad:'비추천'};
+
+function render(){
+  const q=search.value.trim().toLowerCase(),cat=catSel.value;
+  let list=DATA.ingredients.filter(i=>{
+    if(cat&&i.category!==cat)return false;
+    if(skinFilter&&i.skin_types[skinFilter]!=='good')return false;
+    if(q){
+      const hay=(i.korean_name+' '+i.inci_name+' '+i.category+' '+i.benefits.join(' ')+' '+i.description).toLowerCase();
+      if(!hay.includes(q))return false;
+    }
+    return true;
+  });
+  const s=sortSel.value;
+  if(s==='safety')list.sort((a,b)=>a.safety_grade-b.safety_grade);
+  else if(s==='new')list.sort((a,b)=>new Date(b.added_date)-new Date(a.added_date));
+  else list.sort((a,b)=>a.korean_name.localeCompare(b.korean_name,'ko'));
+
+  countEl.textContent=list.length+'개 성분'+(skinFilter?' · '+skinFilter+' 피부 추천만 표시 중':'');
+  grid.innerHTML=list.length?list.map(card).join(''):'<div class="empty">조건에 맞는 성분이 없습니다 🧴</div>';
+}
+
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+
+function card(i){
+  const skins=Object.entries(i.skin_types).map(([k,v])=>
+    `<span class="skin ${v}">${k} ${skinLabel[v]||v}</span>`).join('');
+  const url=`detail/${encodeURIComponent(i.id)}.html`;
+  return `<div class="card">
+    <div class="top">
+      <div><div class="kname"><a href="${url}">${esc(i.korean_name)}</a>${isNew(i.added_date)?'<span class="new-badge">NEW</span>':''}</div>
+      <div class="iname">${esc(i.inci_name)}</div></div>
+      <span class="cat">${esc(i.category)}</span>
+    </div>
+    <div class="grade"><span class="grade-badge" style="background:${gradeColor(i.safety_grade)}">${i.safety_grade}</span>
+      <span>안전등급 (EWG 참고)</span></div>
+    <div class="desc">${esc(i.description)}</div>
+    <div class="benefits">${i.benefits.map(b=>`<span class="benefit">#${esc(b)}</span>`).join('')}</div>
+    <div class="skin-row">${skins}</div>
+    ${i.cautions?`<div class="cautions">⚠️ ${esc(i.cautions)}</div>`:''}
+    <a class="detail-link" href="${url}">자세히 보기 →</a>
+  </div>`;
+}
+render();
+</script>
+</body>
+</html>
