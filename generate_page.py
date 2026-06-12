@@ -39,6 +39,24 @@ def published(data: dict) -> list:
     return [i for i in data["ingredients"] if i.get("status", "published") == "published"]
 
 
+def load_site(base_dir: Path) -> dict:
+    """data/site.json 로드 (전역 설정)."""
+    p = base_dir / "data/site.json"
+    if not p.exists():
+        return {}
+    return json.loads(p.read_text(encoding="utf-8"))
+
+
+def site_meta_html(site: dict) -> str:
+    """검색엔진 소유확인 메타태그 HTML 생성."""
+    tags = []
+    if site.get("google_site_verification"):
+        tags.append(f'<meta name="google-site-verification" content="{esc(site["google_site_verification"])}" />')
+    if site.get("naver_site_verification"):
+        tags.append(f'<meta name="naver-site-verification" content="{esc(site["naver_site_verification"])}" />')
+    return "\n".join(tags)
+
+
 def load_products(base_dir: Path) -> dict:
     """data/products.json 로드. 없으면 빈 구조 반환. status='active'인 제품만 사용."""
     p = base_dir / "data/products.json"
@@ -68,13 +86,15 @@ def product_cards_html(products: list) -> str:
 
 
 def _inject(data_path: Path, template_path: Path, out_path: Path) -> int:
-    """템플릿의 /*__DATA__*/ 자리에 게시 성분 데이터를 주입해 저장."""
+    """템플릿의 /*__DATA__*/·<!--__SITE_META__--> 자리에 데이터·설정을 주입해 저장."""
     data = json.loads(data_path.read_text(encoding="utf-8"))
     data["ingredients"] = published(data)
     data["meta"]["updated"] = date.today().isoformat()
+    site = load_site(out_path.parent)
 
     template = template_path.read_text(encoding="utf-8")
     html = template.replace("/*__DATA__*/", json.dumps(data, ensure_ascii=False))
+    html = html.replace("<!--__SITE_META__-->", site_meta_html(site))
 
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(html, encoding="utf-8")
@@ -92,10 +112,13 @@ def generate_quiz(data_path: Path, template_path: Path, out_path: Path) -> int:
     data["ingredients"] = published(data)
     data["meta"]["updated"] = date.today().isoformat()
     products = load_products(out_path.parent)
+    site = load_site(out_path.parent)
 
     template = template_path.read_text(encoding="utf-8")
     html = template.replace("/*__DATA__*/", json.dumps(data, ensure_ascii=False))
     html = html.replace("/*__PRODUCTS__*/", json.dumps(products, ensure_ascii=False))
+    html = html.replace("/*__KAKAO__*/", site.get("kakao_channel_url", ""))
+    html = html.replace("<!--__SITE_META__-->", site_meta_html(site))
 
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(html, encoding="utf-8")
@@ -267,7 +290,7 @@ if __name__ == "__main__":
     ap.add_argument("--no-details", action="store_true", help="상세 페이지·sitemap 생략")
     args = ap.parse_args()
 
-    base_url = args.base_url
+    base_url = args.base_url or load_site(args.out.parent).get("base_url", "")
     if base_url and not base_url.endswith("/"):
         base_url += "/"
 

@@ -1,0 +1,7 @@
+{
+  "_guide": "사이트 전역 설정. 어드민(admin.html)에서 편집하거나 직접 수정한 뒤 generate_page.py를 실행하면 페이지에 반영됩니다.",
+  "base_url": "https://merry-gelato-2a6bc1.netlify.app/",
+  "kakao_channel_url": "http://pf.kakao.com/_YxfxaUn",
+  "google_site_verification": "MmMIv18Xeikl75U0xnhWVDGw2q645K1VtLVYG63ZZcY",
+  "naver_site_verification": "0f24b3769cb612c27104ba8583af136f4b26effe"
+}

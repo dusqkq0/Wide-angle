@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>성분 사전 — 관리자</title>
+<style>
+  :root{--bg:#f4f1ee;--card:#fff;--ink:#2b2622;--sub:#8a7f76;--accent:#b08968;--accent-dark:#8c6a4f;--line:#e6ddd4;--good:#3a9b6e;--bad:#c4534f}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Apple SD Gothic Neo','Pretendard','Noto Sans KR',sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;font-size:14px}
+  header{background:#2b2622;color:#fff;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+  header h1{font-size:18px;font-weight:800}
+  header .hint{font-size:12px;color:#bdb2a6}
+  .tabs{display:flex;gap:4px;background:#fff;padding:0 24px;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5;flex-wrap:wrap}
+  .tab{padding:14px 18px;border:none;background:none;font-size:15px;font-weight:600;color:var(--sub);cursor:pointer;border-bottom:3px solid transparent}
+  .tab.active{color:var(--accent-dark);border-bottom-color:var(--accent)}
+  .wrap{max-width:980px;margin:0 auto;padding:24px}
+  .panel{display:none}.panel.active{display:block}
+  .bar{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;gap:10px;flex-wrap:wrap}
+  .bar h2{font-size:17px}
+  button.act{padding:9px 16px;border:none;border-radius:9px;background:var(--accent);color:#fff;font-weight:700;cursor:pointer;font-size:13px}
+  button.act:hover{background:var(--accent-dark)}
+  button.ghost{background:#fff;border:1px solid var(--line);color:var(--accent-dark)}
+  button.danger{background:#fff;border:1px solid #e7c4c1;color:var(--bad)}
+  input,select,textarea{width:100%;padding:9px 11px;border:1px solid var(--line);border-radius:8px;font-size:13px;font-family:inherit;background:#fff}
+  textarea{resize:vertical;min-height:54px}
+  label{display:block;font-size:12px;color:var(--sub);margin:8px 0 3px;font-weight:600}
+  .item{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:18px;margin-bottom:14px}
+  .item.draft{opacity:.72;border-style:dashed}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+  .chk{display:inline-flex;align-items:center;gap:4px;font-size:12px;background:#f3ece5;padding:5px 9px;border-radius:999px;cursor:pointer;color:#6e635a}
+  .chk input{width:auto}
+  .row-top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+  .badge{font-size:11px;font-weight:700;padding:3px 9px;border-radius:999px}
+  .badge.on{background:#e7f5ee;color:var(--good)}.badge.off{background:#f0e8e0;color:var(--sub)}
+  .search{margin-bottom:14px}
+  .save-note{background:#fff8ee;border:1px solid #f0e2c8;border-radius:10px;padding:13px 15px;font-size:12.5px;color:#8a6d3b;margin-bottom:16px;line-height:1.6}
+  .loadbox{background:#fff;border:1px dashed var(--line);border-radius:12px;padding:20px;text-align:center;color:var(--sub);margin-bottom:16px}
+  .loadbox input[type=file]{width:auto;display:inline-block;margin-top:8px}
+  code{background:#f0e8e0;padding:1px 6px;border-radius:5px;font-size:12px}
+  .muted{color:var(--sub);font-size:12px}
+  .count{font-size:12px;color:var(--sub)}
+</style>
+</head>
+<body>
+<header>
+  <h1>🛠️ 성분 사전 관리자</h1>
+  <span class="hint">편집 후 [다운로드] → <code>data/</code>에 덮어쓰기 → <code>python generate_page.py</code> → git push</span>
+</header>
+<div class="tabs">
+  <button class="tab active" data-tab="products">제휴 제품</button>
+  <button class="tab" data-tab="ingredients">성분</button>
+  <button class="tab" data-tab="site">사이트 설정</button>
+</div>
+<div class="wrap">
+  <div id="loadStatus"></div>
+
+  <!-- 제품 -->
+  <section class="panel active" id="panel-products">
+    <div class="save-note">제품을 추가·수정한 뒤 <b>products.json 다운로드</b>를 눌러 <code>data/products.json</code>에 덮어쓰세요. <code>status</code>가 <b>active</b>인 제품만 사이트에 노출됩니다.</div>
+    <div class="bar">
+      <h2>제휴 제품 <span class="count" id="pCount"></span></h2>
+      <div><button class="act ghost" onclick="addProduct()">+ 제품 추가</button>
+      <button class="act" onclick="download('products')">⬇ products.json 다운로드</button></div>
+    </div>
+    <div id="productList"></div>
+  </section>
+
+  <!-- 성분 -->
+  <section class="panel" id="panel-ingredients">
+    <div class="save-note">성분을 수정한 뒤 <b>ingredients.json 다운로드</b>를 눌러 <code>data/ingredients.json</code>에 덮어쓰세요. <code>status</code>를 <b>published</b>로 바꾸면 사이트에 노출됩니다.</div>
+    <div class="bar">
+      <h2>성분 <span class="count" id="iCount"></span></h2>
+      <button class="act" onclick="download('ingredients')">⬇ ingredients.json 다운로드</button>
+    </div>
+    <input class="search" id="iSearch" placeholder="성분 검색 (이름·영문명·카테고리)" oninput="renderIngredients()">
+    <div id="ingredientList"></div>
+  </section>
+
+  <!-- 사이트 설정 -->
+  <section class="panel" id="panel-site">
+    <div class="save-note">설정을 바꾼 뒤 <b>site.json 다운로드</b>를 눌러 <code>data/site.json</code>에 덮어쓰세요. 메타태그·도메인·카카오 링크가 페이지 생성 시 자동 반영됩니다. ⚠️ 검색엔진 인증 코드는 함부로 바꾸지 마세요(인증 풀림).</div>
+    <div class="bar"><h2>사이트 설정</h2><button class="act" onclick="download('site')">⬇ site.json 다운로드</button></div>
+    <div class="item">
+      <label>배포 도메인 (base_url)</label>
+      <input id="s_base" placeholder="https://example.netlify.app/">
+      <label>카카오톡 채널 추가 URL</label>
+      <input id="s_kakao" placeholder="http://pf.kakao.com/_xxxxx">
+      <label>구글 사이트 소유확인 코드</label>
+      <input id="s_google">
+      <label>네이버 사이트 소유확인 코드</label>
+      <input id="s_naver">
+    </div>
+  </section>
+</div>
+
+<script>
+const TYPES=["건성","지성","민감성","복합성","여드름성"];
+let products=null, ingredients=null, site=null;
+
+// ---------- 데이터 로드 ----------
+async function tryFetch(path){ const r=await fetch(path,{cache:"no-store"}); if(!r.ok) throw 0; return r.json(); }
+async function loadAll(){
+  const status=document.getElementById("loadStatus");
+  try{
+    [products,ingredients,site]=await Promise.all([
+      tryFetch("data/products.json"), tryFetch("data/ingredients.json"), tryFetch("data/site.json")]);
+    status.innerHTML="";
+    renderAll();
+  }catch(e){
+    status.innerHTML=`<div class="loadbox">데이터를 자동으로 불러오지 못했습니다 (로컬에서 직접 연 경우).<br>
+      아래에서 세 파일을 선택해 불러오세요.<br>
+      <input type="file" id="upP" accept=".json"> products.json<br>
+      <input type="file" id="upI" accept=".json"> ingredients.json<br>
+      <input type="file" id="upS" accept=".json"> site.json</div>`;
+    ["upP","upI","upS"].forEach((id,k)=>document.getElementById(id).addEventListener("change",ev=>{
+      const f=ev.target.files[0]; if(!f)return; const rd=new FileReader();
+      rd.onload=()=>{ const j=JSON.parse(rd.result);
+        if(k===0)products=j; if(k===1)ingredients=j; if(k===2)site=j;
+        if(products&&ingredients&&site){status.innerHTML="";renderAll();} };
+      rd.readAsText(f);
+    }));
+  }
+}
+function renderAll(){ renderProducts(); renderIngredients(); renderSite(); }
+function esc(s){return String(s==null?"":s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+
+// ---------- 탭 ----------
+document.querySelectorAll(".tab").forEach(t=>t.onclick=()=>{
+  document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));
+  document.querySelectorAll(".panel").forEach(x=>x.classList.remove("active"));
+  t.classList.add("active");
+  document.getElementById("panel-"+t.dataset.tab).classList.add("active");
+});
+
+// ---------- 제품 ----------
+function renderProducts(){
+  const L=document.getElementById("productList"); L.innerHTML="";
+  document.getElementById("pCount").textContent=`(${products.products.length}개 · 노출 ${products.products.filter(p=>p.status==="active").length})`;
+  products.products.forEach((p,idx)=>{
+    const ingChips=ingredients.ingredients.map(i=>i.id);
+    const div=document.createElement("div");
+    div.className="item"+(p.status!=="active"?" draft":"");
+    div.innerHTML=`
+      <div class="row-top"><b>${esc(p.name)||"(이름 없음)"}</b>
+        <span class="badge ${p.status==="active"?"on":"off"}">${p.status==="active"?"노출중":"숨김(draft)"}</span></div>
+      <label>제품명</label><input value="${esc(p.name)}" oninput="upP(${idx},'name',this.value)">
+      <label>제휴 링크 (url)</label><input value="${esc(p.url)}" oninput="upP(${idx},'url',this.value)">
+      <div class="grid3">
+        <div><label>이미지 URL</label><input value="${esc(p.image)}" oninput="upP(${idx},'image',this.value)"></div>
+        <div><label>가격</label><input value="${esc(p.price)}" oninput="upP(${idx},'price',this.value)"></div>
+        <div><label>출처(source)</label><input value="${esc(p.source)}" oninput="upP(${idx},'source',this.value)"></div>
+      </div>
+      <label>한 줄 설명</label><input value="${esc(p.note)}" oninput="upP(${idx},'note',this.value)">
+      <label>연결 성분 id (콤마로 구분)</label>
+      <input list="ingIds" value="${esc((p.ingredients||[]).join(', '))}" oninput="upPArr(${idx},'ingredients',this.value)">
+      <label>노출할 피부타입</label>
+      <div class="chips">${TYPES.map(t=>`<label class="chk"><input type="checkbox" ${(p.skin_types||[]).includes(t)?"checked":""} onchange="upPSkin(${idx},'${t}',this.checked)">${t}</label>`).join("")}</div>
+      <div class="grid2" style="margin-top:10px;align-items:end">
+        <div><label>상태</label><select onchange="upP(${idx},'status',this.value);renderProducts()">
+          <option value="active" ${p.status==="active"?"selected":""}>active (노출)</option>
+          <option value="draft" ${p.status!=="active"?"selected":""}>draft (숨김)</option></select></div>
+        <div style="text-align:right"><button class="act danger" onclick="delProduct(${idx})">삭제</button></div>
+      </div>`;
+    L.appendChild(div);
+  });
+  // 성분 id 자동완성
+  if(!document.getElementById("ingIds")){
+    const dl=document.createElement("datalist"); dl.id="ingIds";
+    dl.innerHTML=ingredients.ingredients.map(i=>`<option value="${esc(i.id)}">${esc(i.korean_name)}</option>`).join("");
+    document.body.appendChild(dl);
+  }
+}
+function upP(i,k,v){ products.products[i][k]=v; }
+function upPArr(i,k,v){ products.products[i][k]=v.split(",").map(s=>s.trim()).filter(Boolean); }
+function upPSkin(i,t,on){ let a=products.products[i].skin_types||[]; if(on&&!a.includes(t))a.push(t); if(!on)a=a.filter(x=>x!==t); products.products[i].skin_types=a; }
+function addProduct(){
+  products.products.unshift({id:"product-"+Date.now(),name:"",url:"",image:"",price:"",source:"올리브영",note:"",ingredients:[],skin_types:[],status:"draft"});
+  renderProducts();
+}
+function delProduct(i){ if(confirm("이 제품을 삭제할까요?")){products.products.splice(i,1);renderProducts();} }
+
+// ---------- 성분 ----------
+function renderIngredients(){
+  const q=(document.getElementById("iSearch").value||"").toLowerCase();
+  const L=document.getElementById("ingredientList"); L.innerHTML="";
+  const list=ingredients.ingredients.filter(i=>!q||(i.korean_name+i.inci_name+i.category).toLowerCase().includes(q));
+  document.getElementById("iCount").textContent=`(${ingredients.ingredients.length}개 · 게시 ${ingredients.ingredients.filter(i=>i.status==="published").length})`;
+  list.slice(0,80).forEach(ing=>{
+    const idx=ingredients.ingredients.indexOf(ing);
+    const div=document.createElement("div");
+    div.className="item"+(ing.status!=="published"?" draft":"");
+    div.innerHTML=`
+      <div class="row-top"><b>${esc(ing.korean_name)} <span class="muted">${esc(ing.inci_name)}</span></b>
+        <span class="badge ${ing.status==="published"?"on":"off"}">${ing.status==="published"?"게시중":"draft"}</span></div>
+      <div class="grid2">
+        <div><label>한글명</label><input value="${esc(ing.korean_name)}" oninput="upI(${idx},'korean_name',this.value)"></div>
+        <div><label>카테고리</label><input value="${esc(ing.category)}" oninput="upI(${idx},'category',this.value)"></div>
+      </div>
+      <label>설명</label><textarea oninput="upI(${idx},'description',this.value)">${esc(ing.description)}</textarea>
+      <label>효능 (콤마로 구분)</label><input value="${esc((ing.benefits||[]).join(', '))}" oninput="upIArr(${idx},'benefits',this.value)">
+      <label>피부타입별 적합도</label>
+      <div class="grid3">${TYPES.map(t=>`<div><span class="muted">${t}</span>
+        <select onchange="upISkin(${idx},'${t}',this.value)">
+          <option value="good" ${ing.skin_types[t]==="good"?"selected":""}>추천</option>
+          <option value="caution" ${ing.skin_types[t]==="caution"?"selected":""}>주의</option>
+          <option value="bad" ${ing.skin_types[t]==="bad"?"selected":""}>비추천</option></select></div>`).join("")}</div>
+      <div class="grid2" style="margin-top:8px">
+        <div><label>안전등급 (1~10)</label><input type="number" min="1" max="10" value="${ing.safety_grade}" oninput="upI(${idx},'safety_grade',+this.value)"></div>
+        <div><label>상태</label><select onchange="upI(${idx},'status',this.value);renderIngredients()">
+          <option value="published" ${ing.status==="published"?"selected":""}>published (게시)</option>
+          <option value="draft" ${ing.status!=="published"?"selected":""}>draft (숨김)</option></select></div>
+      </div>
+      <label>주의사항</label><textarea oninput="upI(${idx},'cautions',this.value)">${esc(ing.cautions)}</textarea>`;
+    L.appendChild(div);
+  });
+  if(list.length>80){ const m=document.createElement("p"); m.className="muted"; m.textContent=`검색으로 좁혀보세요 — ${list.length}개 중 80개만 표시 중`; L.appendChild(m); }
+}
+function upI(i,k,v){ ingredients.ingredients[i][k]=v; }
+function upIArr(i,k,v){ ingredients.ingredients[i][k]=v.split(",").map(s=>s.trim()).filter(Boolean); }
+function upISkin(i,t,v){ ingredients.ingredients[i].skin_types[t]=v; }
+
+// ---------- 사이트 설정 ----------
+function renderSite(){
+  document.getElementById("s_base").value=site.base_url||"";
+  document.getElementById("s_kakao").value=site.kakao_channel_url||"";
+  document.getElementById("s_google").value=site.google_site_verification||"";
+  document.getElementById("s_naver").value=site.naver_site_verification||"";
+}
+function collectSite(){
+  site.base_url=document.getElementById("s_base").value.trim();
+  site.kakao_channel_url=document.getElementById("s_kakao").value.trim();
+  site.google_site_verification=document.getElementById("s_google").value.trim();
+  site.naver_site_verification=document.getElementById("s_naver").value.trim();
+}
+
+// ---------- 다운로드 ----------
+function download(which){
+  let obj,name;
+  if(which==="products"){obj=products;name="products.json";}
+  else if(which==="ingredients"){obj=ingredients;name="ingredients.json";}
+  else{collectSite();obj=site;name="site.json";}
+  const blob=new Blob([JSON.stringify(obj,null,2)],{type:"application/json"});
+  const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download=name; a.click();
+}
+
+loadAll();
+</script>
+</body>
+</html>

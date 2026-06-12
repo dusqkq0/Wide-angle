@@ -301,7 +301,7 @@ leadForm.addEventListener("submit",e=>{
 });
 
 // 카카오 채널 URL이 설정돼 있으면 버튼 노출
-const KAKAO_CHANNEL_URL="http://pf.kakao.com/_YxfxaUn"; // 카카오톡 채널 추가 URL
+const KAKAO_CHANNEL_URL="/*__KAKAO__*/"; // data/site.json에서 자동 주입
 if(KAKAO_CHANNEL_URL){ const k=document.getElementById("kakaoBtn"); k.href=KAKAO_CHANNEL_URL; k.style.display="block"; }
 
 render();
