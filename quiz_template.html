@@ -44,6 +44,17 @@
   .icard .b{display:flex;flex-wrap:wrap;gap:5px}
   .icard .b span{font-size:11px;background:#f6f1ec;color:#6e635a;padding:2px 8px;border-radius:6px}
   .avoid .icard{border-color:#f0d6d3;background:#fdf6f5}
+  .pcard{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:14px;overflow:hidden;text-decoration:none;color:inherit;background:#fff;transition:.15s}
+  .pcard:hover{border-color:var(--accent);box-shadow:0 3px 12px rgba(176,137,104,.15)}
+  .pcard img{width:100%;height:130px;object-fit:cover;background:#f3ece5}
+  .pcard .pb{padding:13px;display:flex;flex-direction:column;gap:6px;flex:1}
+  .pcard .psrc{align-self:flex-start;font-size:10.5px;font-weight:700;color:var(--good);background:var(--good-bg);padding:2px 8px;border-radius:999px}
+  .pcard .pn{font-size:14px;font-weight:700;line-height:1.4}
+  .pcard .pnote{font-size:12px;color:var(--sub);flex:1}
+  .pcard .prow{display:flex;align-items:center;justify-content:space-between;margin-top:4px}
+  .pcard .ppr{font-size:13px;font-weight:700;color:var(--accent-dark)}
+  .pcard .pbt{font-size:12px;color:var(--accent);font-weight:600}
+  .affiliate-notice{font-size:11.5px;color:#a4937f;background:#f6f1ec;border-radius:8px;padding:9px 12px;margin-top:10px;line-height:1.5}
   /* 리포트 신청 폼 */
   .lead-form{background:linear-gradient(135deg,#f3e9df,#efe1d2);border:1px solid var(--line);border-radius:18px;padding:26px;margin:22px 0}
   .lf-title{font-size:18px;font-weight:800;color:var(--accent-dark)}
@@ -97,6 +108,11 @@
 
     <h2>✅ 추천 성분</h2>
     <div class="grid" id="recommend"></div>
+    <div id="productSection" style="display:none">
+      <h2>🛒 당신에게 맞는 추천 제품</h2>
+      <div class="grid" id="products"></div>
+      <div class="affiliate-notice" id="affNotice"></div>
+    </div>
     <h2>⚠️ 주의가 필요한 성분</h2>
     <div class="grid avoid" id="avoid"></div>
     <button class="restart" onclick="restart()">다시 진단하기</button>
@@ -107,6 +123,7 @@
 
 <script>
 const DATA = /*__DATA__*/;
+const PRODUCTS = /*__PRODUCTS__*/;
 const TYPES = ["건성","지성","민감성","복합성","여드름성"];
 
 // 각 보기는 피부타입별 점수(s)와 고민 태그(goal)를 더한다
@@ -221,6 +238,15 @@ function showResult(){
   document.getElementById("recommend").innerHTML=pool.slice(0,8).map(card).join("")
     || '<p style="color:#8a7f76">추천 성분을 준비 중입니다.</p>';
 
+  // 추천 제품: 진단 피부타입과 매칭되는 제휴 제품
+  const prods=(PRODUCTS.products||[]).filter(p=>(p.skin_types||[]).includes(type));
+  const psec=document.getElementById("productSection");
+  if(prods.length){
+    document.getElementById("products").innerHTML=prods.slice(0,6).map(pcard).join("");
+    document.getElementById("affNotice").textContent=PRODUCTS.affiliate_notice||"";
+    psec.style.display="block";
+  } else { psec.style.display="none"; }
+
   // 주의: 해당 타입 bad/caution 중 안전등급 높은 순
   const avoid=DATA.ingredients.filter(i=>["bad","caution"].includes(i.skin_types[type]))
     .sort((a,b)=>b.safety_grade-a.safety_grade).slice(0,4);
@@ -240,6 +266,17 @@ function card(i){
     <div class="d">${esc(i.description.slice(0,70))}${i.description.length>70?"…":""}</div>
     <div class="b">${(i.benefits||[]).slice(0,3).map(b=>`<span>#${esc(b)}</span>`).join("")}</div>
   </div>`;
+}
+
+function pcard(p){
+  const img=p.image?`<img src="${esc(p.image)}" alt="${esc(p.name)}" loading="lazy">`:"";
+  const note=p.note?`<div class="pnote">${esc(p.note)}</div>`:"";
+  const price=p.price?`<span class="ppr">${esc(p.price)}</span>`:"<span></span>";
+  const badge=p.source?`<span class="psrc">${esc(p.source)}</span>`:"";
+  const src=p.source?esc(p.source):"제휴처";
+  return `<a class="pcard" href="${esc(p.url)}" target="_blank" rel="nofollow sponsored noopener">
+    ${img}<div class="pb">${badge}<div class="pn">${esc(p.name)}</div>${note}
+    <div class="prow">${price}<span class="pbt">${src}에서 보기 →</span></div></div></a>`;
 }
 
 function restart(){ step=0; answers=[]; document.getElementById("result").style.display="none"; quiz.style.display="block"; render(); }
@@ -264,7 +301,7 @@ leadForm.addEventListener("submit",e=>{
 });
 
 // 카카오 채널 URL이 설정돼 있으면 버튼 노출
-const KAKAO_CHANNEL_URL=""; // 예: "http://pf.kakao.com/_xxxxx" 채널 만들면 여기 채우기
+const KAKAO_CHANNEL_URL="http://pf.kakao.com/_YxfxaUn"; // 카카오톡 채널 추가 URL
 if(KAKAO_CHANNEL_URL){ const k=document.getElementById("kakaoBtn"); k.href=KAKAO_CHANNEL_URL; k.style.display="block"; }
 
 render();

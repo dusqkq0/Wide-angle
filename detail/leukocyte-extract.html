@@ -38,6 +38,18 @@ td:first-child{color:#6e635a;width:120px}
 .related a{font-size:13px;background:#fff;border:1px solid #eee5dd;border-radius:999px;padding:7px 13px;color:#8c6a4f;text-decoration:none}
 .related a:hover{background:#f3ece5}
 .back{display:inline-block;margin-top:8px;color:#b08968;text-decoration:none;font-size:14px}
+.products{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+.pcard{display:flex;flex-direction:column;border:1px solid #eee5dd;border-radius:13px;overflow:hidden;text-decoration:none;color:inherit;background:#fff;transition:.15s}
+.pcard:hover{border-color:#b08968;box-shadow:0 3px 12px rgba(176,137,104,.15)}
+.pcard img{width:100%;height:140px;object-fit:cover;background:#f3ece5}
+.pbody{padding:13px;display:flex;flex-direction:column;gap:6px;flex:1}
+.psrc{align-self:flex-start;font-size:10.5px;font-weight:700;color:#3a9b6e;background:#e7f5ee;padding:2px 8px;border-radius:999px}
+.pname{font-size:14px;font-weight:700;line-height:1.4}
+.pnote{font-size:12px;color:#8a7f76;flex:1}
+.pbuy{display:flex;align-items:center;justify-content:space-between;margin-top:4px}
+.pprice{font-size:13px;font-weight:700;color:#8c6a4f}
+.pbtn{font-size:12px;color:#b08968;font-weight:600}
+.affiliate-notice{font-size:11.5px;color:#a4937f;background:#f6f1ec;border-radius:8px;padding:9px 12px;margin-top:10px;line-height:1.5}
 footer{text-align:center;padding:30px 16px;font-size:12px;color:#8a7f76}
 </style>
 </head>
@@ -57,6 +69,7 @@ footer{text-align:center;padding:30px 16px;font-size:12px;color:#8a7f76}
     <table><tr><td>건성</td><td><span class="pill good">추천</span></td></tr><tr><td>지성</td><td><span class="pill good">추천</span></td></tr><tr><td>민감성</td><td><span class="pill caution">주의</span></td></tr><tr><td>복합성</td><td><span class="pill good">추천</span></td></tr><tr><td>여드름성</td><td><span class="pill good">추천</span></td></tr></table>
     <h2>⚠️ 사용 시 주의</h2><div class="warn">동물 유래 성분. 비건 제품을 찾는다면 확인이 필요합니다.</div>
   </article>
+  
   
   <a class="back" href="../index.html">← 전체 성분 목록으로</a>
 </div>

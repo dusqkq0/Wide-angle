@@ -274,4 +274,4 @@ if __name__ == "__main__":
             generate_quiz(DATA_PATH, quiz_tpl, BASE / "quiz.html")
             print(f"[OK] quiz.html 진단 퀴즈 재생성")
         generate_details(DATA_PATH, BASE, base_url="")
-        print(f"[OK] detail/ 상세 페이지 + sitemap.xml 재생성")
+        print(f"[OK] detail/ 상세 페이지 + sitemap.xml 재생성 (제휴 제품 포함)")

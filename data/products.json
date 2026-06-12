@@ -1,0 +1,80 @@
+{
+  "_guide": "제휴 제품 목록. status가 active인 제품만 페이지에 노출됩니다. url에 제휴 링크를 넣고 status를 'active'로 바꾸세요. source에는 제휴처 이름(예: 올리브영, 쿠팡)을 적으면 제품 카드에 출처 배지가 표시됩니다.",
+  "affiliate_notice": "본 페이지의 일부 상품 링크는 제휴 마케팅의 일환으로, 이를 통해 일정액의 수수료를 제공받을 수 있습니다.",
+  "products": [
+    {
+      "id": "skin1004-cica-sun-serum",
+      "name": "스킨1004 마다가스카르 센텔라 히알루-시카 워터핏 선세럼 50ml (2입 기획)",
+      "url": "https://oy.run/PgtpFEmsTsA9iX",
+      "image": "https://image.oliveyoung.co.kr/cfimages/cf-goods/uploads/images/thumbnails/10/0000/0021/A00000021555908ko.jpg?l=ko&QT=85&SF=webp&sharpen=1x0.5",
+      "price": "",
+      "source": "올리브영",
+      "note": "센텔라·히알루론산이 든 진정 선세럼. 자외선 차단과 보습·진정을 한 번에.",
+      "ingredients": [
+        "centella",
+        "centella-asiatica-leaf-extract",
+        "madecassoside",
+        "hyaluronic-acid",
+        "hydrolyzed-hyaluronic-acid"
+      ],
+      "skin_types": [
+        "민감성",
+        "건성",
+        "복합성",
+        "지성"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "biohealbo-probioderm-collagen-mask",
+      "name": "바이오힐보 프로바이오덤 콜라겐 리모델링 세럼 겔 마스크",
+      "url": "https://oy.run/tAiJa3lkSOCOmJ",
+      "image": "https://image.oliveyoung.co.kr/cfimages/cf-goods/uploads/images/thumbnails/10/0000/0020/A00000020438836ko.jpg?l=ko&QT=85&SF=webp&sharpen=1x0.5",
+      "price": "9,900원",
+      "source": "올리브영",
+      "note": "콜라겐 4종 하이드로겔 마스크. 탄력·광채와 모공 케어에.",
+      "ingredients": ["collagen", "soluble-collagen"],
+      "skin_types": ["건성", "복합성", "지성", "민감성"],
+      "status": "active"
+    },
+    {
+      "id": "sample-hyaluronic-toner",
+      "name": "[예시] 히알루론산 수분 토너 — 실제 제품명으로 교체",
+      "url": "",
+      "image": "",
+      "price": "1~2만원대",
+      "source": "올리브영",
+      "note": "건성·민감성 보습용. 올리브영 쇼핑 큐레이터 링크를 url에 넣고 status를 active로 바꾸세요.",
+      "ingredients": [
+        "hyaluronic-acid",
+        "hydrolyzed-hyaluronic-acid"
+      ],
+      "skin_types": [
+        "건성",
+        "민감성",
+        "복합성"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "sample-cica-cream",
+      "name": "[예시] 센텔라 시카 크림 — 실제 제품명으로 교체",
+      "url": "",
+      "image": "",
+      "price": "2만원대",
+      "source": "올리브영",
+      "note": "진정·재생용. 올리브영 쇼핑 큐레이터 링크를 url에 넣고 status를 active로 바꾸세요.",
+      "ingredients": [
+        "centella",
+        "centella-asiatica-leaf-extract",
+        "madecassoside"
+      ],
+      "skin_types": [
+        "민감성",
+        "건성",
+        "여드름성"
+      ],
+      "status": "draft"
+    }
+  ]
+}
