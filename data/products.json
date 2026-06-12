@@ -33,8 +33,16 @@
       "price": "9,900원",
       "source": "올리브영",
       "note": "콜라겐 4종 하이드로겔 마스크. 탄력·광채와 모공 케어에.",
-      "ingredients": ["collagen", "soluble-collagen"],
-      "skin_types": ["건성", "복합성", "지성", "민감성"],
+      "ingredients": [
+        "collagen",
+        "soluble-collagen"
+      ],
+      "skin_types": [
+        "건성",
+        "복합성",
+        "지성",
+        "민감성"
+      ],
       "status": "active"
     },
     {
@@ -75,6 +83,222 @@
         "여드름성"
       ],
       "status": "draft"
+    },
+    {
+      "id": "toriden-dive-in-serum",
+      "name": "토리든 다이브인 저분자 히알루론산 세럼 50ml (더블 기획)",
+      "url": "https://oy.run/X3g0U1J8Zd5105",
+      "image": "https://image.oliveyoung.co.kr/cfimages/cf-goods/uploads/images/thumbnails/10/0000/0025/A00000025604710ko.jpg?l=ko&QT=85&SF=webp&sharpen=1x0.5",
+      "price": "",
+      "source": "올리브영",
+      "note": "저분자 히알루론산 고보습 세럼. 속건조 케어에.",
+      "ingredients": [
+        "hyaluronic-acid",
+        "hydrolyzed-hyaluronic-acid"
+      ],
+      "skin_types": [
+        "건성",
+        "민감성",
+        "복합성",
+        "지성"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "laroche-cicaplast-baume-b5",
+      "name": "라로슈포제 시카플라스트 밤 B5+ 100ml (기획)",
+      "url": "https://oy.run/M3gflYBdrFNZBj",
+      "image": "https://image.oliveyoung.co.kr/cfimages/cf-goods/uploads/images/thumbnails/10/0000/0020/A00000020690409ko.jpg?l=ko&QT=85&SF=webp&sharpen=1x0.5",
+      "price": "",
+      "source": "올리브영",
+      "note": "판테놀·시카 진정 멀티밤. 예민·건조 부위 집중 케어.",
+      "ingredients": [
+        "centella",
+        "madecassoside",
+        "panthenol",
+        "ceramide"
+      ],
+      "skin_types": [
+        "민감성",
+        "건성",
+        "복합성"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "anua-pdrn-hyaluronic-serum",
+      "name": "아누아 PDRN 히알루론산 캡슐 100 세럼 30ml (더블기획)",
+      "url": "https://oy.run/4A07h2M4HgEXNe",
+      "image": "https://image.oliveyoung.co.kr/cfimages/cf-goods/uploads/images/thumbnails/10/0000/0025/A00000025532408ko.png?l=ko&QT=100&SF=webp&sharpen=1x0.5",
+      "price": "",
+      "source": "올리브영",
+      "note": "히알루론산·PDRN 보습 탄력 세럼.",
+      "ingredients": [
+        "hyaluronic-acid"
+      ],
+      "skin_types": [
+        "건성",
+        "민감성",
+        "복합성",
+        "지성"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "aestura-atobarrier365-cream",
+      "name": "에스트라 아토베리어365 크림 80ml (기획)",
+      "url": "https://oy.run/YWTTJrsJ4VBs5u",
+      "image": "https://image.oliveyoung.co.kr/cfimages/cf-goods/uploads/images/thumbnails/10/0000/0022/A00000022283324ko.jpg?l=ko&QT=85&SF=webp&sharpen=1x0.5",
+      "price": "",
+      "source": "올리브영",
+      "note": "세라마이드 장벽 보습 크림. 건성·민감성 추천.",
+      "ingredients": [
+        "ceramide",
+        "panthenol"
+      ],
+      "skin_types": [
+        "건성",
+        "민감성"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "wellage-real-hyaluronic-blue",
+      "name": "웰라쥬 리얼 히알루로닉 블루 100 앰플 75ml (2입 기획)",
+      "url": "https://oy.run/VhvbUn1cfAKCnt",
+      "image": "https://image.oliveyoung.co.kr/cfimages/cf-goods/uploads/images/thumbnails/10/0000/0023/A00000023188527ko.jpg?l=ko&QT=85&SF=webp&sharpen=1x0.5",
+      "price": "",
+      "source": "올리브영",
+      "note": "히알루론산 고농축 수분 앰플. 속건조 집중.",
+      "ingredients": [
+        "hyaluronic-acid",
+        "hydrolyzed-hyaluronic-acid"
+      ],
+      "skin_types": [
+        "건성",
+        "복합성",
+        "지성",
+        "민감성"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "roundlab-birch-sunscreen",
+      "name": "라운드랩 자작나무 수분 선크림 50ml (1+1 기획)",
+      "url": "https://oy.run/NxeVorVpxMIkgS",
+      "image": "https://image.oliveyoung.co.kr/cfimages/cf-goods/uploads/images/thumbnails/10/0000/0025/A00000025512413ko.jpg?l=ko&QT=85&SF=webp&sharpen=1x0.5",
+      "price": "",
+      "source": "올리브영",
+      "note": "자작나무 수분 선크림. 보습과 자외선 차단을 함께.",
+      "ingredients": [
+        "glycerin",
+        "hyaluronic-acid"
+      ],
+      "skin_types": [
+        "건성",
+        "지성",
+        "민감성",
+        "복합성",
+        "여드름성"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "medicube-pdrn-pink-peptide",
+      "name": "메디큐브 PDRN 핑크 펩타이드 앰플 30ml (리필기획)",
+      "url": "https://oy.run/7A2GF02LaErebR",
+      "image": "https://image.oliveyoung.co.kr/cfimages/cf-goods/uploads/images/thumbnails/10/0000/0025/A00000025562025ko.jpg?l=ko&QT=85&SF=webp&sharpen=1x0.5",
+      "price": "",
+      "source": "올리브영",
+      "note": "펩타이드·PDRN 탄력·톤 케어 앰플.",
+      "ingredients": [
+        "peptide"
+      ],
+      "skin_types": [
+        "건성",
+        "복합성",
+        "지성",
+        "민감성"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "abib-houttuynia-pad",
+      "name": "아비브 어성초 흔적 에센스 패드 클리어터치 70매 (리필기획)",
+      "url": "https://oy.run/974MfCRdFpPd57",
+      "image": "https://image.oliveyoung.co.kr/cfimages/cf-goods/uploads/images/thumbnails/10/0000/0021/A00000021955572ko.png?l=ko&QT=100&SF=webp&sharpen=1x0.5",
+      "price": "",
+      "source": "올리브영",
+      "note": "어성초(약모밀) 진정 토너 패드. 트러블·각질 정돈.",
+      "ingredients": [
+        "houttuynia-cordata-extract"
+      ],
+      "skin_types": [
+        "여드름성",
+        "지성",
+        "민감성"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "laroche-cicaplast-repair-cream",
+      "name": "라로슈포제 시카플라스트 멀티 리페어 크림 100ml (기획)",
+      "url": "https://oy.run/RjfCezgCEuE1Vh",
+      "image": "https://image.oliveyoung.co.kr/cfimages/cf-goods/uploads/images/thumbnails/10/0000/0022/A00000022429206ko.jpg?l=ko&QT=85&SF=webp&sharpen=1x0.5",
+      "price": "",
+      "source": "올리브영",
+      "note": "시카·판테놀 진정 리페어 크림.",
+      "ingredients": [
+        "centella",
+        "madecassoside",
+        "panthenol",
+        "ceramide"
+      ],
+      "skin_types": [
+        "민감성",
+        "건성",
+        "복합성"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "mediheal-madecassoside-serum",
+      "name": "메디힐 마데카소사이드 흔적 리페어 세럼 40+40ml",
+      "url": "https://oy.run/KLQpXuUFzheBNB",
+      "image": "https://image.oliveyoung.co.kr/cfimages/cf-goods/uploads/images/thumbnails/10/0000/0025/A00000025539093ko.jpg?l=ko&QT=85&SF=webp&sharpen=1x0.5",
+      "price": "",
+      "source": "올리브영",
+      "note": "마데카소사이드 진정·흔적 케어 세럼.",
+      "ingredients": [
+        "madecassoside",
+        "madecassic-acid",
+        "centella"
+      ],
+      "skin_types": [
+        "민감성",
+        "여드름성",
+        "복합성"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "parton-noscarnine-serum",
+      "name": "파티온 노스카나인 트러블 세럼 50ml (리필 기획)",
+      "url": "https://oy.run/9ht3INjmlbpgUr",
+      "image": "https://image.oliveyoung.co.kr/cfimages/cf-goods/uploads/images/thumbnails/10/0000/0021/A00000021960917ko.jpg?l=ko&QT=85&SF=webp&sharpen=1x0.5",
+      "price": "",
+      "source": "올리브영",
+      "note": "트러블·흔적 집중 진정 세럼.",
+      "ingredients": [
+        "niacinamide",
+        "centella"
+      ],
+      "skin_types": [
+        "여드름성",
+        "지성",
+        "복합성"
+      ],
+      "status": "active"
     }
   ]
 }
