@@ -15,28 +15,41 @@
   }
   *{margin:0;padding:0;box-sizing:border-box}
   body{font-family:'Apple SD Gothic Neo','Pretendard','Noto Sans KR',sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
-  header{background:linear-gradient(135deg,#f3e9df,#e9d9c8);padding:48px 24px 36px;text-align:center}
-  header h1{font-size:30px;font-weight:800;letter-spacing:-0.5px}
-  header p{color:#7a6a58;margin-top:8px;font-size:15px}
-  .updated{font-size:12px;color:#a4937f;margin-top:6px}
-  .quiz-cta{display:inline-block;margin-top:16px;padding:11px 22px;border-radius:999px;background:var(--accent);color:#fff;text-decoration:none;font-size:15px;font-weight:600;box-shadow:0 2px 8px rgba(176,137,104,.3)}
-  .quiz-cta:hover{background:var(--accent-dark)}
-  .container{max-width:1080px;margin:0 auto;padding:24px}
-  .controls{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:8px}
-  #search{flex:1;min-width:220px;padding:12px 16px;border:1px solid var(--line);border-radius:12px;font-size:15px;background:var(--card)}
+
+  /* 히어로 */
+  header{background:linear-gradient(150deg,#f5ece2,#ecdccb);padding:40px 22px 30px;text-align:center}
+  header h1{font-size:27px;font-weight:800;letter-spacing:-0.5px}
+  header .lead{color:#7a6a58;margin-top:8px;font-size:15px}
+  .hero-cta{display:inline-block;margin-top:18px;padding:15px 30px;border-radius:999px;background:var(--accent);color:#fff;text-decoration:none;font-size:16.5px;font-weight:700;box-shadow:0 4px 14px rgba(176,137,104,.35);transition:.15s}
+  .hero-cta:hover{background:var(--accent-dark);transform:translateY(-1px)}
+  .updated{font-size:12px;color:#a4937f;margin-top:14px}
+
+  /* 보조 도구 메뉴 */
+  .tools{max-width:560px;margin:-18px auto 0;padding:0 16px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px;position:relative;z-index:2}
+  .tools a{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 8px;text-decoration:none;color:var(--ink);text-align:center;box-shadow:0 2px 10px rgba(120,100,80,.06);transition:.15s}
+  .tools a:hover{border-color:var(--accent);transform:translateY(-2px)}
+  .tools b{display:block;font-size:22px;line-height:1.2}
+  .tools span{display:block;font-size:12.5px;font-weight:600;color:#6e635a;margin-top:5px}
+
+  .container{max-width:1080px;margin:0 auto;padding:28px 22px}
+  .sec-title{font-size:18px;font-weight:800;margin-bottom:14px}
+  .controls{display:flex;flex-direction:column;gap:10px;margin-bottom:6px}
+  #search{width:100%;padding:13px 16px;border:1px solid var(--line);border-radius:12px;font-size:15px;background:var(--card)}
   #search:focus{outline:2px solid var(--accent)}
-  select{padding:12px 14px;border:1px solid var(--line);border-radius:12px;font-size:14px;background:var(--card);color:var(--ink)}
-  .chips{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 20px}
-  .chip{padding:7px 14px;border-radius:999px;border:1px solid var(--line);background:var(--card);font-size:13px;cursor:pointer;color:var(--sub)}
+  .sub-controls{display:flex;gap:8px}
+  select{flex:1;padding:11px 12px;border:1px solid var(--line);border-radius:12px;font-size:14px;background:var(--card);color:var(--ink)}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 18px}
+  .chip{padding:8px 15px;border-radius:999px;border:1px solid var(--line);background:var(--card);font-size:13.5px;cursor:pointer;color:var(--sub)}
   .chip.active{background:var(--accent);border-color:var(--accent);color:#fff}
   .count{font-size:13px;color:var(--sub);margin-bottom:14px}
-  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:16px}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:10px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:10px;box-shadow:0 2px 10px rgba(120,100,80,.05);transition:.15s}
+  .card:hover{box-shadow:0 6px 18px rgba(120,100,80,.12);transform:translateY(-2px)}
   .card .top{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
   .kname{font-size:18px;font-weight:700}
   .kname a{color:inherit;text-decoration:none}
   .kname a:hover{color:var(--accent);text-decoration:underline}
-  .detail-link{display:inline-block;margin-top:4px;font-size:13px;color:var(--accent);text-decoration:none}
+  .detail-link{margin-top:auto;display:inline-block;font-size:13px;color:var(--accent);text-decoration:none;font-weight:600}
   .detail-link:hover{text-decoration:underline}
   .iname{font-size:12px;color:var(--sub)}
   .cat{font-size:11px;background:#f3ece5;color:var(--accent-dark);padding:4px 10px;border-radius:999px;white-space:nowrap}
@@ -54,28 +67,40 @@
   .new-badge{font-size:10px;background:var(--bad);color:#fff;padding:2px 7px;border-radius:999px;margin-left:6px;vertical-align:middle}
   footer{text-align:center;padding:36px 16px;font-size:12px;color:var(--sub)}
   .empty{text-align:center;color:var(--sub);padding:60px 0;grid-column:1/-1}
-  @media(max-width:600px){header h1{font-size:24px}}
+  @media(max-width:600px){
+    header{padding:34px 18px 26px}
+    header h1{font-size:23px}
+    .hero-cta{font-size:15.5px;padding:14px 26px}
+    .tools span{font-size:11.5px}
+    .grid{grid-template-columns:1fr}
+  }
 </style>
 </head>
 <body>
 <header>
   <h1>🌿 성분 사전</h1>
-  <p>화장품 성분, 내 피부에 맞는지 쉽게 확인하세요</p>
+  <p class="lead">내 피부에 맞는 화장품 성분, 1분이면 알 수 있어요</p>
+  <a class="hero-cta" href="quiz.html">🧫 내 피부타입 진단 시작하기</a>
   <p class="updated" id="updated"></p>
-  <a class="quiz-cta" href="quiz.html">🧫 1분 피부타입 진단하기 →</a>
-  <a class="quiz-cta" href="analyzer.html" style="background:#6e4f3a">🔬 전성분 분석하기 →</a>
-  <a class="quiz-cta" href="combos.html" style="background:#8a7f76">⚗️ 성분 궁합 체크 →</a>
-  <a class="quiz-cta" href="avoid.html" style="background:#a86b5e">🚫 상황별 피할 성분 →</a>
 </header>
+<nav class="tools">
+  <a href="analyzer.html"><b>🔬</b><span>전성분 분석</span></a>
+  <a href="combos.html"><b>⚗️</b><span>성분 궁합</span></a>
+  <a href="avoid.html"><b>🚫</b><span>피할 성분</span></a>
+</nav>
 <div class="container">
+  <div class="sec-title">📖 성분 둘러보기</div>
   <div class="controls">
-    <input id="search" type="search" placeholder="성분명, 효능으로 검색 (예: 보습, 나이아신아마이드)">
-    <select id="category"><option value="">전체 카테고리</option></select>
-    <select id="sort">
-      <option value="name">이름순</option>
-      <option value="safety">안전등급 좋은순</option>
-      <option value="new">최신 등록순</option>
-    </select>
+    <input id="search" type="search" placeholder="성분명·효능으로 검색 (예: 보습, 나이아신아마이드)">
+    <div class="sub-controls">
+      <select id="category"><option value="">전체 카테고리</option></select>
+      <select id="sort">
+        <option value="popular">인기순</option>
+        <option value="name">이름순</option>
+        <option value="safety">안전등급 좋은순</option>
+        <option value="new">최신 등록순</option>
+      </select>
+    </div>
   </div>
   <div class="chips" id="skinChips">
     <button class="chip active" data-skin="">전체 피부</button>
@@ -94,13 +119,20 @@
 </footer>
 <script>
 const DATA = /*__DATA__*/;
+// 인기·친숙한 성분 우선 노출 순서 (인기순 정렬 기준)
+const POPULAR=["hyaluronic-acid","niacinamide","retinol","ascorbic-acid","centella","ceramide",
+  "panthenol","salicylic-acid","glycolic-acid","madecassoside","collagen","peptide",
+  "tranexamic-acid","arbutin","bakuchiol","adenosine","azelaic-acid","squalane","glycerin",
+  "propolis","green-tea","tea-tree","allantoin","zinc-oxide","aloe-vera","bisabolol",
+  "tocopherol","alpha-arbutin","hydrolyzed-hyaluronic-acid","3-o-ethyl-ascorbic-acid"];
+const popRank=id=>{const x=POPULAR.indexOf(id);return x<0?999:x;};
 
 const grid=document.getElementById('grid'),search=document.getElementById('search'),
 catSel=document.getElementById('category'),sortSel=document.getElementById('sort'),
 countEl=document.getElementById('count');
 let skinFilter='';
 
-document.getElementById('updated').textContent='최근 업데이트: '+DATA.meta.updated+' · 등록 성분 '+DATA.ingredients.length+'개';
+document.getElementById('updated').textContent='최근 업데이트 '+DATA.meta.updated+' · 성분 '+DATA.ingredients.length+'개';
 
 [...new Set(DATA.ingredients.map(i=>i.category))].sort().forEach(c=>{
   const o=document.createElement('option');o.value=c;o.textContent=c;catSel.appendChild(o);
@@ -134,9 +166,10 @@ function render(){
   const s=sortSel.value;
   if(s==='safety')list.sort((a,b)=>a.safety_grade-b.safety_grade);
   else if(s==='new')list.sort((a,b)=>new Date(b.added_date)-new Date(a.added_date));
-  else list.sort((a,b)=>a.korean_name.localeCompare(b.korean_name,'ko'));
+  else if(s==='name')list.sort((a,b)=>a.korean_name.localeCompare(b.korean_name,'ko'));
+  else list.sort((a,b)=>popRank(a.id)-popRank(b.id)||a.korean_name.localeCompare(b.korean_name,'ko'));
 
-  countEl.textContent=list.length+'개 성분'+(skinFilter?' · '+skinFilter+' 피부 추천만 표시 중':'');
+  countEl.textContent=list.length+'개 성분'+(skinFilter?' · '+skinFilter+' 피부 추천':'');
   grid.innerHTML=list.length?list.map(card).join(''):'<div class="empty">조건에 맞는 성분이 없습니다 🧴</div>';
 }
 
