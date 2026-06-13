@@ -331,7 +331,13 @@ if __name__ == "__main__":
     if embed_tpl.exists():
         embed_out = args.out.parent / "embed.html"
         generate_with_products(args.data, embed_tpl, embed_out)
-        print(f"[OK] {embed_out} B2B 임베드 위젯 생성")
+        print(f"[OK] {embed_out} B2B 검색 위젯 생성")
+
+    embed_an_tpl = args.out.parent / "embed_analyzer_template.html"
+    if embed_an_tpl.exists():
+        embed_an_out = args.out.parent / "embed-analyzer.html"
+        generate_with_products(args.data, embed_an_tpl, embed_an_out)
+        print(f"[OK] {embed_an_out} B2B 분석 위젯 생성")
 
     avoid_tpl = args.out.parent / "avoid_template.html"
     if avoid_tpl.exists():

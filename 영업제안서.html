@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>성분 검색 위젯 — 영업 제안서</title>
+<style>
+  @page{size:A4;margin:0}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Apple SD Gothic Neo','Pretendard','Noto Sans KR',sans-serif;color:#2b2622;background:#ccc}
+  .page{width:210mm;min-height:297mm;margin:0 auto;background:#fff;display:flex;flex-direction:column}
+  @media print{body{background:#fff}.page{margin:0;box-shadow:none}.print-hint{display:none}}
+  .print-hint{max-width:210mm;margin:10px auto;padding:10px 14px;background:#fff8ee;border:1px solid #f0e2c8;border-radius:8px;font-size:13px;color:#8a6d3b}
+  .hero{background:linear-gradient(150deg,#f5ece2,#e9d9c8);padding:20mm 18mm 14mm}
+  .hero h1{font-size:30px;font-weight:800;letter-spacing:-0.5px}
+  .hero .sub{font-size:15px;color:#8c6a4f;font-weight:700;margin-top:8px}
+  .hero .lead{font-size:12.5px;color:#7a6a58;margin-top:10px;line-height:1.7}
+  .body{padding:12mm 18mm;flex:1}
+  h2{font-size:14px;color:#b08968;font-weight:800;border-bottom:1.5px solid #e6ddd4;padding-bottom:5px;margin:0 0 9px}
+  .sec{margin-bottom:9mm}
+  ul{list-style:none}
+  li{font-size:12px;color:#3b342e;padding-left:16px;position:relative;margin-bottom:6px;line-height:1.6}
+  li::before{content:"•";color:#b08968;font-weight:800;position:absolute;left:0}
+  .code{background:#2b2622;color:#f0e9e0;border-radius:8px;padding:12px 15px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:11px;line-height:1.7;margin-top:4px}
+  table{width:100%;border-collapse:collapse;margin-top:4px;font-size:12px}
+  th{text-align:left;color:#8a7f76;font-weight:700;padding:6px 8px;border-bottom:1.5px solid #e6ddd4}
+  td{padding:7px 8px;border-bottom:1px solid #f0e8e0}
+  td b{color:#8c6a4f}
+  .cta{background:#f5ece2;padding:9mm 18mm}
+  .cta .t{font-size:14px;font-weight:800}
+  .cta .l{font-size:12px;color:#b08968;margin-top:6px}
+  .cta .c{font-size:11px;color:#8a7f76;margin-top:8px}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:9mm}
+</style>
+</head>
+<body>
+<div class="print-hint">💡 이 화면에서 <b>Ctrl/⌘ + P → 대상을 "PDF로 저장"</b>, 용지 A4, "배경 그래픽" 체크하면 제안서 PDF가 만들어집니다.</div>
+<div class="page">
+  <div class="hero">
+    <h1>🌿 성분 검색 위젯</h1>
+    <div class="sub">화장품 브랜드·쇼핑몰을 위한 임베드 성분 솔루션</div>
+    <div class="lead">코드 한 줄로 5,000+ 성분의 안전등급·피부타입 정보를 우리 사이트에.<br>개발 없이 당일 도입 · 데이터 업데이트 자동 반영</div>
+  </div>
+  <div class="body">
+    <div class="sec">
+      <h2>이런 고민, 있으셨나요?</h2>
+      <ul>
+        <li>성분 정보 페이지를 직접 만들려니 데이터 구축·유지에 수개월이 걸립니다.</li>
+        <li>고객은 "이 성분이 내 피부에 맞나"를 궁금해하는데 안내할 방법이 없습니다.</li>
+        <li>성분 투명성은 구매 신뢰로 이어지지만, 콘텐츠 제작 리소스가 부족합니다.</li>
+      </ul>
+    </div>
+    <div class="sec">
+      <h2>해결책 — 임베드 위젯 한 줄</h2>
+      <ul>
+        <li>제품 상세·브랜드 페이지에 성분 검색 위젯을 코드 한 줄로 삽입</li>
+        <li>성분명·효능 검색 → 안전등급·피부타입별 적합도·쉬운 설명을 즉시 제공</li>
+        <li>브랜드명·강조색을 자사 톤에 맞춰 커스터마이즈</li>
+        <li>데이터는 저희가 호스팅 — 신규 성분·정보 업데이트가 자동 반영</li>
+      </ul>
+      <div class="code">&lt;iframe src="https://(도메인)/embed.html"<br>&nbsp;&nbsp;width="100%" height="460"&gt;&lt;/iframe&gt;</div>
+    </div>
+    <div class="two">
+      <div class="sec">
+        <h2>기대 효과</h2>
+        <ul>
+          <li>제품 신뢰도·체류시간 상승</li>
+          <li>개발 리소스 0, 당일 도입</li>
+          <li>유지보수 불필요(자동 업데이트)</li>
+          <li>진단·궁합·회피 위젯으로 확장</li>
+        </ul>
+      </div>
+      <div class="sec">
+        <h2>도입 절차</h2>
+        <ul>
+          <li>① 데모 확인 및 플랜 선택</li>
+          <li>② 위젯 코드 전달</li>
+          <li>③ 원하는 위치에 붙여넣기</li>
+          <li>④ 당일 오픈 — 끝</li>
+        </ul>
+      </div>
+    </div>
+    <div class="sec">
+      <h2>요금제 (예시)</h2>
+      <table>
+        <tr><th>플랜</th><th>대상</th><th>과금</th></tr>
+        <tr><td><b>베이직</b></td><td>소규모 자사몰</td><td>월 5만~15만원 / 도메인</td></tr>
+        <tr><td><b>프로</b></td><td>쇼핑몰·다브랜드</td><td>월정액 + 브랜드 커스터마이즈</td></tr>
+        <tr><td><b>엔터프라이즈</b></td><td>대형·앱</td><td>연 라이선스 + REST API 제공</td></tr>
+      </table>
+    </div>
+  </div>
+  <div class="cta">
+    <div class="t">지금 데모를 확인하세요</div>
+    <div class="l">데모: https://merry-gelato-2a6bc1.netlify.app/widget-demo.html</div>
+    <div class="c">도입·라이선스 문의 : [담당자명] · [이메일] · [연락처]</div>
+  </div>
+</div>
+</body>
+</html>

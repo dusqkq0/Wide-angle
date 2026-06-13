@@ -53,21 +53,23 @@
       </div>
       <div class="mock-note">↓ 제품 상세 페이지에 삽입된 성분 검색 위젯</div>
       <div class="tabs">
-        <button class="on" data-src="embed.html">기본</button>
-        <button data-src="embed.html?brand=○○브랜드&accent=%233a7bd5">브랜드 커스텀</button>
-        <button data-src="embed.html?brand=글로우&accent=%23d6336c">컬러 변형</button>
+        <button class="on" data-src="embed.html">🔎 성분 검색</button>
+        <button data-src="embed-analyzer.html">🔬 전성분 분석</button>
+        <button data-src="embed.html?brand=○○브랜드&accent=%233a7bd5">🎨 브랜드 커스텀</button>
       </div>
-      <iframe class="widget" id="demoFrame" src="embed.html" title="성분 검색 위젯"></iframe>
+      <iframe class="widget" id="demoFrame" src="embed.html" title="성분 위젯"></iframe>
     </div>
 
     <div class="panel">
       <h2>② 도입 방법 — 이 코드 한 줄</h2>
       <p class="opt">고객사는 원하는 위치에 아래 코드를 붙이기만 하면 됩니다:</p>
-      <pre>&lt;iframe
-  src="https://merry-gelato-2a6bc1.netlify.app/embed.html"
-  width="100%" height="460"
-  style="border:1px solid #eee;border-radius:12px"
-  title="성분 검색"&gt;&lt;/iframe&gt;</pre>
+      <pre>&lt;!-- 성분 검색 위젯 --&gt;
+&lt;iframe src="https://merry-gelato-2a6bc1.netlify.app/embed.html"
+  width="100%" height="460" style="border:1px solid #eee;border-radius:12px"&gt;&lt;/iframe&gt;
+
+&lt;!-- 전성분 분석 위젯 --&gt;
+&lt;iframe src="https://merry-gelato-2a6bc1.netlify.app/embed-analyzer.html"
+  width="100%" height="460" style="border:1px solid #eee;border-radius:12px"&gt;&lt;/iframe&gt;</pre>
       <h2 style="margin-top:22px">③ 브랜드 맞춤 옵션</h2>
       <p class="opt"><b>?brand=브랜드명</b> — 위젯 제목에 브랜드명 표시</p>
       <p class="opt"><b>?accent=%23색상코드</b> — 강조색을 브랜드 컬러로 변경</p>
