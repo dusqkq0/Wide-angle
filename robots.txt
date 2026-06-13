@@ -1,5 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /admin.html
+Disallow: /embed.html
+Disallow: /widget-demo.html
 
 Sitemap: https://merry-gelato-2a6bc1.netlify.app/sitemap.xml

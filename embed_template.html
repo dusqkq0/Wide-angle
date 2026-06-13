@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>성분 검색 위젯</title>
+<style>
+  :root{--accent:#b08968;--ink:#2b2622;--sub:#8a7f76;--line:#eee5dd;--card:#fff;
+    --good:#3a9b6e;--good-bg:#e7f5ee;--caution:#c98a1b;--caution-bg:#fdf3e0;--bad:#c4534f;--bad-bg:#fbe9e8}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{height:100%}
+  body{font-family:'Apple SD Gothic Neo','Pretendard','Noto Sans KR',sans-serif;color:var(--ink);background:#fff;display:flex;flex-direction:column}
+  .wrap{display:flex;flex-direction:column;height:100%;padding:14px}
+  .wtitle{font-size:15px;font-weight:800;margin-bottom:10px;display:flex;align-items:center;gap:6px}
+  .wtitle .dot{width:8px;height:8px;border-radius:50%;background:var(--accent)}
+  #q{width:100%;padding:11px 14px;border:1px solid var(--line);border-radius:10px;font-size:14px}
+  #q:focus{outline:2px solid var(--accent)}
+  #list{flex:1;overflow-y:auto;margin-top:10px;display:flex;flex-direction:column;gap:8px}
+  .it{border:1px solid var(--line);border-radius:11px;padding:12px 13px;cursor:pointer;transition:.12s}
+  .it:hover{border-color:var(--accent);background:#fcf8f4}
+  .it .h{display:flex;justify-content:space-between;align-items:center;gap:8px}
+  .it .nm{font-size:14.5px;font-weight:700}
+  .it .gb{width:24px;height:24px;border-radius:6px;color:#fff;font-weight:800;font-size:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .it .inci{font-size:11.5px;color:var(--sub);margin-top:1px}
+  .it .d{font-size:12.5px;color:#4d453e;margin-top:7px;display:none}
+  .it.open .d{display:block}
+  .it .sk{display:flex;flex-wrap:wrap;gap:4px;margin-top:7px}
+  .it .sk span{font-size:10.5px;padding:2px 7px;border-radius:5px}
+  .good{background:var(--good-bg);color:var(--good)}.caution{background:var(--caution-bg);color:var(--caution)}.bad{background:var(--bad-bg);color:var(--bad)}
+  .more{display:none;margin-top:8px;font-size:12px;color:var(--accent);font-weight:600;text-decoration:none}
+  .it.open .more{display:inline-block}
+  .empty{color:var(--sub);font-size:13px;text-align:center;padding:24px 0}
+  .pb{text-align:center;font-size:10.5px;color:#b3a89c;padding-top:8px}
+  .pb a{color:#b3a89c;text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="wtitle"><span class="dot"></span><span id="wtitleText">성분 검색</span></div>
+  <input id="q" type="search" placeholder="성분명·효능 검색 (예: 히알루론산, 진정)">
+  <div id="list"></div>
+  <div class="pb">powered by <a id="pbLink" href="#" target="_blank">성분 사전</a></div>
+</div>
+<script>
+const DATA = /*__DATA__*/;
+const SITE = "/*__SITEURL__*/";  // 상세 링크 기준 도메인 (없으면 상대경로)
+const params = new URLSearchParams(location.search);
+const accent = params.get("accent");          // 예: %23ff6600
+const brand  = params.get("brand");            // 예: 브랜드명
+if(accent) document.documentElement.style.setProperty("--accent", accent);
+if(brand) document.getElementById("wtitleText").textContent = brand + " 성분 검색";
+const base = SITE && SITE.indexOf("__")<0 ? SITE : "";
+document.getElementById("pbLink").href = base || "https://merry-gelato-2a6bc1.netlify.app/";
+
+const q=document.getElementById("q"), list=document.getElementById("list");
+const SK={good:"추천",caution:"주의",bad:"비추천"};
+function esc(s){return String(s==null?"":s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+function gc(g){return g<=2?'#3a9b6e':g<=6?'#c98a1b':'#c4534f'}
+const POP=["hyaluronic-acid","niacinamide","retinol","ascorbic-acid","centella","ceramide","panthenol","salicylic-acid","madecassoside","collagen"];
+const rank=id=>{const x=POP.indexOf(id);return x<0?999:x;};
+
+function render(){
+  const t=q.value.trim().toLowerCase();
+  let arr=DATA.ingredients.filter(i=>{
+    if(!t) return true;
+    return (i.korean_name+' '+i.inci_name+' '+i.category+' '+(i.benefits||[]).join(' ')+' '+i.description).toLowerCase().includes(t);
+  });
+  arr.sort((a,b)=>rank(a.id)-rank(b.id)||a.korean_name.localeCompare(b.korean_name,'ko'));
+  arr=arr.slice(0,40);
+  if(!arr.length){ list.innerHTML='<div class="empty">검색 결과가 없습니다.</div>'; return; }
+  list.innerHTML=arr.map(i=>{
+    const sk=Object.entries(i.skin_types).map(([k,v])=>`<span class="${v}">${k} ${SK[v]||v}</span>`).join('');
+    const url=(base?base.replace(/\/$/,'')+'/':'')+'detail/'+encodeURIComponent(i.id)+'.html';
+    return `<div class="it" data-id="${esc(i.id)}">
+      <div class="h"><div><div class="nm">${esc(i.korean_name)}</div><div class="inci">${esc(i.inci_name)} · ${esc(i.category)}</div></div>
+        <span class="gb" style="background:${gc(i.safety_grade)}">${i.safety_grade}</span></div>
+      <div class="d">${esc(i.description)}<div class="sk">${sk}</div></div>
+      <a class="more" href="${url}" target="_blank" rel="noopener">자세히 보기 →</a>
+    </div>`;
+  }).join('');
+}
+list.addEventListener('click',e=>{
+  const it=e.target.closest('.it'); if(!it||e.target.classList.contains('more'))return;
+  it.classList.toggle('open');
+});
+q.addEventListener('input',render);
+render();
+</script>
+</body>
+</html>

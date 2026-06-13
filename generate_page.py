@@ -129,6 +129,7 @@ def generate_quiz(data_path: Path, template_path: Path, out_path: Path) -> int:
     html = html.replace("/*__COMBOS__*/", json.dumps(combos, ensure_ascii=False))
     html = html.replace("/*__AVOID__*/", json.dumps(avoid, ensure_ascii=False))
     html = html.replace("/*__KAKAO__*/", site.get("kakao_channel_url", ""))
+    html = html.replace("/*__SITEURL__*/", site.get("base_url", ""))
     html = html.replace("<!--__SITE_META__-->", site_meta_html(site))
 
     out_path.parent.mkdir(parents=True, exist_ok=True)
@@ -325,6 +326,12 @@ if __name__ == "__main__":
         combos_out = args.out.parent / "combos.html"
         generate_with_products(args.data, combos_tpl, combos_out)
         print(f"[OK] {combos_out} 성분 궁합·충돌 체크 생성")
+
+    embed_tpl = args.out.parent / "embed_template.html"
+    if embed_tpl.exists():
+        embed_out = args.out.parent / "embed.html"
+        generate_with_products(args.data, embed_tpl, embed_out)
+        print(f"[OK] {embed_out} B2B 임베드 위젯 생성")
 
     avoid_tpl = args.out.parent / "avoid_template.html"
     if avoid_tpl.exists():
