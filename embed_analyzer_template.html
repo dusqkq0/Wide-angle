@@ -53,6 +53,34 @@
   <div class="pb">powered by <a id="pbLink" href="#" target="_blank">성분 사전</a></div>
 </div>
 <script>
+// ── 도메인 잠금: 허용된 도메인에서만 위젯 작동 (무단 임베드 방지) ──
+const ALLOWED = /*__ALLOWED__*/;
+function widgetHost(){
+  try{
+    if(window.top!==window.self){
+      if(location.ancestorOrigins&&location.ancestorOrigins.length) return new URL(location.ancestorOrigins[0]).hostname;
+      if(document.referrer) return new URL(document.referrer).hostname;
+      return "";
+    }
+    return location.hostname;
+  }catch(e){ return location.hostname; }
+}
+function widgetAllowed(){
+  const h=widgetHost();
+  if(!h) return false;
+  if(h==="localhost"||h==="127.0.0.1") return true;
+  return (ALLOWED||[]).some(d=>h===d||h.endsWith("."+d));
+}
+if(!widgetAllowed()){
+  document.querySelector(".wrap").innerHTML=
+    '<div style="height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;gap:10px">'
+    +'<div style="font-size:30px">🔒</div>'
+    +'<div style="font-size:15px;font-weight:800">전성분 분석 위젯 · 라이선스가 필요합니다</div>'
+    +'<div style="font-size:12.5px;color:#8a7f76;line-height:1.6">이 위젯은 계약된 도메인에서만 작동합니다.<br>도입을 원하시면 문의해 주세요.</div>'
+    +'<a href="mailto:dusqkq0@naver.com" style="margin-top:6px;background:#b08968;color:#fff;text-decoration:none;font-size:13px;font-weight:700;padding:9px 16px;border-radius:9px">도입 문의: dusqkq0@naver.com</a></div>';
+  throw new Error("widget: domain not licensed");
+}
+
 const DATA = /*__DATA__*/;
 const SITE = "/*__SITEURL__*/";
 const params=new URLSearchParams(location.search);

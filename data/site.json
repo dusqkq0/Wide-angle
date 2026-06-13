@@ -3,5 +3,7 @@
   "base_url": "https://merry-gelato-2a6bc1.netlify.app/",
   "kakao_channel_url": "http://pf.kakao.com/_YxfxaUn",
   "google_site_verification": "MmMIv18Xeikl75U0xnhWVDGw2q645K1VtLVYG63ZZcY",
-  "naver_site_verification": "0f24b3769cb612c27104ba8583af136f4b26effe"
+  "naver_site_verification": "0f24b3769cb612c27104ba8583af136f4b26effe",
+  "_widget_note": "widget_allowed_domains: 위젯(embed)이 작동을 허용할 도메인 목록. 계약한 고객사 도메인을 추가하세요. 자기 사이트(merry-gelato)와 데모는 기본 허용. 목록에 없는 곳에 위젯이 박히면 '라이선스 필요' 안내만 표시됩니다.",
+  "widget_allowed_domains": ["merry-gelato-2a6bc1.netlify.app", "dusqkq045.godomall.com"]
 }

@@ -130,6 +130,7 @@ def generate_quiz(data_path: Path, template_path: Path, out_path: Path) -> int:
     html = html.replace("/*__AVOID__*/", json.dumps(avoid, ensure_ascii=False))
     html = html.replace("/*__KAKAO__*/", site.get("kakao_channel_url", ""))
     html = html.replace("/*__SITEURL__*/", site.get("base_url", ""))
+    html = html.replace("/*__ALLOWED__*/", json.dumps(site.get("widget_allowed_domains", []), ensure_ascii=False))
     html = html.replace("<!--__SITE_META__-->", site_meta_html(site))
 
     out_path.parent.mkdir(parents=True, exist_ok=True)
