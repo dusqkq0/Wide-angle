@@ -255,7 +255,7 @@ def detail_html(ing: dict, related: list, base_url: str, products_data: dict = N
   {f'<div class="card"><h2 style="margin-top:0">같은 카테고리 성분</h2><div class="related">{rel}</div></div>' if rel else ''}
   <a class="back" href="../index.html">← 전체 성분 목록으로</a>
 </div>
-<footer>안전등급·효능은 참고용입니다. 피부 고민이 지속되면 피부과 전문의와 상담하세요.</footer>
+<footer>데이터 출처: 식품의약품안전처 화장품 원료성분정보 · 대한화장품협회 성분사전 · EU CosIng · EWG Skin Deep 등 공개 자료 종합.<br>안전등급·효능은 참고용이며 의학적 판단의 근거가 아닙니다. 피부 고민이 지속되면 피부과 전문의와 상담하세요.</footer>
 </body>
 </html>"""
 

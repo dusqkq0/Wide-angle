@@ -1,0 +1,484 @@
+{
+  "meta": {
+    "version": "1.0",
+    "updated": "2026-06-13",
+    "type": "innerbeauty",
+    "note": "이너뷰티(먹는 미용) 성분 데이터셋. 화장품(ingredients.json)과 분리. 평가축은 EWG 안전등급이 아니라 기능성 인증·1일 섭취량·주의사항. skin_types는 피부타입 진단 결과와 연동(먹는 성분 추천)용. 기능성 표현은 건강기능식품 표시·광고 규정에 따라 '도움을 줄 수 있음' 수준으로만 기재."
+  },
+  "ingredients": [
+    {
+      "id": "collagen-peptide",
+      "korean_name": "저분자 콜라겐 펩타이드",
+      "eng_name": "Collagen Peptide",
+      "category": "탄력·보습",
+      "description": "피부 진피의 주요 단백질인 콜라겐을 잘게 분해해 흡수를 높인 형태. 피부 보습에 도움을 줄 수 있는 성분으로 알려져 있습니다.",
+      "benefits": [
+        "피부 보습",
+        "탄력 케어",
+        "흡수 용이"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "good",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "daily_intake": "제품 표시 섭취량을 따르세요 (보통 1일 1,000~3,000mg대).",
+      "functional": "피부 보습 관련 개별인정형 원료가 다수 있음",
+      "caution": "어류·돈피 등 유래 단백질 알레르기가 있으면 주의.",
+      "status": "published",
+      "source": "시드",
+      "added_date": "2026-06-13"
+    },
+    {
+      "id": "low-hyaluronic-acid",
+      "korean_name": "히알루론산 (먹는)",
+      "eng_name": "Hyaluronic Acid (oral)",
+      "category": "보습",
+      "description": "수분을 끌어안는 성분으로 잘 알려진 히알루론산의 경구 섭취 형태. 피부 보습에 도움을 줄 수 있는 원료로 인정된 사례가 있습니다.",
+      "benefits": [
+        "피부 보습",
+        "속건조 케어"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "good",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "daily_intake": "제품 표시 섭취량 준수 (보통 1일 120~240mg대).",
+      "functional": "피부 보습 개별인정형 원료",
+      "caution": "특별한 주의사항은 적으나 임신·수유 중에는 전문가와 상담.",
+      "status": "published",
+      "source": "시드",
+      "added_date": "2026-06-13"
+    },
+    {
+      "id": "vitamin-c-oral",
+      "korean_name": "비타민C",
+      "eng_name": "Vitamin C (Ascorbic Acid)",
+      "category": "항산화",
+      "description": "대표적인 항산화 영양소. 유해 산소로부터 세포를 보호하고 결합조직 형성에 필요한 영양소로, 피부 건강과도 연관이 깊습니다.",
+      "benefits": [
+        "항산화",
+        "피부·결합조직 건강",
+        "피로 개선 도움"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "good",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "daily_intake": "1일 권장섭취량 100mg, 상한 2,000mg.",
+      "functional": "고시형 기능성(항산화·결합조직 형성에 필요)",
+      "caution": "고용량 장기 섭취 시 위장 장애·신장결석 위험. 상한 준수.",
+      "status": "published",
+      "source": "시드",
+      "added_date": "2026-06-13"
+    },
+    {
+      "id": "vitamin-e-oral",
+      "korean_name": "비타민E",
+      "eng_name": "Vitamin E (Tocopherol)",
+      "category": "항산화",
+      "description": "지용성 항산화 영양소로, 유해 산소로부터 세포를 보호하는 데 필요합니다.",
+      "benefits": [
+        "항산화",
+        "세포 보호"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "good",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "daily_intake": "1일 권장 11mg(α-TE), 상한 540mg.",
+      "functional": "고시형 기능성(항산화)",
+      "caution": "혈액응고 관련 약 복용 시 고용량 주의.",
+      "status": "published",
+      "source": "시드",
+      "added_date": "2026-06-13"
+    },
+    {
+      "id": "zinc-oral",
+      "korean_name": "아연",
+      "eng_name": "Zinc",
+      "category": "피부·점막 건강",
+      "description": "정상적인 면역 기능과 피부·점막 건강에 필요한 미네랄. 트러블이 잦은 피부에서 관심이 높은 성분입니다.",
+      "benefits": [
+        "피부·점막 건강",
+        "면역 기능"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "good",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "daily_intake": "1일 권장 8~10mg, 상한 35mg.",
+      "functional": "고시형 기능성(피부·점막·면역)",
+      "caution": "과다 섭취 시 구리 흡수 저해·구역. 상한 준수.",
+      "status": "published",
+      "source": "시드",
+      "added_date": "2026-06-13"
+    },
+    {
+      "id": "biotin",
+      "korean_name": "비오틴",
+      "eng_name": "Biotin",
+      "category": "피부·모발",
+      "description": "에너지 대사와 피부·모발 건강에 관여하는 비타민B군. 모발·손톱 케어 제품에 자주 들어갑니다.",
+      "benefits": [
+        "피부·모발 건강",
+        "에너지 대사"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "good",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "daily_intake": "1일 충분섭취량 30㎍ 내외.",
+      "functional": "고시형 기능성(에너지 대사, 피부·점막)",
+      "caution": "고용량 섭취 시 일부 혈액검사 수치에 영향 가능.",
+      "status": "published",
+      "source": "시드",
+      "added_date": "2026-06-13"
+    },
+    {
+      "id": "probiotics",
+      "korean_name": "프로바이오틱스 (유산균)",
+      "eng_name": "Probiotics",
+      "category": "장 건강·이너밸런스",
+      "description": "유익균을 증식하고 유해균을 억제해 원활한 배변·장 건강에 도움을 줄 수 있습니다. 장 건강은 피부 컨디션과도 연관 지어 관심받습니다.",
+      "benefits": [
+        "장 건강",
+        "배변 활동 원활"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "good",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "daily_intake": "1일 1억~100억 CFU (제품 표시 따름).",
+      "functional": "고시형 기능성(유산균 증식·유해균 억제·배변)",
+      "caution": "면역저하·중증 질환자는 전문가 상담 후 섭취.",
+      "status": "published",
+      "source": "시드",
+      "added_date": "2026-06-13"
+    },
+    {
+      "id": "glutathione",
+      "korean_name": "글루타치온",
+      "eng_name": "Glutathione",
+      "category": "항산화",
+      "description": "체내 항산화 시스템에 관여하는 성분. 미용 목적으로 관심이 높지만, 표시 가능한 기능성은 제품별 인정 범위를 따릅니다.",
+      "benefits": [
+        "항산화"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "good",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "daily_intake": "제품 표시 섭취량을 따르세요.",
+      "functional": "원료·제품별 인정 범위 상이 (미백 등 단정 표현 불가)",
+      "caution": "미백 등 의약품적 효과로 오인하지 않도록 주의. 임신·수유 중 상담.",
+      "status": "published",
+      "source": "시드",
+      "added_date": "2026-06-13"
+    },
+    {
+      "id": "coq10",
+      "korean_name": "코엔자임Q10",
+      "eng_name": "Coenzyme Q10",
+      "category": "항산화",
+      "description": "세포의 에너지 생성과 항산화에 관여하는 성분. 나이가 들며 체내 함량이 줄어 보충 관심이 높습니다.",
+      "benefits": [
+        "항산화",
+        "높은 혈압 감소에 도움(인정 범위 내)"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "good",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "daily_intake": "1일 90~100mg (인정 기준).",
+      "functional": "고시형 기능성(항산화, 혈압)",
+      "caution": "혈압·항응고제 복용 시 전문가 상담.",
+      "status": "published",
+      "source": "시드",
+      "added_date": "2026-06-13"
+    },
+    {
+      "id": "omega3",
+      "korean_name": "오메가3 (EPA·DHA)",
+      "eng_name": "Omega-3",
+      "category": "장벽·보습",
+      "description": "혈행·기억력 등으로 알려진 불포화지방산. 피부 장벽의 지질 구성과 연관되어 건조 피부 관심 성분입니다.",
+      "benefits": [
+        "혈중 중성지질 개선",
+        "혈행",
+        "피부 장벽 연관"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "good",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "daily_intake": "1일 EPA+DHA 합 500~2,000mg (인정 기준).",
+      "functional": "고시형 기능성(혈중 중성지질·혈행)",
+      "caution": "항응고제 복용·수술 전후 주의.",
+      "status": "published",
+      "source": "시드",
+      "added_date": "2026-06-13"
+    },
+    {
+      "id": "rice-ceramide",
+      "korean_name": "세라마이드 (먹는, 식물 유래)",
+      "eng_name": "Ceramide (oral, plant-derived)",
+      "category": "보습",
+      "description": "쌀·곤약 등에서 얻은 식물성 세라마이드. 피부 보습에 도움을 줄 수 있는 원료로 인정된 사례가 있습니다.",
+      "benefits": [
+        "피부 보습"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "good",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "daily_intake": "제품 표시 섭취량을 따르세요.",
+      "functional": "피부 보습 개별인정형 원료",
+      "caution": "특별한 주의사항 없음(알레르기 유래원 확인).",
+      "status": "published",
+      "source": "시드",
+      "added_date": "2026-06-13"
+    },
+    {
+      "id": "elastin",
+      "korean_name": "엘라스틴",
+      "eng_name": "Elastin",
+      "category": "탄력",
+      "description": "피부의 탄력을 담당하는 단백질. 콜라겐과 함께 탄력 케어 이너뷰티 제품에 활용됩니다.",
+      "benefits": [
+        "탄력 케어"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "good",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "daily_intake": "제품 표시 섭취량을 따르세요.",
+      "functional": "원료·제품별 인정 범위 상이",
+      "caution": "어류 등 유래 단백질 알레르기 주의.",
+      "status": "published",
+      "source": "시드",
+      "added_date": "2026-06-13"
+    },
+    {
+      "id": "evening-primrose-seed",
+      "korean_name": "달맞이꽃종자추출물",
+      "eng_name": "Evening Primrose Seed Extract",
+      "category": "보습·항산화",
+      "description": "달맞이꽃 종자에서 얻은 추출물로 감마리놀렌산(GLA)이 풍부합니다. 피부 컨디션·장벽과 연관되어 관심받는 원료입니다.",
+      "benefits": [
+        "감마리놀렌산(GLA)",
+        "피부 보습 연관",
+        "항산화"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "good",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "daily_intake": "제품 표시 섭취량을 따르세요.",
+      "functional": "개별인정형 원료 (인정 범위 내 표시)",
+      "caution": "항응고제 복용 시 주의.",
+      "status": "published",
+      "added_date": "2026-06-13"
+    },
+    {
+      "id": "fibroin-hydrolysate",
+      "korean_name": "피브로인효소가수분해물",
+      "eng_name": "Fibroin Hydrolysate",
+      "category": "탄력·단백질",
+      "description": "누에고치 실크 단백질(피브로인)을 효소 분해한 펩타이드. 단백질 보충·피부 케어 목적으로 활용됩니다.",
+      "benefits": [
+        "실크 단백질",
+        "피부 연관"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "good",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "daily_intake": "제품 표시 섭취량을 따르세요.",
+      "functional": "개별인정형 원료 (인정 범위 내 표시)",
+      "caution": "특별한 주의사항 없음(알레르기 확인).",
+      "status": "published",
+      "added_date": "2026-06-13"
+    },
+    {
+      "id": "haematococcus-astaxanthin",
+      "korean_name": "헤마토코쿠스추출물(아스타잔틴)",
+      "eng_name": "Haematococcus Extract (Astaxanthin)",
+      "category": "항산화",
+      "description": "헤마토코쿠스 미세조류에서 얻은 아스타잔틴이 풍부한 추출물. 대표적인 항산화 이너뷰티 원료로 인기가 높습니다.",
+      "benefits": [
+        "아스타잔틴",
+        "강력 항산화"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "good",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "daily_intake": "아스타잔틴 1일 4~12mg대(제품 기준).",
+      "functional": "개별인정형 항산화 원료",
+      "caution": "고용량 섭취 시 전문가 상담.",
+      "status": "published",
+      "added_date": "2026-06-13"
+    },
+    {
+      "id": "nag",
+      "korean_name": "N-아세틸글루코사민",
+      "eng_name": "N-Acetylglucosamine",
+      "category": "보습",
+      "description": "N-아세틸글루코사민. 체내 히알루론산 생성에 관여하는 아미노당으로, 피부 보습에 도움을 줄 수 있는 원료로 인정된 사례가 있습니다.",
+      "benefits": [
+        "피부 보습",
+        "히알루론산 전구체"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "good",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "daily_intake": "제품 표시 섭취량을 따르세요.",
+      "functional": "피부 보습 개별인정형 원료",
+      "caution": "갑각류 유래일 경우 알레르기 주의.",
+      "status": "published",
+      "added_date": "2026-06-13"
+    },
+    {
+      "id": "grape-seed-extract",
+      "korean_name": "포도종자추출물",
+      "eng_name": "Grape Seed Extract",
+      "category": "항산화",
+      "description": "포도 씨에서 얻은 추출물로 프로안토시아니딘 등 폴리페놀이 풍부합니다. 항산화 목적의 이너뷰티 원료입니다.",
+      "benefits": [
+        "프로안토시아니딘",
+        "항산화"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "good",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "daily_intake": "제품 표시 섭취량을 따르세요.",
+      "functional": "개별인정형 항산화 원료",
+      "caution": "항응고제 복용 시 주의.",
+      "status": "published",
+      "added_date": "2026-06-13"
+    },
+    {
+      "id": "pomegranate-extract",
+      "korean_name": "석류추출/농축물",
+      "eng_name": "Pomegranate Extract",
+      "category": "항산화·이너밸런스",
+      "description": "석류에서 얻은 추출·농축물. 항산화 성분이 풍부해 여성 이너뷰티 제품에 자주 쓰입니다.",
+      "benefits": [
+        "항산화",
+        "여성 이너케어 연관"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "good",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "daily_intake": "제품 표시 섭취량을 따르세요.",
+      "functional": "개별인정형 원료 (인정 범위 내 표시)",
+      "caution": "특별한 주의사항 없음.",
+      "status": "published",
+      "added_date": "2026-06-13"
+    },
+    {
+      "id": "soy-isoflavone",
+      "korean_name": "대두이소플라본",
+      "eng_name": "Soy Isoflavone",
+      "category": "항산화·이너밸런스",
+      "description": "대두에서 얻은 이소플라본. 항산화와 여성 갱년기 건강 관련으로 알려진 원료입니다.",
+      "benefits": [
+        "이소플라본",
+        "항산화",
+        "여성 갱년기 건강 연관"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "good",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "daily_intake": "제품 표시 섭취량을 따르세요.",
+      "functional": "개별인정형 원료 (뼈·갱년기 등 인정 범위 상이)",
+      "caution": "호르몬 관련 질환·임신·수유 중 전문가 상담.",
+      "status": "published",
+      "added_date": "2026-06-13"
+    },
+    {
+      "id": "ap-collagen-peptide",
+      "korean_name": "AP콜라겐 효소분해 펩타이드",
+      "eng_name": "AP Collagen Enzyme-Decomposed Peptide",
+      "category": "탄력·보습",
+      "description": "어류 유래 콜라겐을 효소 분해한 저분자 펩타이드(AP콜라겐). 피부 보습에 도움을 줄 수 있는 대표적 개별인정형 원료입니다.",
+      "benefits": [
+        "피부 보습",
+        "저분자 콜라겐"
+      ],
+      "skin_types": {
+        "건성": "good",
+        "지성": "good",
+        "민감성": "good",
+        "복합성": "good",
+        "여드름성": "good"
+      },
+      "daily_intake": "제품 표시 섭취량(보통 1일 1,000mg대).",
+      "functional": "피부 보습 개별인정형 원료",
+      "caution": "어류 단백질 알레르기 주의.",
+      "status": "published",
+      "added_date": "2026-06-13"
+    }
+  ]
+}
