@@ -285,5 +285,7 @@ if __name__ == "__main__":
         if avoid_tpl.exists():
             generate_quiz(DATA_PATH, avoid_tpl, BASE / "avoid.html")
             print(f"[OK] avoid.html 상황별 회피 필터 재생성")
+        from generate_page import generate_result_pages
+        generate_result_pages(DATA_PATH, BASE, base_url="")
         generate_details(DATA_PATH, BASE, base_url="")
-        print(f"[OK] detail/ 상세 페이지 + sitemap.xml 재생성 (제휴 제품 포함)")
+        print(f"[OK] result/·detail/ 페이지 + sitemap.xml 재생성 (제휴 제품 포함)")

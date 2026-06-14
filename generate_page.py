@@ -48,12 +48,30 @@ def load_site(base_dir: Path) -> dict:
 
 
 def site_meta_html(site: dict) -> str:
-    """검색엔진 소유확인 메타태그 HTML 생성."""
+    """검색엔진 소유확인 + OG/트위터 공유 메타태그 HTML 생성."""
     tags = []
     if site.get("google_site_verification"):
         tags.append(f'<meta name="google-site-verification" content="{esc(site["google_site_verification"])}" />')
     if site.get("naver_site_verification"):
         tags.append(f'<meta name="naver-site-verification" content="{esc(site["naver_site_verification"])}" />')
+    base = site.get("base_url", "").rstrip("/")
+    if base:
+        og = f"{base}/og-image.png"
+        title = "성분 사전 — 내 피부에 맞는 화장품 성분 찾기"
+        desc = "화장품 성분을 피부타입별로 쉽게 확인하고, 전성분 분석·성분 궁합까지. 5,000+ 성분 데이터."
+        tags += [
+            '<meta property="og:type" content="website" />',
+            f'<meta property="og:title" content="{title}" />',
+            f'<meta property="og:description" content="{desc}" />',
+            f'<meta property="og:image" content="{og}" />',
+            '<meta property="og:image:width" content="1200" />',
+            '<meta property="og:image:height" content="630" />',
+            f'<meta property="og:url" content="{base}/" />',
+            '<meta name="twitter:card" content="summary_large_image" />',
+            f'<meta name="twitter:title" content="{title}" />',
+            f'<meta name="twitter:description" content="{desc}" />',
+            f'<meta name="twitter:image" content="{og}" />',
+        ]
     return "\n".join(tags)
 
 
@@ -228,9 +246,10 @@ def detail_html(ing: dict, related: list, base_url: str, products_data: dict = N
 <meta name="description" content="{esc(meta_desc)}">
 <link rel="canonical" href="{esc(canonical)}">
 <meta property="og:type" content="article">
-<meta property="og:title" content="{esc(ing['korean_name'])} 성분 정보">
+<meta property="og:title" content="{esc(ing['korean_name'])} 성분 정보 | 성분 사전">
 <meta property="og:description" content="{esc(meta_desc)}">
 <meta property="og:url" content="{esc(canonical)}">
+{(f'<meta property="og:image" content="{esc(base_url)}og-image.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="{esc(base_url)}og-image.png">' if base_url else '')}
 <meta name="robots" content="index,follow">
 <script type="application/ld+json">{json.dumps(jsonld, ensure_ascii=False)}</script>
 <style>{DETAIL_CSS}</style>
@@ -260,6 +279,77 @@ def detail_html(ing: dict, related: list, base_url: str, products_data: dict = N
 </html>"""
 
 
+SKIN_TYPES = [
+    ("dry", "건성", "수분과 유분이 부족해 당김·각질이 생기기 쉬운 타입이에요. 보습과 장벽 케어가 핵심입니다."),
+    ("oily", "지성", "피지 분비가 많아 번들거림·모공이 고민이기 쉬운 타입이에요. 피지 조절과 가벼운 보습이 포인트."),
+    ("sensitive", "민감성", "외부 자극에 쉽게 붉어지고 따가운 타입이에요. 진정·장벽 케어와 자극 요소 피하기가 중요합니다."),
+    ("combination", "복합성", "T존은 번들거리고 볼은 건조한 타입이에요. 부위별로 나눠 관리하는 게 핵심입니다."),
+    ("acne", "여드름성", "트러블이 잦은 타입이에요. 모공·피지 관리와 진정을 함께 챙기는 게 좋아요."),
+]
+
+
+def generate_result_pages(data_path: Path, out_dir: Path, base_url: str) -> int:
+    """피부타입별 정적 결과 페이지 — SNS 공유 시 타입별 OG 미리보기가 뜨도록."""
+    data = json.loads(data_path.read_text(encoding="utf-8"))
+    items = published(data)
+    rdir = out_dir / "result"
+    rdir.mkdir(parents=True, exist_ok=True)
+    for slug, kor, lead in SKIN_TYPES:
+        recs = sorted(
+            [i for i in items if i["skin_types"].get(kor) == "good" and "주의 성분" not in i["category"]],
+            key=lambda i: i.get("safety_grade", 5))[:6]
+        og = f"{base_url}og-result-{slug}.png" if base_url else f"../og-result-{slug}.png"
+        cards = "".join(
+            f'<a class="rc" href="../detail/{esc(i["id"])}.html">'
+            f'<span class="rcg" style="background:{grade_color(i.get("safety_grade",5))}">{i.get("safety_grade","")}</span>'
+            f'<span><b>{esc(i["korean_name"])}</b><br><small>{esc(i["category"])}</small></span></a>'
+            for i in recs)
+        title = f"나는 {kor} 피부 — 성분 사전 진단 결과"
+        html = f"""<!DOCTYPE html>
+<html lang="ko"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{title}</title>
+<meta name="description" content="{kor} 피부에 맞는 화장품 성분을 확인하세요. 1분 무료 진단.">
+<meta name="robots" content="index,follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="{title}">
+<meta property="og:description" content="{esc(lead)}">
+<meta property="og:image" content="{og}">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="{og}">
+<style>
+*{{margin:0;padding:0;box-sizing:border-box}}
+body{{font-family:'Apple SD Gothic Neo','Pretendard','Noto Sans KR',sans-serif;background:#faf7f4;color:#2b2622;line-height:1.7}}
+header{{background:linear-gradient(150deg,#f5ece2,#e9d9c8);padding:46px 22px 36px;text-align:center}}
+header .s{{font-size:14px;color:#8a7f76}} header h1{{font-size:30px;font-weight:800;margin-top:6px}}
+header p{{color:#7a6a58;margin-top:10px;font-size:15px;max-width:520px;margin-left:auto;margin-right:auto}}
+.wrap{{max-width:720px;margin:0 auto;padding:26px 20px}}
+h2{{font-size:17px;color:#6e4f3a;margin-bottom:12px}}
+.rc{{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid #eee5dd;border-radius:13px;padding:13px 15px;margin-bottom:9px;text-decoration:none;color:inherit}}
+.rc:hover{{border-color:#b08968}} .rc .rcg{{width:30px;height:30px;border-radius:8px;color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px}}
+.rc small{{color:#8a7f76}}
+.cta{{display:block;text-align:center;margin:26px 0 10px;padding:16px;border-radius:14px;background:#b08968;color:#fff;text-decoration:none;font-size:17px;font-weight:700;box-shadow:0 4px 14px rgba(176,137,104,.35)}}
+.nav{{text-align:center;margin-top:14px}} .nav a{{color:#b08968;text-decoration:none;font-size:14px;margin:0 8px}}
+footer{{text-align:center;padding:30px 16px;font-size:12px;color:#8a7f76}}
+</style></head>
+<body>
+<header>
+  <div class="s">성분 사전 · 피부 진단 결과</div>
+  <h1>🌿 {kor} 피부</h1>
+  <p>{esc(lead)}</p>
+</header>
+<div class="wrap">
+  <h2>✅ {kor} 피부에 추천하는 성분</h2>
+  {cards}
+  <a class="cta" href="../quiz.html">🧫 나도 1분 진단하고 내 피부타입 알아보기 →</a>
+  <div class="nav"><a href="../index.html">성분 사전</a> · <a href="../analyzer.html">전성분 분석</a></div>
+</div>
+<footer>본 진단은 일반적인 참고용이며 의학적 진단이 아닙니다.</footer>
+</body></html>"""
+        (rdir / f"{slug}.html").write_text(html, encoding="utf-8")
+    return len(SKIN_TYPES)
+
+
 def generate_details(data_path: Path, out_dir: Path, base_url: str) -> int:
     """성분별 상세 페이지 + sitemap 생성."""
     data = json.loads(data_path.read_text(encoding="utf-8"))
@@ -282,6 +372,7 @@ def generate_details(data_path: Path, out_dir: Path, base_url: str) -> int:
     today = date.today().isoformat()
     urls = [f"{base_url}index.html", f"{base_url}quiz.html", f"{base_url}analyzer.html",
             f"{base_url}combos.html", f"{base_url}avoid.html"] \
+        + [f"{base_url}result/{s}.html" for s, _, _ in SKIN_TYPES] \
         + [f"{base_url}detail/{i['id']}.html" for i in items]
     sm = ['<?xml version="1.0" encoding="UTF-8"?>',
           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
@@ -348,6 +439,8 @@ if __name__ == "__main__":
 
     if not args.no_details:
         out_dir = args.out.parent
+        r = generate_result_pages(args.data, out_dir, base_url)
+        print(f"[OK] result/ 피부타입별 결과 페이지 {r}개 생성 (공유 OG)")
         d = generate_details(args.data, out_dir, base_url)
         print(f"[OK] detail/ 상세 페이지 {d}개 + sitemap.xml 생성"
               + (f" (base-url: {base_url})" if base_url else " (상대경로)"))
