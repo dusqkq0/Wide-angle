@@ -33,6 +33,10 @@
   .rtype{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:30px;text-align:center;margin-bottom:18px}
   .rtype .big{font-size:30px;font-weight:800;color:var(--accent-dark)}
   .rtype .lead{color:#4d453e;margin-top:10px;font-size:15px}
+  .share-row{margin-top:16px}
+  .share-btn{padding:12px 22px;border:none;border-radius:999px;background:var(--accent);color:#fff;font-size:15px;font-weight:700;cursor:pointer;box-shadow:0 3px 10px rgba(176,137,104,.3)}
+  .share-btn:hover{background:var(--accent-dark)}
+  .share-hint{font-size:12px;color:var(--sub);margin-top:8px}
   h2{font-size:17px;margin:24px 0 12px;color:#6e4f3a}
   .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
   .icard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:7px}
@@ -87,6 +91,10 @@
       <div>당신의 피부타입은</div>
       <div class="big" id="rtype">—</div>
       <div class="lead" id="rlead"></div>
+      <div class="share-row">
+        <button type="button" class="share-btn" onclick="shareCard()">📸 결과 카드 저장·공유</button>
+      </div>
+      <div class="share-hint">저장한 카드를 인스타·카톡·스레드에 공유해보세요 🌿</div>
     </div>
 
     <form class="lead-form" name="skin-report" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="leadForm">
@@ -237,6 +245,8 @@ function showResult(){
   });
   document.getElementById("recommend").innerHTML=pool.slice(0,8).map(card).join("")
     || '<p style="color:#8a7f76">추천 성분을 준비 중입니다.</p>';
+  // 공유 카드용 결과 저장
+  window.__card={type:type, lead:LEAD[type], recs:pool.slice(0,3).map(i=>i.korean_name)};
 
   // 추천 제품: 진단 피부타입과 매칭되는 제휴 제품
   const prods=(PRODUCTS.products||[]).filter(p=>(p.skin_types||[]).includes(type));
@@ -277,6 +287,37 @@ function pcard(p){
   return `<a class="pcard" href="${esc(p.url)}" target="_blank" rel="nofollow sponsored noopener">
     ${img}<div class="pb">${badge}<div class="pn">${esc(p.name)}</div>${note}
     <div class="prow">${price}<span class="pbt">${src}에서 보기 →</span></div></div></a>`;
+}
+
+// ── 진단 결과 공유 카드 (Canvas → 이미지 저장·공유) ──
+function rrect(x,a,b,w,h,r){x.beginPath();x.moveTo(a+r,b);x.arcTo(a+w,b,a+w,b+h,r);x.arcTo(a+w,b+h,a,b+h,r);x.arcTo(a,b+h,a,b,r);x.arcTo(a,b,a+w,b,r);x.closePath();}
+function wrap(x,t,cx,cy,max,lh){const w=t.split(' ');let line='',y=cy;for(const word of w){const test=line+word+' ';if(x.measureText(test).width>max&&line){x.fillText(line.trim(),cx,y);line=word+' ';y+=lh;}else line=test;}x.fillText(line.trim(),cx,y);return y;}
+function shareCard(){
+  const c=window.__card; if(!c) return;
+  const W=1080,H=1350,cv=document.createElement('canvas');cv.width=W;cv.height=H;
+  const x=cv.getContext('2d');
+  const g=x.createLinearGradient(0,0,W,H);g.addColorStop(0,'#f3e9df');g.addColorStop(1,'#e3d0bb');
+  x.fillStyle=g;x.fillRect(0,0,W,H);
+  x.fillStyle='#ffffff';rrect(x,80,150,W-160,H-300,44);x.fill();
+  x.textAlign='center';
+  x.fillStyle='#b08968';x.font="bold 42px 'Apple SD Gothic Neo','Noto Sans KR',sans-serif";x.fillText('🌿 성분 사전 · 피부 진단',W/2,310);
+  x.fillStyle='#8a7f76';x.font="36px 'Apple SD Gothic Neo','Noto Sans KR',sans-serif";x.fillText('내 피부타입은',W/2,440);
+  x.fillStyle='#2b2622';x.font="bold 100px 'Apple SD Gothic Neo','Noto Sans KR',sans-serif";x.fillText(c.type+' 피부',W/2,565);
+  x.fillStyle='#6e635a';x.font="34px 'Apple SD Gothic Neo','Noto Sans KR',sans-serif";wrap(x,c.lead,W/2,660,840,50);
+  x.fillStyle='#8c6a4f';x.font="bold 38px 'Apple SD Gothic Neo','Noto Sans KR',sans-serif";x.fillText('나에게 맞는 추천 성분',W/2,930);
+  x.fillStyle='#3a9b6e';x.font="bold 44px 'Apple SD Gothic Neo','Noto Sans KR',sans-serif";
+  (c.recs||[]).forEach((n,i)=>x.fillText('# '+n,W/2,1010+i*64));
+  x.fillStyle='#a4937f';x.font="30px 'Apple SD Gothic Neo','Noto Sans KR',sans-serif";
+  x.fillText((location.host||'성분 사전')+' 에서 무료 진단',W/2,H-90);
+  cv.toBlob(blob=>{
+    const file=new File([blob],'my-skin-result.png',{type:'image/png'});
+    if(navigator.canShare&&navigator.canShare({files:[file]})){
+      navigator.share({files:[file],title:'내 피부타입 진단 결과',
+        text:`나는 ${c.type} 피부! 성분 사전에서 1분 진단해봤어요 🌿`}).catch(()=>{});
+    }else{
+      const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='my-skin-result.png';a.click();
+    }
+  },'image/png');
 }
 
 function restart(){ step=0; answers=[]; document.getElementById("result").style.display="none"; quiz.style.display="block"; render(); }
